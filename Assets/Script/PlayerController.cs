@@ -23,7 +23,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        UpdatePlayerDirection();
+        //UpdatePlayerDirection();
         UpdatePlayerMovement();
     }
 
@@ -60,7 +60,9 @@ public class PlayerController : MonoBehaviour
     {
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
-        if (horizontalInput < 1 && verticalInput < 1)
+        Debug.Log(horizontalInput + " " + verticalInput);
+
+        if (Mathf.Abs(horizontalInput) < 1 && Mathf.Abs(verticalInput) < 1)
         {
             Camera currentCamera = camerasController.currentCamera;
             CameraController cameraController = currentCamera.GetComponent<CameraController>();
