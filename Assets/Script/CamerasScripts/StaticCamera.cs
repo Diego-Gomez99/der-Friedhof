@@ -20,6 +20,7 @@ public class StaticCamera : MonoBehaviour
         if (m_PlayertoFollow != null)
         {
             transform.LookAt(m_PlayertoFollow.position);
+            //holi
         }
     }
 }
