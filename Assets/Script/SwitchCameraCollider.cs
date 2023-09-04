@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class SwitchCameraCollider : MonoBehaviour
 {
-    public int ColliderIndex;
-
+    public Camera myCamera;
     public CamerasController Cameras;
 
 
@@ -23,6 +22,6 @@ public class SwitchCameraCollider : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Cameras.SwitchCamera(ColliderIndex);
+        Cameras.SwitchCamera(myCamera);
     }
 }

@@ -4,20 +4,12 @@ using UnityEngine;
 
 public class CamerasController : MonoBehaviour
 {
+    public Camera currentCamera;
 
-    [SerializeField]
-    private Camera[] cameras;
-  
-    private int currentCameraIndex = 0;
-
-
-   public void SwitchCamera(int newIndex)
+    public void SwitchCamera(Camera newCamera)
     {
-        cameras[currentCameraIndex].gameObject.SetActive(false);
-
-        cameras[newIndex].gameObject.SetActive(true);
-
-        currentCameraIndex = newIndex;
-
+        currentCamera.gameObject.SetActive(false);
+        newCamera.gameObject.SetActive(true);
+        currentCamera = newCamera;
     }
 }
