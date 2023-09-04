@@ -10,6 +10,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private float speedmovement;
 
+    private DirectionsEnum direction = DirectionsEnum.NORTH;
+
     public CamerasController camerasController;
 
     // Start is called before the first frame update
@@ -21,10 +23,12 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Camera currentCamera = camerasController.currentCamera;
-        CameraController cameraController = currentCamera.GetComponent<CameraController>();
-        DirectionsEnum direction = cameraController.direction;
+        UpdatePlayerDirection();
+        UpdatePlayerMovement();
+    }
 
+    void UpdatePlayerMovement()
+    {
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
         Vector3 playermovement;
@@ -49,6 +53,17 @@ public class PlayerController : MonoBehaviour
                 break;
         }
 
-        transform.Translate (playermovement);
+        transform.Translate(playermovement);
+    }
+
+    void UpdatePlayerDirection()
+    {
+        if (!Input.anyKey)
+        {
+            Camera currentCamera = camerasController.currentCamera;
+            CameraController cameraController = currentCamera.GetComponent<CameraController>();
+            DirectionsEnum cameraDirection = cameraController.direction;
+            direction = cameraDirection;
+        }
     }
 }
