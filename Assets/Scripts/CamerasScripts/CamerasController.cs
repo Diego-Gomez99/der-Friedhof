@@ -8,8 +8,8 @@ public class CamerasController : MonoBehaviour
 
     public void SwitchCamera(Camera newCamera)
     {
-        currentCamera.gameObject.SetActive(false);
-        newCamera.gameObject.SetActive(true);
+        currentCamera.enabled = false;
+        newCamera.enabled = true;
         currentCamera = newCamera;
     }
 }
