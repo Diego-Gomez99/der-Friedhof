@@ -161,6 +161,21 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: cbf441c14195f7e4891ef595ed0dabd7,
         type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cbf441c14195f7e4891ef595ed0dabd7,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cbf441c14195f7e4891ef595ed0dabd7,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cbf441c14195f7e4891ef595ed0dabd7,
+        type: 3}
       propertyPath: m_LocalPosition.x
       value: 26.47
       objectReference: {fileID: 0}
@@ -319,6 +334,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speedmovement: 7
+  rotationSpeed: 0
   camerasController: {fileID: 0}
 --- !u!4 &4427490558107308834 stripped
 Transform:
