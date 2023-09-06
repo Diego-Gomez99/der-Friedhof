@@ -1,3 +1,4 @@
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -68,7 +69,9 @@ public class PlayerController : MonoBehaviour
                 break;
         }
 
-        transform.Translate(playermovement, Space.World);
+       transform.Translate(playermovement, Space.World);
+
+        //rb.velocity = (playermovement * speedmovement);
 
         if (playermovement != Vector3.zero)
         {
