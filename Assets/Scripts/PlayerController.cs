@@ -1,8 +1,7 @@
 
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Rendering;
+using UnityEngine.SceneManagement;
+
 
 public class PlayerController : MonoBehaviour
 {
@@ -17,6 +16,8 @@ public class PlayerController : MonoBehaviour
     private Rigidbody rb;
 
     private DirectionsEnum direction = DirectionsEnum.NORTH;
+    private float disableDistance = 10.0f; // The distance within which enemies should be disabled.
+
 
     public CamerasController camerasController;
 
@@ -52,24 +53,14 @@ public class PlayerController : MonoBehaviour
         switch (direction)
         {
             default:
-            case DirectionsEnum.NORTH:
-                playermovement = new Vector3(horizontalInput, 0.0f, verticalInput) * speedmovement * Time.deltaTime;
-                break;
-
-            case DirectionsEnum.SOUTH:
-                playermovement = new Vector3(-horizontalInput, 0.0f, -verticalInput) * speedmovement * Time.deltaTime;
-                break;
-
-            case DirectionsEnum.EAST:
-                playermovement = new Vector3(verticalInput, 0.0f, -horizontalInput) * speedmovement * Time.deltaTime;
-                break;
-
-            case DirectionsEnum.WEST:
-                playermovement = new Vector3(-verticalInput, 0.0f, horizontalInput) * speedmovement * Time.deltaTime;
-                break;
+            case DirectionsEnum.NORTH: playermovement = new Vector3(horizontalInput, 0.0f, verticalInput);   break;
+            case DirectionsEnum.SOUTH: playermovement = new Vector3(-horizontalInput, 0.0f, -verticalInput); break;
+            case DirectionsEnum.EAST:  playermovement = new Vector3(verticalInput, 0.0f, -horizontalInput);  break;
+            case DirectionsEnum.WEST:  playermovement = new Vector3(-verticalInput, 0.0f, horizontalInput);  break;
         }
 
-       transform.Translate(playermovement, Space.World);
+
+        transform.Translate(playermovement * speedmovement * Time.deltaTime, Space.World);
 
         //rb.velocity = (playermovement * speedmovement);
 
@@ -88,7 +79,6 @@ public class PlayerController : MonoBehaviour
     {
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
-        Debug.Log(horizontalInput + " " + verticalInput);
 
         if (Mathf.Abs(horizontalInput) < 1 && Mathf.Abs(verticalInput) < 1)
         {
@@ -98,4 +88,38 @@ public class PlayerController : MonoBehaviour
             direction = cameraDirection;
         }
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        // Check if the object the player touched has the "SS" tag.
+        if (other.CompareTag("SS"))
+        {
+            // Find all enemy objects in the scene.
+            Enemy[] enemies = FindObjectsOfType<Enemy>();
+
+            // Iterate through the enemy objects and disable them if they are within the specified distance.
+            foreach (Enemy enemy in enemies)
+            {
+                float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
+                if (distanceToEnemy < disableDistance)
+                {
+                    enemy.die();
+                }
+            }
+        }
+        else if (other.CompareTag("Enemy"))
+        {
+            // The player touched an object with the "Enemy" tag.
+            // End the game or perform game over actions here.
+            EndGame();
+        }
+    }
+
+    // Custom method to end the game.
+    private void EndGame()
+    {
+        // You can load the game over scene or perform other game-over actions.
+        speedmovement = 1f;
+    }
+
 }
