@@ -17,12 +17,14 @@ public class Enemy : MonoBehaviour
     private Transform target;
     private bool isDead = false;
     private Renderer enemyRenderer;
+    private CapsuleCollider capsuleCollider;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         target = GameObject.FindGameObjectWithTag("Player").transform;
         enemyRenderer = GetComponent<Renderer>();
+        capsuleCollider = GetComponent<CapsuleCollider>();
     }
 
     private void Update()
@@ -52,6 +54,11 @@ public class Enemy : MonoBehaviour
         if (isDead) return;
         isDead = true;
 
+        // Disable death colliders
+        capsuleCollider.enabled = false;
+        transform.Find("LeftArm").GetComponent<MeshCollider>().enabled = false;
+        transform.Find("RightArm").GetComponent<MeshCollider>().enabled = false;
+
         // Disable further updates and interactions.
         enabled = false;
 
@@ -76,9 +83,8 @@ public class Enemy : MonoBehaviour
         // Ensure the material becomes completely transparent.
         enemyRenderer.material.color = endColor;
 
-        // Disable the GameObject or destroy it depending on your game logic.
-        gameObject.SetActive(false);
         // Alternatively, you can use Destroy(gameObject) to remove the enemy from the scene.
+        Destroy(gameObject);
     }
 
 }
