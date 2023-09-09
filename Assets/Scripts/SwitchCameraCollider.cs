@@ -22,6 +22,10 @@ public class SwitchCameraCollider : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Cameras.SwitchCamera(myCamera);
+
+        if (other.CompareTag("Player"))
+        {
+            Cameras.SwitchCamera(myCamera);
+        }
     }
 }
