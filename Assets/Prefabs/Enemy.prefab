@@ -331,7 +331,7 @@ GameObject:
   - component: {fileID: 2244903924021992984}
   - component: {fileID: 1040165666932941662}
   m_Layer: 0
-  m_Name: Plane
+  m_Name: LeftArm
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -437,7 +437,7 @@ GameObject:
   - component: {fileID: 3230028459238062080}
   - component: {fileID: 2543284743560103841}
   m_Layer: 0
-  m_Name: Plane (7)
+  m_Name: RightArm
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1626,6 +1626,7 @@ MonoBehaviour:
   maxMovementSpeed: 6
   minMovementSpeed: 0.1
   rotationSpeed: 5
+  fadeDuration: 2
 --- !u!54 &5724902915413045595
 Rigidbody:
   m_ObjectHideFlags: 0

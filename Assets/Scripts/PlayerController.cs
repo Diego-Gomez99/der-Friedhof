@@ -103,7 +103,7 @@ public class PlayerController : MonoBehaviour
                 float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
                 if (distanceToEnemy < disableDistance)
                 {
-                    enemy.die();
+                    enemy.Die();
                 }
             }
         }

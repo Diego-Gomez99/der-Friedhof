@@ -8,55 +8,83 @@ using static UnityEngine.GraphicsBuffer;
 public class Enemy : MonoBehaviour
 {
     public float detectionDistance = 5.0f;
-    public float maxMovementSpeed = 2.0f; // Maximum movement speed.
-    public float minMovementSpeed = 0.5f; // Minimum movement speed when far from the player.
-    public float rotationSpeed = 5.0f; // Adjust this value for the rotation speed.
+    public float maxMovementSpeed = 2.0f;
+    public float minMovementSpeed = 0.5f;
+    public float rotationSpeed = 5.0f;
+    public float fadeDuration = 2.0f;
 
     private Rigidbody rb;
     private Transform target;
-    private bool death = false;
+    private bool isDead = false;
+    private Renderer enemyRenderer;
+    private CapsuleCollider capsuleCollider;
 
-    // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         target = GameObject.FindGameObjectWithTag("Player").transform;
+        enemyRenderer = GetComponent<Renderer>();
+        capsuleCollider = GetComponent<CapsuleCollider>();
     }
 
-    // Update is called once per frame
     private void Update()
     {
-        if (death) return;
+        if (isDead) return;
 
-        // Calculate the distance to the target.
         float distanceToTarget = Vector3.Distance(transform.position, target.position);
 
         if (distanceToTarget <= detectionDistance)
         {
-            // Calculate a speed multiplier based on the distance.
             float speedMultiplier = Mathf.Clamp01(1 - (distanceToTarget / detectionDistance));
-
-            // Interpolate the movement speed between min and max based on the speed multiplier.
             float currentMovementSpeed = Mathf.Lerp(minMovementSpeed, maxMovementSpeed, speedMultiplier);
-
-            // Calculate the direction to the player.
             Vector3 directionToPlayer = (target.position - transform.position).normalized;
 
-            // Calculate the desired rotation only around the Y-axis.
             Quaternion targetRotation = Quaternion.LookRotation(
                 new Vector3(directionToPlayer.x, 0, directionToPlayer.z));
 
-            // Smoothly rotate the enemy to face the player only around the Y-axis.
             transform.rotation = Quaternion.Slerp(
                 transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
 
-            // Apply a force to move the enemy towards the player using the rigidbody.
             rb.velocity = directionToPlayer * currentMovementSpeed;
         }
     }
 
-    public void die()
+    public void Die()
     {
-        death = true;
+        if (isDead) return;
+        isDead = true;
+
+        // Disable death colliders
+        capsuleCollider.enabled = false;
+        transform.Find("LeftArm").GetComponent<MeshCollider>().enabled = false;
+        transform.Find("RightArm").GetComponent<MeshCollider>().enabled = false;
+
+        // Disable further updates and interactions.
+        enabled = false;
+
+        // Start the fade-out coroutine.
+        StartCoroutine(FadeOut());
     }
+
+    private IEnumerator FadeOut()
+    {
+        float elapsedTime = 0f;
+        Color startColor = enemyRenderer.material.color;
+        Color endColor = new Color(startColor.r, startColor.g, startColor.b, 0f);
+
+        while (elapsedTime < fadeDuration)
+        {
+            float t = elapsedTime / fadeDuration;
+            enemyRenderer.material.color = Color.Lerp(startColor, endColor, t);
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        // Ensure the material becomes completely transparent.
+        enemyRenderer.material.color = endColor;
+
+        // Alternatively, you can use Destroy(gameObject) to remove the enemy from the scene.
+        Destroy(gameObject);
+    }
+
 }
