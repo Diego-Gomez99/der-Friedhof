@@ -55,6 +55,9 @@ public class GameManager : MonoBehaviour
 
     private void PlaySoundTrack()
     {
-        soundTrackAudioSource.Play();
+        if (soundTrackAudioSource != null)
+        {
+            soundTrackAudioSource.Play();
+        }
     }
 }
