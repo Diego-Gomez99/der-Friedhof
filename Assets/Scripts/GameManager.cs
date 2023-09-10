@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     [SerializeField] private GameObject gameOverPanel;
-    [SerializeField] private bool isGameOver = false;
+    [SerializeField] public bool isGameOver = false;
     [SerializeField] private AudioSource soundTrackAudioSource;
     private Animator fadedAnimator;
 

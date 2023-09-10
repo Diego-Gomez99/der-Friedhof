@@ -119,7 +119,7 @@ public class PlayerController : MonoBehaviour
     private void EndGame()
     {
         // You can load the game over scene or perform other game-over actions.
-        speedmovement = 1f;
+        GameManager.instance.isGameOver = true;
     }
 
 }
