@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject gameOverPanel;
     [SerializeField] private bool isGameOver = false;
     [SerializeField] private AudioSource soundTrackAudioSource;
+    private Animator fadedAnimator;
 
     private void Awake()
     {
@@ -20,6 +21,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
+        fadedAnimator = GetComponentInChildren<Animator>();
         StartGame();
     }
 
@@ -60,4 +62,9 @@ public class GameManager : MonoBehaviour
             soundTrackAudioSource.Play();
         }
     }
+
+    //public IEnumerator FadedSceneLoad()
+    //{
+    //    fadedAnimator.SetTrigger("StartTransition");
+    //}
 }
