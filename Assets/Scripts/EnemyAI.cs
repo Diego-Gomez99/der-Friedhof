@@ -28,6 +28,8 @@ public class Enemy : MonoBehaviour
     [SerializeField]
     private AudioClip chasesong;
 
+    private Animator animator;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -35,6 +37,7 @@ public class Enemy : MonoBehaviour
         enemyRenderer = GetComponent<Renderer>();
         capsuleCollider = GetComponent<CapsuleCollider>();
         myaudio = GetComponent<AudioSource>();
+        animator = GetComponent<Animator>();
     }
 
     private void Update()
@@ -60,11 +63,13 @@ public class Enemy : MonoBehaviour
             if(!myaudio.isPlaying)
             {
                 myaudio.PlayOneShot(chasesong, audiovolume);
+                animator.SetBool("Persiguiendo", true);
             }
         }
         else
         {
             myaudio.Stop();
+            animator.SetBool("Persiguiendo", false);
         }
     }
 
