@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     private float speedmovement;
     [SerializeField]
     private float rotationSpeed;
+   
 
     private Animator playerAnimator;
     private Rigidbody rb;
@@ -25,12 +26,16 @@ public class PlayerController : MonoBehaviour
     {
         playerAnimator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
+        //GameManager.instance.RespawnPlayer(gameObject);
+        //LoadPlayerPosition();
     }
 
     // Start is called before the first frame update
     void Start()
     {
-
+        gameObject.transform.position = new Vector3(PlayerPrefs.GetFloat("PlayerPosX"), PlayerPrefs.GetFloat("PlayerPosY"), PlayerPrefs.GetFloat("PlayerPosZ"));
+        Debug.Log(PlayerPrefs.GetFloat("PlayerPosX"));
+        Debug.Log(transform.position);
     }
 
     // Update is called once per frame
@@ -38,6 +43,8 @@ public class PlayerController : MonoBehaviour
     {
         UpdatePlayerDirection();
         UpdatePlayerMovement();
+
+        
     }
 
     void UpdatePlayerMovement()
@@ -122,4 +129,13 @@ public class PlayerController : MonoBehaviour
         GameManager.instance.isGameOver = true;
     }
 
+    private void LoadPlayerPosition()
+    {
+        float playerPosX = PlayerPrefs.GetFloat("PlayerPosX");
+        float playerPosY = PlayerPrefs.GetFloat("PlayerPosY");
+        float playerPosZ = PlayerPrefs.GetFloat("PlayerPosZ");
+
+        transform.position = new Vector3(PlayerPrefs.GetFloat("PlayerPosX"), PlayerPrefs.GetFloat("PlayerPosY"), PlayerPrefs.GetFloat("PlayerPosZ"));
+        
+    }
 }
