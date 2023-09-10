@@ -8,17 +8,9 @@ public class FollowCamera : MonoBehaviour
     [SerializeField]
     private Transform m_PlayertoFollow;
 
-    private Vector3 difference;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        difference = this.transform.position - m_PlayertoFollow.position;
-    }
-
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
-        this.transform.position = m_PlayertoFollow.position + difference;
+        this.transform.position = m_PlayertoFollow.position + new Vector3(0, 8, -4);
     }
 }
