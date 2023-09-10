@@ -64,6 +64,7 @@ GameObject:
   - component: {fileID: 2897149813341446590}
   - component: {fileID: 279309482885449543}
   - component: {fileID: 2342807626430973216}
+  - component: {fileID: 5098427493246368990}
   m_Layer: 0
   m_Name: Old Wooden Bench_LOD0__udlufetqx
   m_TagString: Untagged
@@ -158,3 +159,24 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 1187154529327753077, guid: 55c40971e6f5858479e204bcb4a53f8e, type: 3}
+--- !u!65 &5098427493246368990
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2046001651662427546}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.3027282, y: 1.0836109, z: 0.54453397}
+  m_Center: {x: 0, y: 0.5388054, z: 0.000000014901165}

@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 8787120369329699721}
   - component: {fileID: 1369050581653733805}
   - component: {fileID: 8566704528915825543}
+  - component: {fileID: 7429751047863679080}
   m_Layer: 0
   m_Name: Aset_historical__M_wj3jfcsqx_00_LOD0
   m_TagString: Untagged
@@ -115,3 +116,24 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &7429751047863679080
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8913655606584781528}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.74304277, y: 1.6024897, z: 0.089984536}
+  m_Center: {x: -0.00032593118, y: 0.7987244, z: -0.0027257071}

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8445153956400472755}
   - component: {fileID: 954791371922930623}
   - component: {fileID: 4790534455886315250}
+  - component: {fileID: 1999252985591327641}
   m_Layer: 0
   m_Name: Aset_historical_wild_west_L_wjuvdfhqx_00_LOD0
   m_TagString: Untagged
@@ -83,6 +84,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &1999252985591327641
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4847099423058342580}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 3.2955387, y: 0.40895593, z: 1.8567395}
+  m_Center: {x: 0.08232881, y: 0.20425373, z: -0.0028025508}
 --- !u!1 &4883944716141475046
 GameObject:
   m_ObjectHideFlags: 0

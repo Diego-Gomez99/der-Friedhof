@@ -241,6 +241,7 @@ GameObject:
   - component: {fileID: 4317678175966140709}
   - component: {fileID: 7160720055707604583}
   - component: {fileID: 8662599238535983118}
+  - component: {fileID: 3051747027725035375}
   m_Layer: 0
   m_Name: Aset_building_railing_S_xdiiajjdw_00_LOD0
   m_TagString: Untagged
@@ -313,6 +314,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &3051747027725035375
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4585235258676213210}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.81070614, y: 0.40154782, z: 0.03877312}
+  m_Center: {x: -0.39672, y: 0.20077334, z: -0.00016012327}
 --- !u!1 &6900417358584476558
 GameObject:
   m_ObjectHideFlags: 0
@@ -323,7 +345,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2640038610897273743}
   - component: {fileID: 5617225680389287757}
-  - component: {fileID: 6920797544456490651}
   m_Layer: 0
   m_Name: Modular Iron Fence_xdiiajjdw_Var1
   m_TagString: Untagged
@@ -376,27 +397,6 @@ LODGroup:
     renderers:
     - renderer: {fileID: 5990018794487449715}
   m_Enabled: 1
---- !u!65 &6920797544456490651
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6900417358584476558}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.81390953, y: 0.3863089, z: 0.14495659}
-  m_Center: {x: -0.39805698, y: 0.21807289, z: -0.004511833}
 --- !u!1 &8080971799091021252
 GameObject:
   m_ObjectHideFlags: 0

@@ -19,12 +19,22 @@ public class Enemy : MonoBehaviour
     private Renderer enemyRenderer;
     private CapsuleCollider capsuleCollider;
 
+    [Header("Volume")]
+    [SerializeField]
+    private float audiovolume;
+
+
+    private AudioSource myaudio;
+    [SerializeField]
+    private AudioClip chasesong;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         target = GameObject.FindGameObjectWithTag("Player").transform;
         enemyRenderer = GetComponent<Renderer>();
         capsuleCollider = GetComponent<CapsuleCollider>();
+        myaudio = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -46,6 +56,15 @@ public class Enemy : MonoBehaviour
                 transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
 
             rb.velocity = directionToPlayer * currentMovementSpeed;
+
+            if(!myaudio.isPlaying)
+            {
+                myaudio.PlayOneShot(chasesong, audiovolume);
+            }
+        }
+        else
+        {
+            myaudio.Stop();
         }
     }
 
