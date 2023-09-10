@@ -7,15 +7,17 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     [SerializeField] private GameObject gameOverPanel;
-    [SerializeField] private bool isGameOver = false;
+    [SerializeField] public bool isGameOver = false;
     [SerializeField] private AudioSource soundTrackAudioSource;
     private Animator fadedAnimator;
+
 
     private void Awake()
     {
         instance = this;
         gameOverPanel = GameObject.Find("Game Over Panel");
         gameOverPanel.SetActive(false);
+       
     }
 
     // Start is called before the first frame update
@@ -67,4 +69,5 @@ public class GameManager : MonoBehaviour
     //{
     //    fadedAnimator.SetTrigger("StartTransition");
     //}
+
 }
