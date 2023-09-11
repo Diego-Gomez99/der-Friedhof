@@ -80,11 +80,10 @@ public class Enemy : MonoBehaviour
 
         // Disable death colliders
         capsuleCollider.enabled = false;
-        transform.Find("LeftArm").GetComponent<MeshCollider>().enabled = false;
-        transform.Find("RightArm").GetComponent<MeshCollider>().enabled = false;
+        transform.Find("weapon").GetComponent<BoxCollider>().enabled = false;
 
         // Disable further updates and interactions.
-        enabled = false;
+        // enabled = false;
 
         // Start the fade-out coroutine.
         StartCoroutine(FadeOut());
@@ -93,19 +92,19 @@ public class Enemy : MonoBehaviour
     private IEnumerator FadeOut()
     {
         float elapsedTime = 0f;
-        Color startColor = enemyRenderer.material.color;
-        Color endColor = new Color(startColor.r, startColor.g, startColor.b, 0f);
+        //Color startColor = enemyRenderer.material.color;
+        //Color endColor = new Color(startColor.r, startColor.g, startColor.b, 0f);
 
         while (elapsedTime < fadeDuration)
         {
             float t = elapsedTime / fadeDuration;
-            enemyRenderer.material.color = Color.Lerp(startColor, endColor, t);
+            //enemyRenderer.material.color = Color.Lerp(startColor, endColor, t);
             elapsedTime += Time.deltaTime;
             yield return null;
         }
 
         // Ensure the material becomes completely transparent.
-        enemyRenderer.material.color = endColor;
+        //enemyRenderer.material.color = endColor;
 
         // Alternatively, you can use Destroy(gameObject) to remove the enemy from the scene.
         Destroy(gameObject);
