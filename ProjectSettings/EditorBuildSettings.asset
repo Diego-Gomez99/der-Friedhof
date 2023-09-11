@@ -14,7 +14,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Final Scene.unity
     guid: b7b9183c6f3b8c84293e5a030faf2d6c
-  - enabled: 1
-    path: Assets/Scenes/Diego.unity
-    guid: c880dc9cfbd4b494694dd9ee35fc0c8c
   m_configObjects: {}

@@ -23,7 +23,7 @@ public class AreaNameShow : MonoBehaviour
             }
 
             // Start a coroutine to clear the text after 5 seconds.
-            //displayCoroutine = StartCoroutine(ClearAreaNameAfterDelay(5f));
+            displayCoroutine = StartCoroutine(ClearAreaNameAfterDelay(5f));
 
         }
     }
