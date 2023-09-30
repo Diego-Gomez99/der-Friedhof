@@ -83,62 +83,7 @@ ModelImporter:
   humanDescription:
     serializedVersion: 3
     human: []
-    skeleton:
-    - name: CB_squeleton_lowpolywithoutacc(Clone)
-      parentName: 
-      position: {x: 0.029880866, y: 0.9016769, z: -0.019627552}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-    - name: head_low
-      parentName: CB_squeleton_lowpolywithoutacc(Clone)
-      position: {x: -0.029880866, y: -0.9016769, z: 0.019627552}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-    - name: grass_low
-      parentName: CB_squeleton_lowpolywithoutacc(Clone)
-      position: {x: -0.029880866, y: -0.9016769, z: 0.019627552}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-    - name: spine_arms_ribcage_low
-      parentName: CB_squeleton_lowpolywithoutacc(Clone)
-      position: {x: -0.029880866, y: -0.9016769, z: 0.019627552}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-    - name: hands_low
-      parentName: CB_squeleton_lowpolywithoutacc(Clone)
-      position: {x: -0.029880866, y: -0.9016769, z: 0.019627552}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-    - name: trousers_boots_low
-      parentName: CB_squeleton_lowpolywithoutacc(Clone)
-      position: {x: -0.029880866, y: -0.9016769, z: 0.019627552}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-    - name: belt_low
-      parentName: CB_squeleton_lowpolywithoutacc(Clone)
-      position: {x: -0.030269498, y: 0.013106271, z: 0.039256502}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-    - name: shoulder_strap_low
-      parentName: CB_squeleton_lowpolywithoutacc(Clone)
-      position: {x: -0.029880866, y: -0.9016769, z: 0.019627552}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-    - name: gun_acc_low
-      parentName: CB_squeleton_lowpolywithoutacc(Clone)
-      position: {x: -0.029880866, y: -0.9016769, z: 0.019627552}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-    - name: poncho_low
-      parentName: CB_squeleton_lowpolywithoutacc(Clone)
-      position: {x: -0.029880866, y: -0.9016769, z: 0.019627552}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-    - name: boots_acc_low
-      parentName: CB_squeleton_lowpolywithoutacc(Clone)
-      position: {x: -0.029880866, y: -0.9016769, z: 0.019627552}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
+    skeleton: []
     armTwist: 0.5
     foreArmTwist: 0.5
     upperLegTwist: 0.5
@@ -152,10 +97,10 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  autoGenerateAvatarMappingIfUnspecified: 0
+  autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 3
   humanoidOversampling: 1
-  avatarSetup: 1
+  avatarSetup: 2
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
   importBlendShapeDeformPercent: 1
   remapMaterialsIfMaterialImportModeIsNone: 0
