@@ -33,18 +33,19 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        gameObject.transform.position = new Vector3(PlayerPrefs.GetFloat("PlayerPosX"), PlayerPrefs.GetFloat("PlayerPosY"), PlayerPrefs.GetFloat("PlayerPosZ"));
-        Debug.Log(PlayerPrefs.GetFloat("PlayerPosX"));
-        Debug.Log(transform.position);
+        // gameObject.transform.position = new Vector3(PlayerPrefs.GetFloat("PlayerPosX"), PlayerPrefs.GetFloat("PlayerPosY"), PlayerPrefs.GetFloat("PlayerPosZ"));
+        // Debug.Log(PlayerPrefs.GetFloat("PlayerPosX"));
+        // Debug.Log(transform.position);
     }
 
     // Update is called once per frame
     void Update()
     {
-       // UpdatePlayerDirection();
-        UpdatePlayerMovement();
+    }
 
-        
+    private void FixedUpdate()
+    {
+        UpdatePlayerMovement(); 
     }
 
     void UpdatePlayerMovement()
@@ -67,9 +68,8 @@ public class PlayerController : MonoBehaviour
         }
 
 
-        transform.Translate(playermovement * speedmovement * Time.deltaTime, Space.World);
-
-        //rb.velocity = (playermovement * speedmovement);
+        // transform.Translate(playermovement * speedmovement * Time.deltaTime, Space.World);
+        rb.velocity = (playermovement * speedmovement);
 
         if (playermovement != Vector3.zero)
         {

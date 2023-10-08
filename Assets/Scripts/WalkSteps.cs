@@ -20,12 +20,12 @@ public class WalkSteps : MonoBehaviour
         if (Physics.CheckSphere(checkSoundTransform.position, 1, GroundLayer))
         {
             myAudio.PlayOneShot(Ground, .5f);
-            print("Estoy pisando tierra");
+            // print("Estoy pisando tierra");
         }
         else if(Physics.CheckSphere (checkSoundTransform.position, 1, BrickLayer))
         {
             myAudio.PlayOneShot(Concrete, .5f);
-            print("Estoy pisando concreto");
+            // print("Estoy pisando concreto");
         }
     }
 }
