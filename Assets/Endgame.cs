@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class Endgame : MonoBehaviour
 {
@@ -22,7 +21,7 @@ public class Endgame : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            SceneManager.LoadScene(0);
+            GameManager.instance.LoadScene(0);
         }
     }
 }
