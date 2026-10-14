@@ -34,7 +34,7 @@ Timings, sizes and colours are constants at the top of the file and inside `Run`
 
 ## Enemy attack
 
-`Enemy.Attack()` stops the enemy that killed the player, stops its chase audio, turns it to face the player and sets the animator trigger `attack`. `CB_squeleton_lowpolywithoutacc.controller` has an `Attack` state reached from Any State by that trigger, with no exit; it plays `Enemy Animations/Enemy Attack.fbx` (the Mixamo "Great Sword Casting", trimmed to 106 frames at 30 fps, 3.5 s), imported as Humanoid with its own avatar, Loop Time off and root motion baked into the pose. The enemy holds the last frame. Each new clip was copied over this file's content, so the `.meta` and the GUID the controller references stay the same; after a swap, set the clip's frame range to the new take (the old range is kept).
+`Enemy.Attack()` is called on the enemy that killed the player, and by `Enemy.Update` on any enemy that comes within `corpseAttackDistance` (default 1.5 m) of the player while `isGameOver` is true, so the other enemies keep chasing and swing at the body when they reach it. It stops the enemy, stops its chase audio, turns it to face the player and sets the animator trigger `attack`. `CB_squeleton_lowpolywithoutacc.controller` has an `Attack` state reached from Any State by that trigger, with no exit; it plays `Enemy Animations/Enemy Attack.fbx` (the Mixamo "Great Sword Casting", trimmed to 106 frames at 30 fps, 3.5 s), imported as Humanoid with its own avatar, Loop Time off and root motion baked into the pose. The enemy holds the last frame. Each new clip was copied over this file's content, so the `.meta` and the GUID the controller references stay the same; after a swap, set the clip's frame range to the new take (the old range is kept).
 
 While attacking, `Enemy.LateUpdate` no longer aims the right arm. It poses the scythe with the `static readonly` constants at the top of `Enemy` (not serialized, because a changed default would not reach the enemies already in the scenes):
 
@@ -49,7 +49,7 @@ The hit-stop freezes the first 0.18 s of the clip.
 
 ## Still open
 
-- The other enemies keep chasing and their chase audio keeps playing while the player dies. The one that killed the player stops (see Enemy attack above).
+- The other enemies keep chasing and their chase audio keeps playing until they reach the body and attack (see Enemy attack above). Enemies farther than `detectionDistance` never come.
 - `gameOverDelay` uses its script default in every scene. If it is overridden in one scene's Inspector, the other gameplay scenes (`Hector`, `Diego`, `Emma`) keep the default.
 
 ## Verifying
