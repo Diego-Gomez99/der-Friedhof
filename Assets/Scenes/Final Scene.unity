@@ -38,7 +38,6 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.010941455, g: 0.019074192, b: 0.052508287, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -8519,7 +8518,7 @@ MonoBehaviour:
   maxMovementSpeed: 6
   minMovementSpeed: 0.5
   rotationSpeed: 5
-  fadeDuration: 2
+  corpseAttackDistance: 1.5
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
@@ -20780,7 +20779,7 @@ MonoBehaviour:
   maxMovementSpeed: 6
   minMovementSpeed: 0.5
   rotationSpeed: 5
-  fadeDuration: 2
+  corpseAttackDistance: 1.5
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
@@ -23358,7 +23357,7 @@ MonoBehaviour:
   maxMovementSpeed: 6
   minMovementSpeed: 0.5
   rotationSpeed: 5
-  fadeDuration: 2
+  corpseAttackDistance: 1.5
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
@@ -30049,7 +30048,7 @@ MonoBehaviour:
   maxMovementSpeed: 6
   minMovementSpeed: 0.5
   rotationSpeed: 5
-  fadeDuration: 2
+  corpseAttackDistance: 1.5
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
@@ -30387,7 +30386,7 @@ MonoBehaviour:
   maxMovementSpeed: 6
   minMovementSpeed: 0.5
   rotationSpeed: 5
-  fadeDuration: 2
+  corpseAttackDistance: 1.5
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
@@ -36303,7 +36302,7 @@ MonoBehaviour:
   maxMovementSpeed: 6
   minMovementSpeed: 0.5
   rotationSpeed: 5
-  fadeDuration: 2
+  corpseAttackDistance: 1.5
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
@@ -39285,7 +39284,7 @@ MonoBehaviour:
   maxMovementSpeed: 6
   minMovementSpeed: 0.5
   rotationSpeed: 5
-  fadeDuration: 2
+  corpseAttackDistance: 1.5
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
@@ -39706,7 +39705,7 @@ MonoBehaviour:
   maxMovementSpeed: 6
   minMovementSpeed: 0.5
   rotationSpeed: 5
-  fadeDuration: 2
+  corpseAttackDistance: 1.5
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
@@ -43337,7 +43336,7 @@ MonoBehaviour:
   maxMovementSpeed: 6
   minMovementSpeed: 0.5
   rotationSpeed: 5
-  fadeDuration: 2
+  corpseAttackDistance: 1.5
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
@@ -51846,7 +51845,7 @@ MonoBehaviour:
   maxMovementSpeed: 6
   minMovementSpeed: 0.5
   rotationSpeed: 5
-  fadeDuration: 2
+  corpseAttackDistance: 1.5
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
@@ -54501,7 +54500,7 @@ MonoBehaviour:
   maxMovementSpeed: 6
   minMovementSpeed: 0.5
   rotationSpeed: 5
-  fadeDuration: 2
+  corpseAttackDistance: 1.5
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
@@ -68487,7 +68486,7 @@ MonoBehaviour:
   maxMovementSpeed: 6
   minMovementSpeed: 0.5
   rotationSpeed: 5
-  fadeDuration: 2
+  corpseAttackDistance: 1.5
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
@@ -76452,7 +76451,7 @@ MonoBehaviour:
   maxMovementSpeed: 6
   minMovementSpeed: 0.5
   rotationSpeed: 5
-  fadeDuration: 2
+  corpseAttackDistance: 1.5
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
@@ -77475,7 +77474,7 @@ MonoBehaviour:
   maxMovementSpeed: 6
   minMovementSpeed: 0.5
   rotationSpeed: 5
-  fadeDuration: 2
+  corpseAttackDistance: 1.5
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
@@ -81637,7 +81636,7 @@ MonoBehaviour:
   maxMovementSpeed: 6
   minMovementSpeed: 0.5
   rotationSpeed: 5
-  fadeDuration: 2
+  corpseAttackDistance: 1.5
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
@@ -89004,7 +89003,7 @@ MonoBehaviour:
   maxMovementSpeed: 6
   minMovementSpeed: 0.5
   rotationSpeed: 5
-  fadeDuration: 2
+  corpseAttackDistance: 1.5
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
@@ -92280,12 +92279,12 @@ MonoBehaviour:
   m_RequiresColorTexture: 0
   m_Version: 2
   m_TaaSettings:
-    quality: 3
-    frameInfluence: 0.1
-    jitterScale: 1
-    mipBias: 0
-    varianceClampScale: 0.9
-    contrastAdaptiveSharpening: 0
+    m_Quality: 3
+    m_FrameInfluence: 0.1
+    m_JitterScale: 1
+    m_MipBias: 0
+    m_VarianceClampScale: 0.9
+    m_ContrastAdaptiveSharpening: 0
 --- !u!81 &872600987
 AudioListener:
   m_ObjectHideFlags: 0
@@ -92304,7 +92303,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 1}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -96613,7 +96612,7 @@ MonoBehaviour:
   maxMovementSpeed: 6
   minMovementSpeed: 0.5
   rotationSpeed: 5
-  fadeDuration: 2
+  corpseAttackDistance: 1.5
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
@@ -97563,7 +97562,7 @@ MonoBehaviour:
   maxMovementSpeed: 6
   minMovementSpeed: 0.5
   rotationSpeed: 5
-  fadeDuration: 2
+  corpseAttackDistance: 1.5
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
@@ -103453,7 +103452,7 @@ MonoBehaviour:
   maxMovementSpeed: 6
   minMovementSpeed: 0.5
   rotationSpeed: 5
-  fadeDuration: 2
+  corpseAttackDistance: 1.5
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
@@ -107835,7 +107834,7 @@ MonoBehaviour:
   maxMovementSpeed: 6
   minMovementSpeed: 0.5
   rotationSpeed: 5
-  fadeDuration: 2
+  corpseAttackDistance: 1.5
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
@@ -127671,7 +127670,7 @@ MonoBehaviour:
   maxMovementSpeed: 6
   minMovementSpeed: 0.5
   rotationSpeed: 5
-  fadeDuration: 2
+  corpseAttackDistance: 1.5
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
@@ -145788,21 +145787,6 @@ RectTransform:
   m_AnchoredPosition: {x: 259, y: 0.000061035156}
   m_SizeDelta: {x: -1628.3354, y: -979.257}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1457037201
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1457037196}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 726a8795b76f4865a738580da452f3a1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hoverScale: 1.1
-  hoverColor: {r: 1, g: 0.15, b: 0.15, a: 1}
-  speed: 12
 --- !u!114 &1457037198
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -145897,6 +145881,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1457037196}
   m_CullTransparentMesh: 1
+--- !u!114 &1457037201
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1457037196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 726a8795b76f4865a738580da452f3a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverScale: 1.1
+  hoverColor: {r: 1, g: 0.15, b: 0.15, a: 1}
+  speed: 12
 --- !u!1001 &1457583011
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -148044,7 +148043,7 @@ MonoBehaviour:
   maxMovementSpeed: 6
   minMovementSpeed: 0.5
   rotationSpeed: 5
-  fadeDuration: 2
+  corpseAttackDistance: 1.5
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
@@ -155092,7 +155091,7 @@ MonoBehaviour:
   maxMovementSpeed: 6
   minMovementSpeed: 0.5
   rotationSpeed: 5
-  fadeDuration: 2
+  corpseAttackDistance: 1.5
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
@@ -159022,6 +159021,7 @@ Terrain:
   m_DetailObjectDensity: 1
   m_HeightmapPixelError: 5
   m_SplatMapDistance: 1000
+  m_HeightmapMinimumLODSimplification: 0
   m_HeightmapMaximumLOD: 0
   m_ShadowCastingMode: 2
   m_DrawHeightmap: 1
@@ -166415,7 +166415,7 @@ MonoBehaviour:
   maxMovementSpeed: 6
   minMovementSpeed: 0.5
   rotationSpeed: 5
-  fadeDuration: 2
+  corpseAttackDistance: 1.5
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
@@ -168810,7 +168810,7 @@ MonoBehaviour:
   maxMovementSpeed: 6
   minMovementSpeed: 0.5
   rotationSpeed: 5
-  fadeDuration: 2
+  corpseAttackDistance: 1.5
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
@@ -178787,7 +178787,7 @@ MonoBehaviour:
   maxMovementSpeed: 6
   minMovementSpeed: 0.5
   rotationSpeed: 5
-  fadeDuration: 2
+  corpseAttackDistance: 1.5
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
@@ -186857,7 +186857,7 @@ MonoBehaviour:
   maxMovementSpeed: 6
   minMovementSpeed: 0.5
   rotationSpeed: 5
-  fadeDuration: 2
+  corpseAttackDistance: 1.5
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
@@ -189432,6 +189432,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speedmovement: 6
   rotationSpeed: 1
+  gameOverDelay: 3.5
+  deathSound: {fileID: 0}
+  deathSoundStartOffset: 0
+  slashImpactSound: {fileID: 0}
   camerasController: {fileID: 0}
 --- !u!136 &1905071595
 CapsuleCollider:
@@ -194157,7 +194161,7 @@ MonoBehaviour:
   maxMovementSpeed: 6
   minMovementSpeed: 0.5
   rotationSpeed: 5
-  fadeDuration: 2
+  corpseAttackDistance: 1.5
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
@@ -196183,7 +196187,7 @@ MonoBehaviour:
   maxMovementSpeed: 6
   minMovementSpeed: 0.5
   rotationSpeed: 5
-  fadeDuration: 2
+  corpseAttackDistance: 1.5
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
@@ -197526,7 +197530,7 @@ MonoBehaviour:
   maxMovementSpeed: 6
   minMovementSpeed: 0.5
   rotationSpeed: 5
-  fadeDuration: 2
+  corpseAttackDistance: 1.5
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
@@ -202330,21 +202334,6 @@ RectTransform:
   m_AnchoredPosition: {x: -239, y: 0}
   m_SizeDelta: {x: -1628.3354, y: -979.257}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2010595295
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2010595290}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 726a8795b76f4865a738580da452f3a1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hoverScale: 1.1
-  hoverColor: {r: 1, g: 0.15, b: 0.15, a: 1}
-  speed: 12
 --- !u!114 &2010595292
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -202439,6 +202428,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2010595290}
   m_CullTransparentMesh: 1
+--- !u!114 &2010595295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2010595290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 726a8795b76f4865a738580da452f3a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverScale: 1.1
+  hoverColor: {r: 1, g: 0.15, b: 0.15, a: 1}
+  speed: 12
 --- !u!1 &2010675500
 GameObject:
   m_ObjectHideFlags: 0
@@ -205390,7 +205394,7 @@ MonoBehaviour:
   maxMovementSpeed: 6
   minMovementSpeed: 0.5
   rotationSpeed: 5
-  fadeDuration: 2
+  corpseAttackDistance: 1.5
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
@@ -212134,7 +212138,7 @@ MonoBehaviour:
   maxMovementSpeed: 6
   minMovementSpeed: 0.5
   rotationSpeed: 5
-  fadeDuration: 2
+  corpseAttackDistance: 1.5
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
