@@ -20,7 +20,12 @@ public class MainMenuManager : MonoBehaviour
     }
     public void LoadGame()
     {
-        SceneManager.LoadScene("Final Scene");
+        if (transitionAnimator == null)
+        {
+            SceneManager.LoadScene(sceneName);
+            return;
+        }
+
         StartCoroutine (SceneLoad());
     }
 
