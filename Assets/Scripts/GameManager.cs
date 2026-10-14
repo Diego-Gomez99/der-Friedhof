@@ -49,14 +49,6 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(sceneNumber);
     }
 
-    private void Update()
-    {
-        if (isGameOver)
-        {
-            gameOverPanel.SetActive(true);
-        }
-    }
-
     private void PlaySoundTrack()
     {
         if (soundTrackAudioSource != null)

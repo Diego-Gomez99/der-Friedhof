@@ -1,4 +1,5 @@
 
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -11,7 +12,11 @@ public class PlayerController : MonoBehaviour
     private float speedmovement;
     [SerializeField]
     private float rotationSpeed;
-   
+
+    [Header("Death")]
+    [SerializeField]
+    private float gameOverDelay = 3.5f; // Seconds the death animation plays before the Game Over panel shows.
+
 
     private Animator playerAnimator;
     private Rigidbody rb;
@@ -133,8 +138,21 @@ public class PlayerController : MonoBehaviour
     // Custom method to end the game.
     private void EndGame()
     {
-        // You can load the game over scene or perform other game-over actions.
+        // The enemy's weapon and body colliders can both fire the trigger.
+        if (GameManager.instance.isGameOver)
+        {
+            return;
+        }
+
         GameManager.instance.isGameOver = true;
+        playerAnimator.SetTrigger("die");
+        StartCoroutine(ShowGameOverAfterDeath());
+    }
+
+    private IEnumerator ShowGameOverAfterDeath()
+    {
+        yield return new WaitForSeconds(gameOverDelay);
+        GameManager.instance.GameOver();
     }
 
     private void LoadPlayerPosition()
