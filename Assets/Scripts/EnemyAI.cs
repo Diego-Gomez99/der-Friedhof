@@ -11,7 +11,6 @@ public class Enemy : MonoBehaviour
     public float maxMovementSpeed = 2.0f;
     public float minMovementSpeed = 0.5f;
     public float rotationSpeed = 5.0f;
-    public float fadeDuration = 2.0f;
     // Once the player is dead, enemies that reach this distance from the body swing the scythe at it.
     public float corpseAttackDistance = 1.5f;
     // Speed, in metres per second, at which the walk clip plays at its normal rate.
@@ -96,6 +95,9 @@ public class Enemy : MonoBehaviour
     private float previousHandHeight = float.MaxValue;
     // Whether the ground impact effect has played for this swing.
     private bool hasHitGround = false;
+    // Once dead, the clip moves the arm freely and the scythe stays in the hand as it was.
+    private Vector3 deadWeaponHandPosition;
+    private Quaternion deadWeaponHandRotation;
 
     void Start()
     {
@@ -167,6 +169,13 @@ public class Enemy : MonoBehaviour
     private void LateUpdate()
     {
         if (rightUpperArm == null || rightLowerArm == null || rightHand == null) return;
+
+        if (isDead)
+        {
+            weapon.SetPositionAndRotation(
+                rightHand.TransformPoint(deadWeaponHandPosition), rightHand.rotation * deadWeaponHandRotation);
+            return;
+        }
 
         if (isAttacking)
         {
@@ -296,37 +305,24 @@ public class Enemy : MonoBehaviour
     {
         if (isDead) return;
         isDead = true;
+        isAttacking = false;
 
-        // Disable death colliders
+        // It stops where it is and the body stays lying there. Kinematic, so it does not fall
+        // through the ground once its collider is off.
+        rb.velocity = Vector3.zero;
+        rb.isKinematic = true;
         capsuleCollider.enabled = false;
-        transform.Find("weapon").GetComponent<BoxCollider>().enabled = false;
+        weaponCollider.enabled = false;
+        myaudio.Stop();
 
-        // Disable further updates and interactions.
-        // enabled = false;
-
-        // Start the fade-out coroutine.
-        StartCoroutine(FadeOut());
-    }
-
-    private IEnumerator FadeOut()
-    {
-        float elapsedTime = 0f;
-        //Color startColor = enemyRenderer.material.color;
-        //Color endColor = new Color(startColor.r, startColor.g, startColor.b, 0f);
-
-        while (elapsedTime < fadeDuration)
+        if (rightHand != null)
         {
-            float t = elapsedTime / fadeDuration;
-            //enemyRenderer.material.color = Color.Lerp(startColor, endColor, t);
-            elapsedTime += Time.deltaTime;
-            yield return null;
+            deadWeaponHandPosition = rightHand.InverseTransformPoint(weapon.position);
+            deadWeaponHandRotation = Quaternion.Inverse(rightHand.rotation) * weapon.rotation;
         }
 
-        // Ensure the material becomes completely transparent.
-        //enemyRenderer.material.color = endColor;
-
-        // Alternatively, you can use Destroy(gameObject) to remove the enemy from the scene.
-        Destroy(gameObject);
+        animator.SetBool("Persiguiendo", false);
+        animator.SetTrigger("die");
     }
 
 }
