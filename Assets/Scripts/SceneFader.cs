@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-// Loads a scene behind a full-screen fade: fades to black, switches scenes, then fades back in.
+// Full-screen fades: loads a scene behind a fade to black and back, or fades to black and quits.
 public static class SceneFader
 {
     public static void LoadScene(string sceneName, AudioSource music, float minimumLoadTime, float fadeDuration)
@@ -14,6 +14,13 @@ public static class SceneFader
     public static void LoadScene(int sceneIndex, AudioSource music, float minimumLoadTime, float fadeDuration)
     {
         Fade(SceneManager.LoadSceneAsync(sceneIndex), music, minimumLoadTime, fadeDuration);
+    }
+
+    // Fades to black, then stops Play mode in the editor or closes the built game.
+    public static void Quit(AudioSource music, float fadeDuration)
+    {
+        Image fadeImage = CreateFadeOverlay();
+        fadeImage.StartCoroutine(FadeAndQuit(fadeImage, music, fadeDuration));
     }
 
     private static void Fade(AsyncOperation load, AudioSource music, float minimumLoadTime, float fadeDuration)
@@ -59,21 +66,7 @@ public static class SceneFader
             yield return null;
         }
 
-        float startVolume = music != null ? music.volume : 0f;
-        for (float t = 0f; t < 1f; t += FadeStep(fadeDuration))
-        {
-            fadeImage.color = new Color(0f, 0f, 0f, t);
-            if (music != null)
-            {
-                music.volume = Mathf.Lerp(startVolume, 0f, t);
-            }
-            yield return null;
-        }
-        fadeImage.color = Color.black;
-        if (music != null)
-        {
-            music.Stop();
-        }
+        yield return FadeToBlack(fadeImage, music, fadeDuration);
 
         load.allowSceneActivation = true;
         while (!load.isDone)
@@ -89,6 +82,36 @@ public static class SceneFader
             yield return null;
         }
         Object.Destroy(fadeImage.transform.parent.gameObject);
+    }
+
+    private static IEnumerator FadeAndQuit(Image fadeImage, AudioSource music, float fadeDuration)
+    {
+        yield return FadeToBlack(fadeImage, music, fadeDuration);
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
+        Application.Quit();
+#endif
+    }
+
+    // Fades the overlay to black and the music to silence, then stops the music.
+    private static IEnumerator FadeToBlack(Image fadeImage, AudioSource music, float fadeDuration)
+    {
+        float startVolume = music != null ? music.volume : 0f;
+        for (float t = 0f; t < 1f; t += FadeStep(fadeDuration))
+        {
+            fadeImage.color = new Color(0f, 0f, 0f, t);
+            if (music != null)
+            {
+                music.volume = Mathf.Lerp(startVolume, 0f, t);
+            }
+            yield return null;
+        }
+        fadeImage.color = Color.black;
+        if (music != null)
+        {
+            music.Stop();
+        }
     }
 
     // Clamped so a long frame cannot skip the fade.

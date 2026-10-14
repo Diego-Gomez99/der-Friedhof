@@ -25,7 +25,7 @@ public class MainMenuManager : MonoBehaviour
         buttonUsed = true;
 
         MenuButtonEffect.LockAll(usedButtonColor);
-        Application.Quit();
+        SceneFader.Quit(mainMenuAudioSource, fadeDuration);
     }
     public void LoadGame()
     {
