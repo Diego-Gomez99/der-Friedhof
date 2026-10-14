@@ -9,14 +9,14 @@ None of these block the game. They are listed so they are not mistaken for new r
 
 ## Scene transitions
 
-Menu to game is done in code: `MainMenuManager.LoadGame` builds a black overlay canvas at runtime (`Scene Fade`, kept with `DontDestroyOnLoad`), darkens the button that was used, loads the scene with `LoadSceneAsync`, waits until it is ready (at least `minimumLoadTime` after the click), fades to black while fading out the menu music, activates the scene, fades back in and destroys the overlay. The coroutine runs on the overlay's `Image` because the manager is destroyed with the menu scene.
+Menu to game and both Game Over buttons go through `SceneFader.LoadScene`. It builds a black overlay canvas at runtime (`Scene Fade`, kept with `DontDestroyOnLoad`), loads the scene with `LoadSceneAsync`, waits until it is ready (at least `minimumLoadTime` after the click: 2 s from the menu, 0 from Game Over), fades to black while fading out the given music, activates the scene, fades back in and destroys the overlay. The coroutine runs on the overlay's `Image` because the caller is destroyed with the old scene. Before loading, the caller runs `MenuButtonEffect.LockAll`, which darkens the button that was used and stops the hover effect on all of them.
 
 Leftovers from an earlier Animator-based attempt that was never finished:
 
 - `GameManager` has an unused `fadedAnimator` field and a commented-out `FadedSceneLoad`.
 - The Animator on the menu Canvas points to a controller that does not exist in the project or in git history.
 
-The other scene loads (Play Again, Main Menu, the end trigger) are still synchronous `LoadScene` calls with no fade.
+The end trigger (`Endgame`) is still a synchronous `LoadScene` call with no fade.
 
 ## Checkpoints do nothing
 

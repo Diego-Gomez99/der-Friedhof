@@ -4,7 +4,7 @@
 
 1. `Main Menu` scene: Play calls `MainMenuManager.LoadGame`, Quit Game calls `MainMenuManager.QuitGame`.
 2. `Final Scene`: the player walks with WASD / arrow keys. The active camera switches as the player crosses trigger colliders.
-3. Touching an enemy sets game over. The Game Over panel shows two buttons wired to `GameManager.LoadScene(int)`: Play Again loads build index 1, Main Menu loads build index 0.
+3. Touching an enemy sets game over. The Game Over panel shows two buttons wired to `GameManager.LoadScene(int)`: Play Again loads build index 1, Main Menu loads build index 0. Both fade to black and back in.
 4. Reaching the `Endgame` trigger loads build index 0.
 
 ## Scripts
@@ -12,10 +12,11 @@
 | Script | Role |
 | --- | --- |
 | `PlayerController` | Movement from `Horizontal`/`Vertical` axes in `FixedUpdate`, sets Rigidbody velocity and the animator floats `speed` and `turnSpeed`. Handles trigger contacts: tag `Enemy` ends the game, tag `SS` kills enemies within 10 units. Stops moving while `GameManager.instance.isGameOver` is true. |
-| `GameManager` | Singleton (`GameManager.instance`) present in every gameplay scene. Finds the object named `Game Over Panel` in `Awake`, hides it, and shows it when `GameOver()` is called. Also starts the soundtrack. |
+| `GameManager` | Singleton (`GameManager.instance`) present in every gameplay scene. Finds the object named `Game Over Panel` in `Awake`, hides it, and shows it when `GameOver()` is called. `LoadScene` darkens the used button and fades to the scene through `SceneFader`. It ignores every call after the first, because the Game Over buttons click on press and on release. Also starts the soundtrack. |
 | `Enemy` (file `EnemyAI.cs`) | Chases the object tagged `Player` when within `detectionDistance`, plays a chase clip, sets the animator bool `Persiguiendo`. `Attack()` stops it and plays its scythe swing when it kills the player. `Die()` disables its colliders and destroys it after a delay. |
-| `MainMenuManager` | Menu music, Play and Quit handlers, and the fade into the game scene. |
-| `MenuButtonEffect` | On the `Play` and `Quit Game` buttons of `Main Menu`. Grows and brightens the label while hovered or selected. Hovering selects the button in the EventSystem. Invokes the button's `onClick` on mouse press, so the handlers run again on release and must ignore the second call. The Game Over buttons do not have it. |
+| `MainMenuManager` | Menu music and the Play and Quit handlers. Play fades into the game scene through `SceneFader`. |
+| `SceneFader` | Static helper that loads a scene behind a fade to black and back, see `known-issues.md` (Scene transitions). |
+| `MenuButtonEffect` | On the `Play` and `Quit Game` buttons of `Main Menu` and the `Play Again` and `Main Menu` buttons of the Game Over panel in `Final Scene`. Grows and brightens the label while hovered or selected. Hovering selects the button in the EventSystem. Invokes the button's `onClick` on mouse press, so the handlers run again on release and must ignore the second call. |
 | `CamerasController`, `FollowCamera`, `StaticCamera` (in `CamerasScripts/`), `SwitchCameraCollider`, `CameraController` | Per-area cameras and switching between them. |
 | `Checkpoint` | Saves the player position to `PlayerPrefs`. The loading side in `PlayerController` is commented out, so checkpoints currently have no effect. |
 | `SlashEffect` | Full-screen slash, hit-stop, shake and slice sound played when an enemy touches the player. Created at runtime by `SlashEffect.Play`. |
