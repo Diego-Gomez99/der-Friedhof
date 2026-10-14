@@ -45,7 +45,15 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        UpdatePlayerMovement(); 
+        if (GameManager.instance.isGameOver)
+        {
+            rb.velocity = Vector3.zero;
+            playerAnimator.SetFloat("turnSpeed", 0.0f);
+            playerAnimator.SetFloat("speed", 0.0f);
+            return;
+        }
+
+        UpdatePlayerMovement();
     }
 
     void UpdatePlayerMovement()
