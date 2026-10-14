@@ -41,6 +41,21 @@ public class Enemy : MonoBehaviour
     [SerializeField]
     private float weaponTurnAngle = 12.0f;
 
+    // Scythe pose during the attack. The clip is a great sword plunge, and the scythe is held near
+    // the butt of the handle like the sword's hilt: the butt goes into the ground and the rest of the
+    // scythe stands above the hands. These depend on the scythe mesh and the clip, so they are not
+    // serialized (a changed default would not reach the enemies already in the scenes).
+    // Point of the handle in the right hand, in the weapon's local space.
+    private static readonly Vector3 AttackGripPoint = new Vector3(2.9f, 4.09f, -0.58f);
+    // From the grip towards the butt, and from the head of the handle towards the blade tip,
+    // in the weapon's local space.
+    private static readonly Vector3 WeaponButtDirection = new Vector3(0.99f, -0.03f, 0.13f);
+    private static readonly Vector3 WeaponBladeDirection = new Vector3(-0.4f, -3.4f, -2.1f);
+    // Where those two point, in the right hand's local space. They are straight down and the enemy's
+    // forward at the moment of the plunge, so the scythe stands upright with the blade facing the player.
+    private static readonly Vector3 HandButtDirection = new Vector3(0.33f, 0.60f, 0.72f);
+    private static readonly Vector3 HandBladeDirection = new Vector3(0.80f, 0.23f, -0.56f);
+
     private Transform weapon;
     private BoxCollider weaponCollider;
     private Vector3 weaponRestLocalPosition;
@@ -50,9 +65,8 @@ public class Enemy : MonoBehaviour
     private Transform rightLowerArm;
     private Transform rightHand;
 
-    // While attacking, the clip moves the arm and the scythe keeps its pose relative to the hand.
+    // While attacking, the clip moves the arm and the scythe follows the hand.
     private bool isAttacking = false;
-    private Quaternion weaponRotationInHand;
 
     void Start()
     {
@@ -115,8 +129,11 @@ public class Enemy : MonoBehaviour
 
         if (isAttacking)
         {
-            weapon.rotation = rightHand.rotation * weaponRotationInHand;
-            weapon.position += rightHand.position - weapon.TransformPoint(weaponGripPoint);
+            Quaternion scytheFrame = Quaternion.LookRotation(WeaponButtDirection, WeaponBladeDirection);
+            Quaternion handFrame = Quaternion.LookRotation(
+                rightHand.TransformDirection(HandButtDirection), rightHand.TransformDirection(HandBladeDirection));
+            weapon.rotation = handFrame * Quaternion.Inverse(scytheFrame);
+            weapon.position += rightHand.position - weapon.TransformPoint(AttackGripPoint);
             return;
         }
 
@@ -152,8 +169,6 @@ public class Enemy : MonoBehaviour
             transform.rotation = Quaternion.LookRotation(toPlayer);
         }
 
-        // Keep the grip the scythe had in the aimed pose of the last frame.
-        weaponRotationInHand = Quaternion.Inverse(rightHand.rotation) * weapon.rotation;
         animator.SetBool("Persiguiendo", false);
         animator.SetTrigger("attack");
     }
