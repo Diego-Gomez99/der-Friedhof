@@ -7,15 +7,16 @@ None of these block the game. They are listed so they are not mistaken for new r
 - `The character used for Underline is not available in font asset [HorrorFont-Regular SDF]` / `[horrh___ SDF]`: the horror fonts have no underscore glyph. Harmless.
 - `Color primaries 0 is unknown or unsupported by WindowsMediaFoundation`: comes from the main menu background video. Harmless.
 
-## Unfinished scene transition
+## Scene transitions
 
-`MainMenuManager` has a `transitionAnimator` field and a `SceneLoad` coroutine that triggers `StartTransition`, and `GameManager` has a commented-out `FadedSceneLoad`. The fade was never finished:
+Menu to game is done in code: `MainMenuManager.LoadGame` builds a black overlay canvas at runtime (`Scene Fade`, kept with `DontDestroyOnLoad`), fades out the buttons, loads the scene with `LoadSceneAsync`, waits until it is ready (at least `minimumLoadTime` after the click), fades to black while fading out the menu music, activates the scene, fades back in and destroys the overlay. Quit Game fades the buttons out before quitting. The coroutine runs on the overlay's `Image` because the manager is destroyed with the menu scene.
 
-- `transitionAnimator` is not assigned in the `Main Menu` scene.
+Leftovers from an earlier Animator-based attempt that was never finished:
+
+- `GameManager` has an unused `fadedAnimator` field and a commented-out `FadedSceneLoad`.
 - The Animator on the menu Canvas points to a controller that does not exist in the project or in git history.
-- No animator controller defines a `StartTransition` trigger.
 
-`LoadGame` now loads the scene directly when no animator is assigned, so there is no error. Finishing the fade means creating the controller and clips and assigning the reference.
+The other scene loads (Play Again, Main Menu, the end trigger) are still synchronous `LoadScene` calls with no fade.
 
 ## Checkpoints do nothing
 
