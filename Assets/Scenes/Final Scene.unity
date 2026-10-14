@@ -145760,6 +145760,7 @@ GameObject:
   - component: {fileID: 1457037200}
   - component: {fileID: 1457037199}
   - component: {fileID: 1457037198}
+  - component: {fileID: 1457037201}
   m_Layer: 5
   m_Name: Main Menu
   m_TagString: Untagged
@@ -145787,6 +145788,21 @@ RectTransform:
   m_AnchoredPosition: {x: 259, y: 0.000061035156}
   m_SizeDelta: {x: -1628.3354, y: -979.257}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1457037201
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1457037196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 726a8795b76f4865a738580da452f3a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverScale: 1.1
+  hoverColor: {r: 1, g: 0.15, b: 0.15, a: 1}
+  speed: 12
 --- !u!114 &1457037198
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -177954,6 +177970,8 @@ MonoBehaviour:
   gameOverPanel: {fileID: 1845161766}
   isGameOver: 0
   soundTrackAudioSource: {fileID: 1782336996}
+  usedButtonColor: {r: 0.62, g: 0, b: 0, a: 1}
+  fadeDuration: 1
 --- !u!4 &1782336995
 Transform:
   m_ObjectHideFlags: 0
@@ -202284,6 +202302,7 @@ GameObject:
   - component: {fileID: 2010595294}
   - component: {fileID: 2010595293}
   - component: {fileID: 2010595292}
+  - component: {fileID: 2010595295}
   m_Layer: 5
   m_Name: Play Again
   m_TagString: Untagged
@@ -202311,6 +202330,21 @@ RectTransform:
   m_AnchoredPosition: {x: -239, y: 0}
   m_SizeDelta: {x: -1628.3354, y: -979.257}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2010595295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2010595290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 726a8795b76f4865a738580da452f3a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverScale: 1.1
+  hoverColor: {r: 1, g: 0.15, b: 0.15, a: 1}
+  speed: 12
 --- !u!114 &2010595292
 MonoBehaviour:
   m_ObjectHideFlags: 0

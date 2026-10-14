@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -9,7 +8,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject gameOverPanel;
     [SerializeField] public bool isGameOver = false;
     [SerializeField] private AudioSource soundTrackAudioSource;
+    [SerializeField] private Color usedButtonColor = new Color(0.62f, 0f, 0f, 1f);
+    [SerializeField] private float fadeDuration = 1f;
     private Animator fadedAnimator;
+    private bool sceneLoading;
 
 
     private void Awake()
@@ -39,14 +41,27 @@ public class GameManager : MonoBehaviour
         gameOverPanel.SetActive(true);
     }
 
+    // Menu buttons click on press and again on release, so only the first call loads.
     public void LoadScene(string sceneName)
     {
-        SceneManager.LoadScene(sceneName);
+        if (sceneLoading)
+        {
+            return;
+        }
+        sceneLoading = true;
+        MenuButtonEffect.LockAll(usedButtonColor);
+        SceneFader.LoadScene(sceneName, soundTrackAudioSource, 0f, fadeDuration);
     }
 
     public void LoadScene(int sceneNumber)
     {
-        SceneManager.LoadScene(sceneNumber);
+        if (sceneLoading)
+        {
+            return;
+        }
+        sceneLoading = true;
+        MenuButtonEffect.LockAll(usedButtonColor);
+        SceneFader.LoadScene(sceneNumber, soundTrackAudioSource, 0f, fadeDuration);
     }
 
     private void PlaySoundTrack()
