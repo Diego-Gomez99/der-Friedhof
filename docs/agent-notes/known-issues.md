@@ -9,14 +9,16 @@ None of these block the game. They are listed so they are not mistaken for new r
 
 ## Scene transitions
 
-Menu to game and both Game Over buttons go through `SceneFader.LoadScene`. It builds a black overlay canvas at runtime (`Scene Fade`, kept with `DontDestroyOnLoad`), loads the scene with `LoadSceneAsync`, waits until it is ready (at least `minimumLoadTime` after the click: 2 s from the menu, 0 from Game Over), fades to black while fading out the given music, activates the scene, fades back in and destroys the overlay. The coroutine runs on the overlay's `Image` because the caller is destroyed with the old scene. Before loading, the caller runs `MenuButtonEffect.LockAll`, which darkens the button that was used and stops the hover effect on all of them.
+Menu to game, both Game Over buttons and the end trigger go through `SceneFader.LoadScene`. It builds a black overlay canvas at runtime (`Scene Fade`, kept with `DontDestroyOnLoad`), loads the scene with `LoadSceneAsync`, waits until it is ready (at least `minimumLoadTime` after the click: 2 s from the menu, 0 from Game Over), fades to black while fading out the given music, activates the scene, fades back in and destroys the overlay. The coroutine runs on the overlay's `Image` because the caller is destroyed with the old scene. Before loading, the caller runs `MenuButtonEffect.LockAll`, which darkens the button that was used and stops the hover effect on all of them.
 
 Leftovers from an earlier Animator-based attempt that was never finished:
 
 - `GameManager` has an unused `fadedAnimator` field and a commented-out `FadedSceneLoad`.
 - The Animator on the menu Canvas points to a controller that does not exist in the project or in git history.
 
-The end trigger (`Endgame`) is still a synchronous `LoadScene` call with no fade.
+Quit Game uses `SceneFader.Quit`: it fades to black with the menu music, then stops Play mode in the editor (`#if UNITY_EDITOR`) or calls `Application.Quit` in a build.
+
+`Endgame` calls `GameManager.LoadScene(0)`, so it shares the fade and the guard against repeated calls. Two objects in `Final Scene` have it: the coffin `Roman Stone Coffin_wj3keafqx (23)`, whose trigger box is the real end of the level, and `reaper (1)`, which has no collider of its own, so its `Endgame` never fires.
 
 ## Checkpoints do nothing
 

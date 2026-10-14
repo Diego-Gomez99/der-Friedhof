@@ -10,6 +10,7 @@
 - Changing the default of a `[SerializeField]` in code does not change objects in the scene that is already open: they keep the value they got when the field first appeared. Write the value into the `.unity` file as well, and check it in the Inspector.
 - The editor does not always offer to reload a scene edited on disk. If it does not, double-click the scene asset in the Project tab to reopen it.
 - Always stop Play mode when finished. Changes made in the editor during Play mode are discarded.
+- The player (`FINALE`) cannot be moved from the Inspector in Play mode: its Rigidbody interpolates and overwrites the Transform every frame. To test a trigger without walking there, move the trigger object onto the player instead. For example, setting the end coffin to X 434.6, Y -0.5, Z 359.2 right after entering Play fires `Endgame`.
 - The Scene view can start rendering everything washed out in white, even with Fog turned off in its effects menu, while the Game view looks normal. It is an editor glitch, not something in the scene: nothing in `Final Scene` or the render settings had changed, and restarting the PC fixed it. Do not go hunting for fog or post-processing changes when it happens.
 
 ## A reliable test run
