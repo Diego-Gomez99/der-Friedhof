@@ -41,20 +41,37 @@ public class Enemy : MonoBehaviour
     [SerializeField]
     private float weaponTurnAngle = 12.0f;
 
-    // Scythe pose during the attack. The clip is a great sword plunge, and the scythe is held near
-    // the butt of the handle like the sword's hilt: the butt goes into the ground and the rest of the
-    // scythe stands above the hands. These depend on the scythe mesh and the clip, so they are not
-    // serialized (a changed default would not reach the enemies already in the scenes).
+    // Scythe pose during the attack. The clip is a great sword raise and plunge, and the scythe is
+    // held near the butt of the handle like the sword's hilt. It follows the hand's position, but
+    // its angle comes from the hand's height instead of the hand's rotation (the clip's backswing
+    // would spin the long scythe and drag the blade along the ground): with the hands up, it lies
+    // flat with the butt ahead and the blade behind, pointing up; with the hands down, the butt is
+    // driven into the ground and the scythe stands almost upright with the blade facing the player.
+    // These depend on the scythe mesh and the clip, so they are not serialized (a changed default
+    // would not reach the enemies already in the scenes).
     // Point of the handle in the right hand, in the weapon's local space.
     private static readonly Vector3 AttackGripPoint = new Vector3(2.9f, 4.09f, -0.58f);
     // From the grip towards the butt, and from the head of the handle towards the blade tip,
     // in the weapon's local space.
     private static readonly Vector3 WeaponButtDirection = new Vector3(0.99f, -0.03f, 0.13f);
     private static readonly Vector3 WeaponBladeDirection = new Vector3(-0.4f, -3.4f, -2.1f);
-    // Where those two point, in the right hand's local space. They are straight down and the enemy's
-    // forward at the moment of the plunge, so the scythe stands upright with the blade facing the player.
-    private static readonly Vector3 HandButtDirection = new Vector3(0.33f, 0.60f, 0.72f);
-    private static readonly Vector3 HandBladeDirection = new Vector3(0.80f, 0.23f, -0.56f);
+    // Right hand heights above the feet, in the enemy's local space, where the scythe is fully
+    // raised and fully planted. The clip goes from about 1.84 overhead to 0.31 at the plunge.
+    private const float RaisedHandHeight = 1.6f;
+    private const float PlantedHandHeight = 0.4f;
+    // Degrees the planted scythe leans forward, towards the player, from upright.
+    private const float PlantedLean = 10.0f;
+    // The butt, and points along the blade and the head of the handle, in the weapon's local space.
+    // Only the butt may go into the ground, and only ButtMaxDepth metres.
+    private static readonly Vector3 WeaponButtPoint = new Vector3(3.95f, 4.03f, -0.44f);
+    private static readonly Vector3[] WeaponBladePoints =
+    {
+        new Vector3(-2.4f, 0.96f, -3.25f),
+        new Vector3(-3.3f, 2.2f, -2.6f),
+        new Vector3(-4.1f, 4.57f, -1.47f),
+        new Vector3(-2.0f, 4.38f, -1.18f),
+    };
+    private const float ButtMaxDepth = 0.2f;
 
     private Transform weapon;
     private BoxCollider weaponCollider;
@@ -129,11 +146,15 @@ public class Enemy : MonoBehaviour
 
         if (isAttacking)
         {
-            Quaternion scytheFrame = Quaternion.LookRotation(WeaponButtDirection, WeaponBladeDirection);
-            Quaternion handFrame = Quaternion.LookRotation(
-                rightHand.TransformDirection(HandButtDirection), rightHand.TransformDirection(HandBladeDirection));
-            weapon.rotation = handFrame * Quaternion.Inverse(scytheFrame);
+            Quaternion scytheFrame = Quaternion.Inverse(Quaternion.LookRotation(WeaponButtDirection, WeaponBladeDirection));
+            Quaternion raised = Quaternion.LookRotation(transform.forward, transform.up) * scytheFrame;
+            Vector3 plantedButt = Quaternion.AngleAxis(PlantedLean, transform.right) * -transform.up;
+            Quaternion planted = Quaternion.LookRotation(plantedButt, transform.forward) * scytheFrame;
+            float handHeight = transform.InverseTransformPoint(rightHand.position).y;
+            float plant = Mathf.SmoothStep(0.0f, 1.0f, Mathf.InverseLerp(RaisedHandHeight, PlantedHandHeight, handHeight));
+            weapon.rotation = Quaternion.Slerp(raised, planted, plant);
             weapon.position += rightHand.position - weapon.TransformPoint(AttackGripPoint);
+            KeepWeaponAboveGround();
             return;
         }
 
@@ -147,6 +168,51 @@ public class Enemy : MonoBehaviour
 
         Vector3 displacement = weapon.position - transform.TransformPoint(weaponRestLocalPosition);
         weaponCollider.center = weaponColliderRestCenter - weapon.InverseTransformVector(displacement);
+    }
+
+    // Tilts the scythe around the hand, as little as possible, so that the blade stays above the
+    // ground and the butt goes in no deeper than ButtMaxDepth. The enemy's feet are the ground.
+    private void KeepWeaponAboveGround()
+    {
+        Vector3 grip = rightHand.position;
+        Vector3 axis = Vector3.Cross(weapon.TransformDirection(WeaponButtDirection), Vector3.up);
+        if (axis.sqrMagnitude < 0.0001f) return;
+
+        float best = 0.0f;
+        float bestDepth = WeaponDepth(grip, Quaternion.identity);
+        for (float angle = 3.0f; angle <= 90.0f && bestDepth > 0.0f; angle += 3.0f)
+        {
+            foreach (float signed in new[] { angle, -angle })
+            {
+                float depth = WeaponDepth(grip, Quaternion.AngleAxis(signed, axis));
+                if (depth < bestDepth)
+                {
+                    best = signed;
+                    bestDepth = depth;
+                }
+            }
+        }
+        if (best != 0.0f)
+        {
+            weapon.RotateAround(grip, axis, best);
+        }
+    }
+
+    // How far the scythe, turned by tilt around the grip, goes below where it is allowed. 0 if it does not.
+    private float WeaponDepth(Vector3 grip, Quaternion tilt)
+    {
+        float ground = transform.position.y;
+        float depth = Mathf.Max(0.0f, ground - ButtMaxDepth - TiltedHeight(grip, tilt, WeaponButtPoint));
+        foreach (Vector3 point in WeaponBladePoints)
+        {
+            depth = Mathf.Max(depth, ground - TiltedHeight(grip, tilt, point));
+        }
+        return depth;
+    }
+
+    private float TiltedHeight(Vector3 grip, Quaternion tilt, Vector3 localPoint)
+    {
+        return (grip + tilt * (weapon.TransformPoint(localPoint) - grip)).y;
     }
 
     private void AimBone(Transform bone, Transform child, Vector3 direction)
