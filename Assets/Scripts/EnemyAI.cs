@@ -34,10 +34,17 @@ public class Enemy : MonoBehaviour
     // Point of the scythe handle that sits in the right hand, in the weapon's local space.
     [SerializeField]
     private Vector3 weaponGripPoint = new Vector3(-0.25f, 4.31f, -0.92f);
+    // Degrees the right arm opens outward (to the enemy's right) from straight ahead.
+    [SerializeField]
+    private float armOpenAngle = 45.0f;
+    // Degrees the scythe turns to the enemy's right around the vertical axis.
+    [SerializeField]
+    private float weaponTurnAngle = 12.0f;
 
     private Transform weapon;
     private BoxCollider weaponCollider;
     private Vector3 weaponRestLocalPosition;
+    private Quaternion weaponRestLocalRotation;
     private Vector3 weaponColliderRestCenter;
     private Transform rightUpperArm;
     private Transform rightLowerArm;
@@ -55,6 +62,7 @@ public class Enemy : MonoBehaviour
         weapon = transform.Find("weapon");
         weaponCollider = weapon.GetComponent<BoxCollider>();
         weaponRestLocalPosition = weapon.localPosition;
+        weaponRestLocalRotation = weapon.localRotation;
         weaponColliderRestCenter = weaponCollider.center;
         rightUpperArm = animator.GetBoneTransform(HumanBodyBones.RightUpperArm);
         rightLowerArm = animator.GetBoneTransform(HumanBodyBones.RightLowerArm);
@@ -95,24 +103,27 @@ public class Enemy : MonoBehaviour
     }
 
     // Runs after the Animator, so it overrides the clip's pose for the right arm:
-    // the arm points straight ahead and the scythe follows the hand. The scythe's
-    // kill trigger stays where it was authored, at the player's height.
+    // the arm points ahead, opened slightly outward, and the scythe follows the hand.
+    // The scythe's kill trigger stays where it was authored, at the player's height.
     private void LateUpdate()
     {
         if (rightUpperArm == null || rightLowerArm == null || rightHand == null) return;
 
-        AimBone(rightUpperArm, rightLowerArm);
-        AimBone(rightLowerArm, rightHand);
+        // A positive turn around the up axis moves forward towards the enemy's right.
+        Vector3 armDirection = Quaternion.AngleAxis(armOpenAngle, transform.up) * transform.forward;
+        AimBone(rightUpperArm, rightLowerArm, armDirection);
+        AimBone(rightLowerArm, rightHand, armDirection);
 
+        weapon.localRotation = Quaternion.AngleAxis(weaponTurnAngle, Vector3.up) * weaponRestLocalRotation;
         weapon.position += rightHand.position - weapon.TransformPoint(weaponGripPoint);
 
         Vector3 displacement = weapon.position - transform.TransformPoint(weaponRestLocalPosition);
         weaponCollider.center = weaponColliderRestCenter - weapon.InverseTransformVector(displacement);
     }
 
-    private void AimBone(Transform bone, Transform child)
+    private void AimBone(Transform bone, Transform child, Vector3 direction)
     {
-        bone.rotation = Quaternion.FromToRotation(child.position - bone.position, transform.forward) * bone.rotation;
+        bone.rotation = Quaternion.FromToRotation(child.position - bone.position, direction) * bone.rotation;
     }
 
     public void Die()

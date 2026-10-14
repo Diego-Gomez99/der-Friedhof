@@ -8523,6 +8523,8 @@ MonoBehaviour:
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
+  armOpenAngle: 45
+  weaponTurnAngle: 12
 --- !u!82 &74247591
 AudioSource:
   m_ObjectHideFlags: 0
@@ -20782,6 +20784,8 @@ MonoBehaviour:
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
+  armOpenAngle: 45
+  weaponTurnAngle: 12
 --- !u!82 &199865047
 AudioSource:
   m_ObjectHideFlags: 0
@@ -23358,6 +23362,8 @@ MonoBehaviour:
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
+  armOpenAngle: 45
+  weaponTurnAngle: 12
 --- !u!82 &222161838
 AudioSource:
   m_ObjectHideFlags: 0
@@ -30047,6 +30053,8 @@ MonoBehaviour:
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
+  armOpenAngle: 45
+  weaponTurnAngle: 12
 --- !u!82 &297851237
 AudioSource:
   m_ObjectHideFlags: 0
@@ -30383,6 +30391,8 @@ MonoBehaviour:
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
+  armOpenAngle: 45
+  weaponTurnAngle: 12
 --- !u!82 &298598023
 AudioSource:
   m_ObjectHideFlags: 0
@@ -36297,6 +36307,8 @@ MonoBehaviour:
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
+  armOpenAngle: 45
+  weaponTurnAngle: 12
 --- !u!82 &354048947
 AudioSource:
   m_ObjectHideFlags: 0
@@ -39277,6 +39289,8 @@ MonoBehaviour:
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
+  armOpenAngle: 45
+  weaponTurnAngle: 12
 --- !u!82 &400441959
 AudioSource:
   m_ObjectHideFlags: 0
@@ -39696,6 +39710,8 @@ MonoBehaviour:
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
+  armOpenAngle: 45
+  weaponTurnAngle: 12
 --- !u!82 &403783704
 AudioSource:
   m_ObjectHideFlags: 0
@@ -43325,6 +43341,8 @@ MonoBehaviour:
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
+  armOpenAngle: 45
+  weaponTurnAngle: 12
 --- !u!82 &440703214
 AudioSource:
   m_ObjectHideFlags: 0
@@ -51832,6 +51850,8 @@ MonoBehaviour:
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
+  armOpenAngle: 45
+  weaponTurnAngle: 12
 --- !u!82 &524165514
 AudioSource:
   m_ObjectHideFlags: 0
@@ -54485,6 +54505,8 @@ MonoBehaviour:
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
+  armOpenAngle: 45
+  weaponTurnAngle: 12
 --- !u!82 &548087237
 AudioSource:
   m_ObjectHideFlags: 0
@@ -68469,6 +68491,8 @@ MonoBehaviour:
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
+  armOpenAngle: 45
+  weaponTurnAngle: 12
 --- !u!82 &682138525
 AudioSource:
   m_ObjectHideFlags: 0
@@ -76432,6 +76456,8 @@ MonoBehaviour:
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
+  armOpenAngle: 45
+  weaponTurnAngle: 12
 --- !u!82 &746298664
 AudioSource:
   m_ObjectHideFlags: 0
@@ -77453,6 +77479,8 @@ MonoBehaviour:
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
+  armOpenAngle: 45
+  weaponTurnAngle: 12
 --- !u!82 &749848785
 AudioSource:
   m_ObjectHideFlags: 0
@@ -81613,6 +81641,8 @@ MonoBehaviour:
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
+  armOpenAngle: 45
+  weaponTurnAngle: 12
 --- !u!82 &788914472
 AudioSource:
   m_ObjectHideFlags: 0
@@ -88978,6 +89008,8 @@ MonoBehaviour:
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
+  armOpenAngle: 45
+  weaponTurnAngle: 12
 --- !u!82 &853307842
 AudioSource:
   m_ObjectHideFlags: 0
@@ -96585,6 +96617,8 @@ MonoBehaviour:
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
+  armOpenAngle: 45
+  weaponTurnAngle: 12
 --- !u!82 &924500401
 AudioSource:
   m_ObjectHideFlags: 0
@@ -97533,6 +97567,8 @@ MonoBehaviour:
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
+  armOpenAngle: 45
+  weaponTurnAngle: 12
 --- !u!82 &935395615
 AudioSource:
   m_ObjectHideFlags: 0
@@ -103421,6 +103457,8 @@ MonoBehaviour:
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
+  armOpenAngle: 45
+  weaponTurnAngle: 12
 --- !u!82 &986820123
 AudioSource:
   m_ObjectHideFlags: 0
@@ -107801,6 +107839,8 @@ MonoBehaviour:
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
+  armOpenAngle: 45
+  weaponTurnAngle: 12
 --- !u!82 &1026216211
 AudioSource:
   m_ObjectHideFlags: 0
@@ -127635,6 +127675,8 @@ MonoBehaviour:
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
+  armOpenAngle: 45
+  weaponTurnAngle: 12
 --- !u!82 &1263173299
 AudioSource:
   m_ObjectHideFlags: 0
@@ -147990,6 +148032,8 @@ MonoBehaviour:
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
+  armOpenAngle: 45
+  weaponTurnAngle: 12
 --- !u!82 &1476543811
 AudioSource:
   m_ObjectHideFlags: 0
@@ -155036,6 +155080,8 @@ MonoBehaviour:
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
+  armOpenAngle: 45
+  weaponTurnAngle: 12
 --- !u!82 &1548997861
 AudioSource:
   m_ObjectHideFlags: 0
@@ -166357,6 +166403,8 @@ MonoBehaviour:
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
+  armOpenAngle: 45
+  weaponTurnAngle: 12
 --- !u!82 &1664629577
 AudioSource:
   m_ObjectHideFlags: 0
@@ -168750,6 +168798,8 @@ MonoBehaviour:
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
+  armOpenAngle: 45
+  weaponTurnAngle: 12
 --- !u!82 &1695189516
 AudioSource:
   m_ObjectHideFlags: 0
@@ -178723,6 +178773,8 @@ MonoBehaviour:
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
+  armOpenAngle: 45
+  weaponTurnAngle: 12
 --- !u!82 &1788806567
 AudioSource:
   m_ObjectHideFlags: 0
@@ -186791,6 +186843,8 @@ MonoBehaviour:
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
+  armOpenAngle: 45
+  weaponTurnAngle: 12
 --- !u!82 &1878826986
 AudioSource:
   m_ObjectHideFlags: 0
@@ -194089,6 +194143,8 @@ MonoBehaviour:
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
+  armOpenAngle: 45
+  weaponTurnAngle: 12
 --- !u!82 &1937203139
 AudioSource:
   m_ObjectHideFlags: 0
@@ -196113,6 +196169,8 @@ MonoBehaviour:
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
+  armOpenAngle: 45
+  weaponTurnAngle: 12
 --- !u!82 &1956967839
 AudioSource:
   m_ObjectHideFlags: 0
@@ -197454,6 +197512,8 @@ MonoBehaviour:
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
+  armOpenAngle: 45
+  weaponTurnAngle: 12
 --- !u!82 &1968997272
 AudioSource:
   m_ObjectHideFlags: 0
@@ -205300,6 +205360,8 @@ MonoBehaviour:
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
+  armOpenAngle: 45
+  weaponTurnAngle: 12
 --- !u!82 &2030200531
 AudioSource:
   m_ObjectHideFlags: 0
@@ -212042,6 +212104,8 @@ MonoBehaviour:
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
+  armOpenAngle: 45
+  weaponTurnAngle: 12
 --- !u!82 &2105229453
 AudioSource:
   m_ObjectHideFlags: 0
