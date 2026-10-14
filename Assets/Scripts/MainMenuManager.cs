@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -8,7 +9,7 @@ public class MainMenuManager : MonoBehaviour
 {
     [SerializeField] private AudioSource mainMenuAudioSource;
     [SerializeField] private string sceneName;
-    [SerializeField] private float buttonFadeDuration = 0.3f;
+    [SerializeField] private Color usedButtonColor = new Color(0.62f, 0f, 0f, 1f);
     [SerializeField] private float minimumLoadTime = 2f;
     [SerializeField] private float fadeDuration = 1f;
 
@@ -26,7 +27,8 @@ public class MainMenuManager : MonoBehaviour
         }
         buttonUsed = true;
 
-        StartCoroutine(Quit());
+        LockButtons();
+        Application.Quit();
     }
     public void LoadGame()
     {
@@ -36,10 +38,10 @@ public class MainMenuManager : MonoBehaviour
         }
         buttonUsed = true;
 
+        LockButtons();
         Image fadeImage = CreateFadeOverlay();
         // The overlay outlives this scene, so it runs the coroutine instead of this object.
-        fadeImage.StartCoroutine(SceneLoad(fadeImage, HideableButtons(), mainMenuAudioSource, sceneName,
-            buttonFadeDuration, minimumLoadTime, fadeDuration));
+        fadeImage.StartCoroutine(SceneLoad(fadeImage, mainMenuAudioSource, sceneName, minimumLoadTime, fadeDuration));
     }
 
     private void PlayMenuMusic()
@@ -47,42 +49,26 @@ public class MainMenuManager : MonoBehaviour
         mainMenuAudioSource.Play();
     }
 
-    private IEnumerator Quit()
+    // Stops the hover effect on every button and darkens the one that was used.
+    private void LockButtons()
     {
-        yield return FadeOutButtons(HideableButtons(), buttonFadeDuration);
-        Application.Quit();
-    }
-
-    // Gives every button a CanvasGroup so it can be faded together with its label.
-    private static CanvasGroup[] HideableButtons()
-    {
-        Button[] buttons = FindObjectsOfType<Button>();
-        CanvasGroup[] groups = new CanvasGroup[buttons.Length];
-        for (int i = 0; i < buttons.Length; i++)
+        // Hovering or navigating to a button selects it, so the selected one is the one just used.
+        GameObject used = EventSystem.current.currentSelectedGameObject;
+        foreach (Button button in FindObjectsOfType<Button>())
         {
-            groups[i] = buttons[i].GetComponent<CanvasGroup>();
-            if (groups[i] == null)
+            MenuButtonEffect effect = button.GetComponent<MenuButtonEffect>();
+            if (effect == null)
             {
-                groups[i] = buttons[i].gameObject.AddComponent<CanvasGroup>();
+                continue;
             }
-            groups[i].blocksRaycasts = false;
-        }
-        return groups;
-    }
-
-    private static IEnumerator FadeOutButtons(CanvasGroup[] buttons, float duration)
-    {
-        for (float t = 0f; t < 1f; t += FadeStep(duration))
-        {
-            foreach (CanvasGroup button in buttons)
+            if (button.gameObject == used)
             {
-                button.alpha = 1f - t;
+                effect.Lock(usedButtonColor);
             }
-            yield return null;
-        }
-        foreach (CanvasGroup button in buttons)
-        {
-            button.alpha = 0f;
+            else
+            {
+                effect.Lock();
+            }
         }
     }
 
@@ -110,14 +96,12 @@ public class MainMenuManager : MonoBehaviour
         return image;
     }
 
-    private static IEnumerator SceneLoad(Image fadeImage, CanvasGroup[] buttons, AudioSource music, string sceneName,
-        float buttonFadeDuration, float minimumLoadTime, float fadeDuration)
+    private static IEnumerator SceneLoad(Image fadeImage, AudioSource music, string sceneName,
+        float minimumLoadTime, float fadeDuration)
     {
         float startTime = Time.unscaledTime;
         AsyncOperation load = SceneManager.LoadSceneAsync(sceneName);
         load.allowSceneActivation = false;
-
-        yield return FadeOutButtons(buttons, buttonFadeDuration);
 
         // Progress stops at 0.9 until the scene is allowed to activate.
         while (load.progress < 0.9f || Time.unscaledTime - startTime < minimumLoadTime)

@@ -515,6 +515,7 @@ GameObject:
   - component: {fileID: 881928458}
   - component: {fileID: 881928457}
   - component: {fileID: 881928456}
+  - component: {fileID: 881928459}
   m_Layer: 5
   m_Name: Quit Game
   m_TagString: Untagged
@@ -542,6 +543,21 @@ RectTransform:
   m_AnchoredPosition: {x: 210, y: 0}
   m_SizeDelta: {x: 540, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &881928459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 881928454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 726a8795b76f4865a738580da452f3a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverScale: 1.1
+  hoverColor: {r: 1, g: 0.15, b: 0.15, a: 1}
+  speed: 12
 --- !u!114 &881928456
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -743,7 +759,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainMenuAudioSource: {fileID: 1193731545}
   sceneName: Final Scene
-  transitionAnimator: {fileID: 0}
+  usedButtonColor: {r: 0.62, g: 0, b: 0, a: 1}
+  minimumLoadTime: 2
+  fadeDuration: 1
 --- !u!4 &1193731544
 Transform:
   m_ObjectHideFlags: 0
@@ -1002,6 +1020,7 @@ GameObject:
   - component: {fileID: 1344645663}
   - component: {fileID: 1344645662}
   - component: {fileID: 1344645661}
+  - component: {fileID: 1344645664}
   m_Layer: 5
   m_Name: Play
   m_TagString: Untagged
@@ -1029,6 +1048,21 @@ RectTransform:
   m_AnchoredPosition: {x: -285, y: 0}
   m_SizeDelta: {x: 220, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1344645664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1344645659}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 726a8795b76f4865a738580da452f3a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverScale: 1.1
+  hoverColor: {r: 1, g: 0.15, b: 0.15, a: 1}
+  speed: 12
 --- !u!114 &1344645661
 MonoBehaviour:
   m_ObjectHideFlags: 0
