@@ -45,6 +45,24 @@ public class MenuButtonEffect : MonoBehaviour, IPointerEnterHandler, IPointerExi
         Lock(normalColor);
     }
 
+    // Locks every button with this effect and darkens the one that was used.
+    public static void LockAll(Color usedColor)
+    {
+        // Hovering or navigating to a button selects it, so the selected one is the one just used.
+        GameObject used = EventSystem.current.currentSelectedGameObject;
+        foreach (MenuButtonEffect effect in FindObjectsOfType<MenuButtonEffect>())
+        {
+            if (effect.gameObject == used)
+            {
+                effect.Lock(usedColor);
+            }
+            else
+            {
+                effect.Lock();
+            }
+        }
+    }
+
     // Hovering selects the button, so mouse and keyboard share a single highlight.
     public void OnPointerEnter(PointerEventData eventData)
     {
