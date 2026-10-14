@@ -26,5 +26,5 @@ The other scene loads (Play Again, Main Menu, the end trigger) are still synchro
 
 - `PlayerController.UpdatePlayerDirection` is never called, so movement is always relative to north regardless of the active camera's `direction`.
 - The disabled first entry in the build settings points to `Assets/Scenes/SampleScene.unity`, which no longer exists.
-- The enemy keeps chasing and its chase audio keeps playing after the player dies.
+- The other enemies keep chasing and their chase audio keeps playing after the player dies. Only the one that killed the player stops.
 - `Enemy.FadeOut` only waits and destroys the object; the actual fade is commented out.

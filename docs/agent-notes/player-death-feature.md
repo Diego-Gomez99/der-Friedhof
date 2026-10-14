@@ -4,8 +4,8 @@ Both are implemented.
 
 ## How it works
 
-1. `PlayerController.OnTriggerEnter` sees the `Enemy` tag and calls `EndGame`.
-2. `EndGame` returns early if `GameManager.instance.isGameOver` is already true, because the enemy's weapon collider and capsule collider can both fire the trigger. Otherwise it sets `isGameOver = true`, starts the slash effect (below), sets the animator trigger `die`, plays `deathSound` and starts the `ShowGameOverAfterDeath` coroutine.
+1. `PlayerController.OnTriggerEnter` sees the `Enemy` tag and calls `EndGame` with the `Enemy` the collider belongs to (`GetComponentInParent`).
+2. `EndGame` returns early if `GameManager.instance.isGameOver` is already true, because the enemy's weapon collider and capsule collider can both fire the trigger. Otherwise it sets `isGameOver = true`, calls `Attack()` on that enemy, starts the slash effect (below), sets the animator trigger `die`, plays `deathSound` and starts the `ShowGameOverAfterDeath` coroutine.
 3. `PlayerController.FixedUpdate` zeroes the velocity and the `speed` / `turnSpeed` floats while `isGameOver` is true, so input is ignored during the animation.
 4. After `gameOverDelay` seconds (serialized on `PlayerController`, default 3.5) the coroutine calls `GameManager.GameOver()`, which shows the Game Over panel.
 
@@ -23,18 +23,24 @@ If the clip is replaced, set `gameOverDelay` to the new clip's length.
 
 ## Slash effect
 
-`SlashEffect.Play(slashImpactSound)` (`Assets/Scripts/SlashEffect.cs`) shows a full-screen pixel-art hit when the enemy touches the player. It builds its own overlay canvas at runtime and destroys itself after about 1.7 s, so nothing in the scenes references it.
+`SlashEffect.Play(slashImpactSound, target, attacker)` (`Assets/Scripts/SlashEffect.cs`) shows a full-screen pixel-art hit when the enemy touches the player. `target` and `attacker` are the player and enemy positions one unit above the feet. It builds its own overlay canvas at runtime and destroys itself after about 1.7 s, so nothing in the scenes references it.
 
-- **Visuals:** a white frame, a black impact frame and a red tint that fades out; three crescent slashes drawn across the screen one after another; red and white shards snapped to a 6 px grid. The textures are generated in code with point filtering.
+- **Visuals:** a white frame, a black impact frame and a red tint that fades out; one crescent slash drawn across the whole screen through the player, perpendicular to the on-screen direction from the enemy to the player (the camera used is the enabled game camera with the highest depth); red and white shards snapped to a 6 px grid. The textures are generated in code with point filtering.
 - **Hit-stop:** `Time.timeScale` is 0 for the first 0.18 real seconds, so the death animation and the enemy freeze on impact. The effect uses unscaled time, and `OnDestroy` restores the time scale if the scene unloads early. The Game Over delay is scaled time, so it starts counting after the freeze.
-- **Shake:** the cameras are moved by `FollowCamera` and others in `LateUpdate`, so the shake offsets the camera only inside `RenderPipelineManager.beginCameraRendering` and puts it back in `endCameraRendering`. The slashes and shards also shake on the canvas.
-- **Sound:** each slash plays a slice synthesized in code (noise swish, metallic ring, low thump, soft-clipped). `slashImpactSound` on the `PlayerController` in `FINALE.prefab` is `Horror Elements/Hits/Hit_Drama.wav`, played once on impact. All of it is 2D at full volume.
+- **Shake:** the cameras are moved by `FollowCamera` and others in `LateUpdate`, so the shake offsets the camera only inside `RenderPipelineManager.beginCameraRendering` and puts it back in `endCameraRendering`. The slash and shards also shake on the canvas.
+- **Sound:** the slash plays a slice synthesized in code (noise swish, metallic ring, low thump, soft-clipped). `slashImpactSound` on the `PlayerController` in `FINALE.prefab` is `Horror Elements/Hits/Hit_Drama.wav`, played once on impact. All of it is 2D at full volume.
 
 Timings, sizes and colours are constants at the top of the file and inside `Run` and `Slash`.
 
+## Enemy attack
+
+`Enemy.Attack()` stops the enemy that killed the player, stops its chase audio, turns it to face the player and sets the animator trigger `attack`. `CB_squeleton_lowpolywithoutacc.controller` has an `Attack` state reached from Any State by that trigger, with no exit; it plays `Enemy Animations/Enemy Attack.fbx` (the Mixamo "One Hand Sword Combo", 2.13 s at 30 fps), imported as Humanoid with its own avatar, Loop Time off and root motion baked into the pose.
+
+While attacking, `Enemy.LateUpdate` no longer aims the right arm. The scythe instead keeps the rotation it had relative to the right hand on the frame the attack started and its grip stays in the hand, so it swings with the clip. The hit-stop freezes the first 0.18 s of the swing.
+
 ## Still open
 
-- The enemy keeps chasing and its chase audio keeps playing while the player dies.
+- The other enemies keep chasing and their chase audio keeps playing while the player dies. The one that killed the player stops (see Enemy attack above).
 - `gameOverDelay` uses its script default in every scene. If it is overridden in one scene's Inspector, the other gameplay scenes (`Hector`, `Diego`, `Emma`) keep the default.
 
 ## Verifying
