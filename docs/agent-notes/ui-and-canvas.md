@@ -4,6 +4,8 @@
 
 The Main Menu and Game Over UI were authored by hand at 1920x1080. Titles and buttons use stretch anchors (`AnchorMin 0,0` / `AnchorMax 1,1`) with large fixed negative `SizeDelta` values, so each element's size is "canvas size minus a constant". For example the Play button has `SizeDelta.x = -1577`, which is 343 px wide on a 1920 px canvas.
 
+The `Play` and `Quit Game` buttons of `Main Menu` no longer follow this pattern: they are centre-anchored with fixed sizes (220x100 and 540x100). As stretched rects they grew with the canvas on wide aspect ratios until their click areas overlapped. The title and the Game Over UI are still stretched.
+
 ## The bug this caused
 
 With the Canvas Scaler on Constant Pixel Size, any resolution narrower than about 1600 px made those widths negative. TextMeshPro then wrapped the text one letter per line, so buttons looked vertical and the title disappeared. This showed up in the editor whenever the Game view was on Free Aspect, and looked like a regression from the Unity upgrade although it was not.

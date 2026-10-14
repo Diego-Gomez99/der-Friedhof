@@ -9,7 +9,7 @@ None of these block the game. They are listed so they are not mistaken for new r
 
 ## Scene transitions
 
-Menu to game is done in code: `MainMenuManager.LoadGame` builds a black overlay canvas at runtime (`Scene Fade`, kept with `DontDestroyOnLoad`), fades out the buttons, loads the scene with `LoadSceneAsync`, waits until it is ready (at least `minimumLoadTime` after the click), fades to black while fading out the menu music, activates the scene, fades back in and destroys the overlay. Quit Game fades the buttons out before quitting. The coroutine runs on the overlay's `Image` because the manager is destroyed with the menu scene.
+Menu to game is done in code: `MainMenuManager.LoadGame` builds a black overlay canvas at runtime (`Scene Fade`, kept with `DontDestroyOnLoad`), darkens the button that was used, loads the scene with `LoadSceneAsync`, waits until it is ready (at least `minimumLoadTime` after the click), fades to black while fading out the menu music, activates the scene, fades back in and destroys the overlay. The coroutine runs on the overlay's `Image` because the manager is destroyed with the menu scene.
 
 Leftovers from an earlier Animator-based attempt that was never finished:
 

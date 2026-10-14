@@ -7,6 +7,8 @@
 - Do not launch the editor yourself. Ask the user to open the project and leave the editor window visible and not minimised.
 - The editor loses keyboard focus easily. Start every batch of key presses with a click inside the Game view, and make sure no other window (for example File Explorer) is covering the spot you click.
 - After editing a script, click the editor and wait about 15 seconds for the recompile before pressing Play. Entering Play mode takes another 10 to 20 seconds.
+- Changing the default of a `[SerializeField]` in code does not change objects in the scene that is already open: they keep the value they got when the field first appeared. Write the value into the `.unity` file as well, and check it in the Inspector.
+- The editor does not always offer to reload a scene edited on disk. If it does not, double-click the scene asset in the Project tab to reopen it.
 - Always stop Play mode when finished. Changes made in the editor during Play mode are discarded.
 
 ## A reliable test run
