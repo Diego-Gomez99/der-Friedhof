@@ -18,6 +18,7 @@
 | `MenuButtonEffect` | On the `Play` and `Quit Game` buttons of `Main Menu`. Grows and brightens the label while hovered or selected. Hovering selects the button in the EventSystem. Invokes the button's `onClick` on mouse press, so the handlers run again on release and must ignore the second call. The Game Over buttons do not have it. |
 | `CamerasController`, `FollowCamera`, `StaticCamera` (in `CamerasScripts/`), `SwitchCameraCollider`, `CameraController` | Per-area cameras and switching between them. |
 | `Checkpoint` | Saves the player position to `PlayerPrefs`. The loading side in `PlayerController` is commented out, so checkpoints currently have no effect. |
+| `SlashEffect` | Full-screen slash, hit-stop, shake and slice sound played when an enemy touches the player. Created at runtime by `SlashEffect.Play`. |
 | `WalkSteps`, `LampEffect`, `HeadFalling`, `AreaNameShow` | Footstep audio and ambience effects. |
 | `LimitFPS` | Caps the frame rate at 60. |
 
