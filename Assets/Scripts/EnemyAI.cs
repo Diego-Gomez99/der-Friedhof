@@ -14,8 +14,6 @@ public class Enemy : MonoBehaviour
     public float fadeDuration = 2.0f;
     // Once the player is dead, enemies that reach this distance from the body swing the scythe at it.
     public float corpseAttackDistance = 1.5f;
-    // Below this horizontal speed, in metres per second, the enemy plays idle instead of walking.
-    private const float MinWalkingSpeed = 0.2f;
 
     private Rigidbody rb;
     private Transform target;
@@ -120,12 +118,6 @@ public class Enemy : MonoBehaviour
     {
         if (isDead || isAttacking) return;
 
-        // The walk animation follows how fast the enemy actually moved in the last physics step,
-        // so it stands idle when something blocks its way instead of walking in place.
-        Vector3 groundVelocity = rb.velocity;
-        groundVelocity.y = 0.0f;
-        animator.SetBool("Persiguiendo", groundVelocity.magnitude >= MinWalkingSpeed);
-
         float distanceToTarget = Vector3.Distance(transform.position, target.position);
 
         if (GameManager.instance.isGameOver && distanceToTarget <= corpseAttackDistance)
@@ -151,11 +143,13 @@ public class Enemy : MonoBehaviour
             if(!myaudio.isPlaying)
             {
                 myaudio.PlayOneShot(chasesong, audiovolume);
+                animator.SetBool("Persiguiendo", true);
             }
         }
         else
         {
             myaudio.Stop();
+            animator.SetBool("Persiguiendo", false);
         }
     }
 
