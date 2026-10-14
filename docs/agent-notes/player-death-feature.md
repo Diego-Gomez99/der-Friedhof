@@ -34,9 +34,15 @@ Timings, sizes and colours are constants at the top of the file and inside `Run`
 
 ## Enemy attack
 
-`Enemy.Attack()` stops the enemy that killed the player, stops its chase audio, turns it to face the player and sets the animator trigger `attack`. `CB_squeleton_lowpolywithoutacc.controller` has an `Attack` state reached from Any State by that trigger, with no exit; it plays `Enemy Animations/Enemy Attack.fbx` (the Mixamo "Great Sword Casting", 145 frames at 30 fps, 4.8 s), imported as Humanoid with its own avatar, Loop Time on and root motion baked into the pose. Only its content was swapped in, so the `.meta` and the GUID the controller references stay the same.
+`Enemy.Attack()` stops the enemy that killed the player, stops its chase audio, turns it to face the player and sets the animator trigger `attack`. `CB_squeleton_lowpolywithoutacc.controller` has an `Attack` state reached from Any State by that trigger, with no exit; it plays `Enemy Animations/Enemy Attack.fbx` (the Mixamo "Great Sword Casting", 145 frames at 30 fps, 4.8 s: the enemy lifts the scythe and drives it into the ground), imported as Humanoid with its own avatar, Loop Time on and root motion baked into the pose. Only its content was swapped in, so the `.meta` and the GUID the controller references stay the same.
 
-While attacking, `Enemy.LateUpdate` no longer aims the right arm. The scythe instead keeps the rotation it had relative to the right hand on the frame the attack started and its grip stays in the hand, so it swings with the clip. The hit-stop freezes the first 0.18 s of the swing.
+While attacking, `Enemy.LateUpdate` no longer aims the right arm. It poses the scythe from the right hand with the `static readonly` constants at the top of `Enemy` (not serialized, because a changed default would not reach the enemies already in the scenes):
+
+- The clip is a great sword plunge. The scythe is held near the butt of the handle like the sword's hilt (`AttackGripPoint`). At the plunge the hands are about 0.56 m above the ground, the butt goes 0.2 m into the ground and the head of the handle is about 4.1 m straight above it, with the blade pointing towards the player. When the clip raises the sword overhead the scythe turns upside down behind the enemy's head, as the sword would.
+- The scythe mesh (`3D_Reaper/reaper.fbx`, `judge_reaper_scythe.1`) has the handle along local X, from the head at about x = -2 to the butt at x = 4, and the blade at the x = -4 end hanging towards -Y and -Z. `WeaponButtDirection` and `WeaponBladeDirection` describe that.
+- `HandButtDirection` and `HandBladeDirection` are world down and the enemy's forward at the plunge, expressed in the right hand's local space. They were measured by logging the hand bone axes during the clip. If the clip is replaced, measure them again.
+
+The hit-stop freezes the first 0.18 s of the clip.
 
 ## Still open
 
