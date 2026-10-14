@@ -84,6 +84,12 @@ public class Enemy : MonoBehaviour
 
     // While attacking, the clip moves the arm and the scythe follows the hand.
     private bool isAttacking = false;
+    // Once the plunge bottoms out, the scythe stays where it was driven in, relative to the enemy,
+    // instead of following the small movements of the hand.
+    private bool isWeaponPlanted = false;
+    private Vector3 plantedLocalPosition;
+    private Quaternion plantedLocalRotation;
+    private float previousHandHeight = float.MaxValue;
 
     void Start()
     {
@@ -146,6 +152,13 @@ public class Enemy : MonoBehaviour
 
         if (isAttacking)
         {
+            if (isWeaponPlanted)
+            {
+                weapon.localPosition = plantedLocalPosition;
+                weapon.localRotation = plantedLocalRotation;
+                return;
+            }
+
             Quaternion scytheFrame = Quaternion.Inverse(Quaternion.LookRotation(WeaponButtDirection, WeaponBladeDirection));
             Quaternion raised = Quaternion.LookRotation(transform.forward, transform.up) * scytheFrame;
             Vector3 plantedButt = Quaternion.AngleAxis(PlantedLean, transform.right) * -transform.up;
@@ -155,6 +168,15 @@ public class Enemy : MonoBehaviour
             weapon.rotation = Quaternion.Slerp(raised, planted, plant);
             weapon.position += rightHand.position - weapon.TransformPoint(AttackGripPoint);
             KeepWeaponAboveGround();
+
+            // The plunge has bottomed out when the hand stops going down with the scythe fully planted.
+            if (plant >= 1.0f && handHeight >= previousHandHeight)
+            {
+                isWeaponPlanted = true;
+                plantedLocalPosition = weapon.localPosition;
+                plantedLocalRotation = weapon.localRotation;
+            }
+            previousHandHeight = handHeight;
             return;
         }
 
