@@ -34,7 +34,7 @@ Timings, sizes and colours are constants at the top of the file and inside `Run`
 
 ## Enemy attack
 
-`Enemy.Attack()` stops the enemy that killed the player, stops its chase audio, turns it to face the player and sets the animator trigger `attack`. `CB_squeleton_lowpolywithoutacc.controller` has an `Attack` state reached from Any State by that trigger, with no exit; it plays `Enemy Animations/Enemy Attack.fbx` (a single swing cut from the Mixamo "One Hand Sword Combo", 25 frames at 30 fps, 0.8 s), imported as Humanoid with its own avatar, Loop Time off and root motion baked into the pose. The enemy holds the last frame afterwards.
+`Enemy.Attack()` stops the enemy that killed the player, stops its chase audio, turns it to face the player and sets the animator trigger `attack`. `CB_squeleton_lowpolywithoutacc.controller` has an `Attack` state reached from Any State by that trigger, with no exit; it plays `Enemy Animations/Enemy Attack.fbx` (the Mixamo "Sword And Shield Slash", 66 frames at 30 fps, 2.17 s), imported as Humanoid with its own avatar, Loop Time on and root motion baked into the pose. The enemy keeps swinging while the player dies.
 
 While attacking, `Enemy.LateUpdate` no longer aims the right arm. The scythe instead keeps the rotation it had relative to the right hand on the frame the attack started and its grip stays in the hand, so it swings with the clip. The hit-stop freezes the first 0.18 s of the swing.
 
