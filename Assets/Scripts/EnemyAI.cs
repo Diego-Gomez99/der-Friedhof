@@ -14,6 +14,8 @@ public class Enemy : MonoBehaviour
     public float fadeDuration = 2.0f;
     // Once the player is dead, enemies that reach this distance from the body swing the scythe at it.
     public float corpseAttackDistance = 1.5f;
+    // Speed, in metres per second, at which the walk clip plays at its normal rate.
+    private const float WalkClipSpeed = 1.0f;
 
     private Rigidbody rb;
     private Transform target;
@@ -117,6 +119,12 @@ public class Enemy : MonoBehaviour
     private void Update()
     {
         if (isDead || isAttacking) return;
+
+        // The walk clip plays faster or slower to match how fast the enemy actually moved in the
+        // last physics step, so its feet keep up with the ground and it stands still when blocked.
+        Vector3 groundVelocity = rb.velocity;
+        groundVelocity.y = 0.0f;
+        animator.SetFloat("walkSpeed", groundVelocity.magnitude / WalkClipSpeed);
 
         float distanceToTarget = Vector3.Distance(transform.position, target.position);
 
