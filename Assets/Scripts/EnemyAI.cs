@@ -30,6 +30,19 @@ public class Enemy : MonoBehaviour
 
     private Animator animator;
 
+    [Header("Weapon arm")]
+    // Point of the scythe handle that sits in the right hand, in the weapon's local space.
+    [SerializeField]
+    private Vector3 weaponGripPoint = new Vector3(-0.25f, 4.31f, -0.92f);
+
+    private Transform weapon;
+    private BoxCollider weaponCollider;
+    private Vector3 weaponRestLocalPosition;
+    private Vector3 weaponColliderRestCenter;
+    private Transform rightUpperArm;
+    private Transform rightLowerArm;
+    private Transform rightHand;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -38,6 +51,14 @@ public class Enemy : MonoBehaviour
         capsuleCollider = GetComponent<CapsuleCollider>();
         myaudio = GetComponent<AudioSource>();
         animator = GetComponent<Animator>();
+
+        weapon = transform.Find("weapon");
+        weaponCollider = weapon.GetComponent<BoxCollider>();
+        weaponRestLocalPosition = weapon.localPosition;
+        weaponColliderRestCenter = weaponCollider.center;
+        rightUpperArm = animator.GetBoneTransform(HumanBodyBones.RightUpperArm);
+        rightLowerArm = animator.GetBoneTransform(HumanBodyBones.RightLowerArm);
+        rightHand = animator.GetBoneTransform(HumanBodyBones.RightHand);
     }
 
     private void Update()
@@ -71,6 +92,27 @@ public class Enemy : MonoBehaviour
             myaudio.Stop();
             animator.SetBool("Persiguiendo", false);
         }
+    }
+
+    // Runs after the Animator, so it overrides the clip's pose for the right arm:
+    // the arm points straight ahead and the scythe follows the hand. The scythe's
+    // kill trigger stays where it was authored, at the player's height.
+    private void LateUpdate()
+    {
+        if (rightUpperArm == null || rightLowerArm == null || rightHand == null) return;
+
+        AimBone(rightUpperArm, rightLowerArm);
+        AimBone(rightLowerArm, rightHand);
+
+        weapon.position += rightHand.position - weapon.TransformPoint(weaponGripPoint);
+
+        Vector3 displacement = weapon.position - transform.TransformPoint(weaponRestLocalPosition);
+        weaponCollider.center = weaponColliderRestCenter - weapon.InverseTransformVector(displacement);
+    }
+
+    private void AimBone(Transform bone, Transform child)
+    {
+        bone.rotation = Quaternion.FromToRotation(child.position - bone.position, transform.forward) * bone.rotation;
     }
 
     public void Die()
