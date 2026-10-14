@@ -476,6 +476,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speedmovement: 9
   rotationSpeed: 700
+  deathSound: {fileID: 8300000, guid: 8e76a414f51fc3b4fbab3c458c39fa47, type: 3}
+  deathSoundStartOffset: 0
   gameover: 0
   camerasController: {fileID: 0}
 --- !u!4 &4427490558107308834 stripped

@@ -16,10 +16,15 @@ public class PlayerController : MonoBehaviour
     [Header("Death")]
     [SerializeField]
     private float gameOverDelay = 3.5f; // Seconds the death animation plays before the Game Over panel shows.
+    [SerializeField]
+    private AudioClip deathSound;
+    [SerializeField]
+    private float deathSoundStartOffset = 0.0f; // Seconds skipped at the start of the clip so the scream lands with the hit.
 
 
     private Animator playerAnimator;
     private Rigidbody rb;
+    private AudioSource audioSource; // Shared with WalkSteps; missing in scenes without footsteps.
 
     private DirectionsEnum direction = DirectionsEnum.NORTH;
     private float disableDistance = 10.0f; // The distance within which enemies should be disabled.
@@ -31,6 +36,7 @@ public class PlayerController : MonoBehaviour
     {
         playerAnimator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
+        audioSource = GetComponent<AudioSource>();
         //GameManager.instance.RespawnPlayer(gameObject);
         //LoadPlayerPosition();
     }
@@ -146,6 +152,13 @@ public class PlayerController : MonoBehaviour
 
         GameManager.instance.isGameOver = true;
         playerAnimator.SetTrigger("die");
+        if (audioSource != null && deathSound != null)
+        {
+            // Footsteps use PlayOneShot on this source, so taking over its clip does not affect them.
+            audioSource.clip = deathSound;
+            audioSource.time = Mathf.Clamp(deathSoundStartOffset, 0.0f, deathSound.length - 0.01f);
+            audioSource.Play();
+        }
         StartCoroutine(ShowGameOverAfterDeath());
     }
 
