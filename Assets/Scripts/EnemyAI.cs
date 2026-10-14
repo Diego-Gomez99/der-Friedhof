@@ -92,6 +92,8 @@ public class Enemy : MonoBehaviour
     private Vector3 plantedLocalPosition;
     private Quaternion plantedLocalRotation;
     private float previousHandHeight = float.MaxValue;
+    // Whether the ground impact effect has played for this swing.
+    private bool hasHitGround = false;
 
     void Start()
     {
@@ -177,12 +179,24 @@ public class Enemy : MonoBehaviour
             weapon.position += rightHand.position - weapon.TransformPoint(AttackGripPoint);
             KeepWeaponAboveGround();
 
+            // The dirt flies as soon as the butt touches the ground, before the plunge bottoms out.
+            Vector3 butt = weapon.TransformPoint(WeaponButtPoint);
+            bool buttInGround = butt.y <= transform.position.y;
+
             // The plunge has bottomed out when the hand stops going down with the scythe fully planted.
             if (plant >= 1.0f && handHeight >= previousHandHeight)
             {
                 isWeaponPlanted = true;
                 plantedLocalPosition = weapon.localPosition;
                 plantedLocalRotation = weapon.localRotation;
+                buttInGround = true;
+            }
+
+            if (buttInGround && !hasHitGround)
+            {
+                hasHitGround = true;
+                butt.y = transform.position.y;
+                GroundImpactEffect.Play(butt);
             }
             previousHandHeight = handHeight;
             return;
