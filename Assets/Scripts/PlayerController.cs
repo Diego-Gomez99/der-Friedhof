@@ -20,6 +20,8 @@ public class PlayerController : MonoBehaviour
     private AudioClip deathSound;
     [SerializeField]
     private float deathSoundStartOffset = 0.0f; // Seconds skipped at the start of the clip so the scream lands with the hit.
+    [SerializeField]
+    private AudioClip slashImpactSound; // Played by the full-screen slash effect on top of its own slice sound.
 
 
     private Animator playerAnimator;
@@ -151,6 +153,7 @@ public class PlayerController : MonoBehaviour
         }
 
         GameManager.instance.isGameOver = true;
+        SlashEffect.Play(slashImpactSound);
         playerAnimator.SetTrigger("die");
         if (audioSource != null && deathSound != null)
         {
