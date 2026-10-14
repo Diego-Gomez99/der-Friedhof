@@ -12,7 +12,7 @@
 | Script | Role |
 | --- | --- |
 | `PlayerController` | Movement from `Horizontal`/`Vertical` axes in `FixedUpdate`, sets Rigidbody velocity and the animator floats `speed` and `turnSpeed`. Handles trigger contacts: tag `Enemy` ends the game, tag `SS` kills enemies within 10 units. Stops moving while `GameManager.instance.isGameOver` is true. |
-| `GameManager` | Singleton (`GameManager.instance`) present in every gameplay scene. Finds the object named `Game Over Panel` in `Awake`, hides it, and shows it once `isGameOver` is true. Also starts the soundtrack. |
+| `GameManager` | Singleton (`GameManager.instance`) present in every gameplay scene. Finds the object named `Game Over Panel` in `Awake`, hides it, and shows it when `GameOver()` is called. Also starts the soundtrack. |
 | `Enemy` (file `EnemyAI.cs`) | Chases the object tagged `Player` when within `detectionDistance`, plays a chase clip, sets the animator bool `Persiguiendo`. `Die()` disables its colliders and destroys it after a delay. |
 | `MainMenuManager` | Menu music, Play and Quit handlers. |
 | `CamerasController`, `FollowCamera`, `StaticCamera` (in `CamerasScripts/`), `SwitchCameraCollider`, `CameraController` | Per-area cameras and switching between them. |
@@ -22,11 +22,11 @@
 
 ## How the player dies
 
-The enemy has a child named `weapon` with a `BoxCollider`, plus a `CapsuleCollider` on the root. `PlayerController.OnTriggerEnter` checks the `Enemy` tag and sets `GameManager.instance.isGameOver = true`. Nothing else happens on death today: no animation, no sound, and the enemy keeps its chase behaviour.
+The enemy has a child named `weapon` with a `BoxCollider`, plus a `CapsuleCollider` on the root. `PlayerController.OnTriggerEnter` checks the `Enemy` tag, sets `GameManager.instance.isGameOver = true`, plays the death animation and shows the Game Over panel once it ends (see `player-death-feature.md`). There is no death sound, and the enemy keeps its chase behaviour.
 
 ## Assets worth knowing
 
-- Player animator: `Assets/Animations/PlayerAnimations.controller`. One state, a blend tree named `Movement`, driven by `speed` and `turnSpeed`.
-- Animation clips: `Assets/Animations/` (Mixamo-style FBX: idle, walking, running, strafes, turns, jump). There is no death or fall clip.
+- Player animator: `Assets/Animations/PlayerAnimations.controller`. A blend tree state named `Movement`, driven by `speed` and `turnSpeed`, and a `Death` state entered from Any State by the `die` trigger.
+- Animation clips: `Assets/Animations/` (Mixamo-style FBX: idle, walking, running, strafes, turns, jump, dying).
 - Audio: `Assets/Audios/` has only footsteps. `Assets/Horror Elements/` has ambience and hit sounds (for example `Hits/Hit_Drama.wav`).
 - Fonts: the horror fonts in `Assets/Fonts/` are TextMeshPro SDF assets with a limited character set.
