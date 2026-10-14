@@ -50,6 +50,10 @@ public class Enemy : MonoBehaviour
     private Transform rightLowerArm;
     private Transform rightHand;
 
+    // While attacking, the clip moves the arm and the scythe keeps its pose relative to the hand.
+    private bool isAttacking = false;
+    private Quaternion weaponRotationInHand;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -71,7 +75,7 @@ public class Enemy : MonoBehaviour
 
     private void Update()
     {
-        if (isDead) return;
+        if (isDead || isAttacking) return;
 
         float distanceToTarget = Vector3.Distance(transform.position, target.position);
 
@@ -109,6 +113,13 @@ public class Enemy : MonoBehaviour
     {
         if (rightUpperArm == null || rightLowerArm == null || rightHand == null) return;
 
+        if (isAttacking)
+        {
+            weapon.rotation = rightHand.rotation * weaponRotationInHand;
+            weapon.position += rightHand.position - weapon.TransformPoint(weaponGripPoint);
+            return;
+        }
+
         // A positive turn around the up axis moves forward towards the enemy's right.
         Vector3 armDirection = Quaternion.AngleAxis(armOpenAngle, transform.up) * transform.forward;
         AimBone(rightUpperArm, rightLowerArm, armDirection);
@@ -124,6 +135,27 @@ public class Enemy : MonoBehaviour
     private void AimBone(Transform bone, Transform child, Vector3 direction)
     {
         bone.rotation = Quaternion.FromToRotation(child.position - bone.position, direction) * bone.rotation;
+    }
+
+    // Called when this enemy kills the player: it stops, faces the player and swings the scythe.
+    public void Attack()
+    {
+        if (isDead || isAttacking) return;
+        isAttacking = true;
+
+        rb.velocity = Vector3.zero;
+        myaudio.Stop();
+        Vector3 toPlayer = target.position - transform.position;
+        toPlayer.y = 0.0f;
+        if (toPlayer != Vector3.zero)
+        {
+            transform.rotation = Quaternion.LookRotation(toPlayer);
+        }
+
+        // Keep the grip the scythe had in the aimed pose of the last frame.
+        weaponRotationInHand = Quaternion.Inverse(rightHand.rotation) * weapon.rotation;
+        animator.SetBool("Persiguiendo", false);
+        animator.SetTrigger("attack");
     }
 
     public void Die()

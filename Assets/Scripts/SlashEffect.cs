@@ -4,7 +4,7 @@ using UnityEngine.Rendering;
 using UnityEngine.UI;
 
 // Full-screen pixel-art slash played when an enemy hits the player: impact frames,
-// three slashes drawn across the screen, flying shards, hit-stop, camera shake and a loud slice sound.
+// one slash drawn across the player, flying shards, hit-stop, camera shake and a loud slice sound.
 // Everything is built at runtime, so no prefab or scene setup is needed.
 public class SlashEffect : MonoBehaviour
 {
@@ -30,12 +30,12 @@ public class SlashEffect : MonoBehaviour
     private float previousTimeScale = 1.0f;
     private bool timeFrozen;
 
-    public static void Play(AudioClip impactSound)
+    public static void Play(AudioClip impactSound, Vector3 target, Vector3 attacker)
     {
         GameObject root = new GameObject("Slash Effect", typeof(Canvas), typeof(CanvasScaler));
         SlashEffect effect = root.AddComponent<SlashEffect>();
         effect.Build();
-        effect.StartCoroutine(effect.Run(impactSound));
+        effect.StartCoroutine(effect.Run(impactSound, target, attacker));
     }
 
     private void Build()
@@ -65,7 +65,7 @@ public class SlashEffect : MonoBehaviour
         audioSource.ignoreListenerPause = true;
     }
 
-    private IEnumerator Run(AudioClip impactSound)
+    private IEnumerator Run(AudioClip impactSound, Vector3 target, Vector3 attacker)
     {
         previousTimeScale = Time.timeScale;
         Time.timeScale = 0.0f;
@@ -79,21 +79,46 @@ public class SlashEffect : MonoBehaviour
             audioSource.PlayOneShot(impactSound, 1.0f);
         }
 
+        // The slash crosses the player perpendicular to the direction the hit comes from.
+        Vector2 center = Vector2.zero;
+        float angle = -28.0f;
+        Camera camera = ActiveCamera();
+        if (camera != null)
+        {
+            Vector3 targetScreen = camera.WorldToScreenPoint(target);
+            Vector3 attackerScreen = camera.WorldToScreenPoint(attacker);
+            float canvasScale = Mathf.Min(Screen.width / 1920.0f, Screen.height / 1080.0f);
+            center = ((Vector2)targetScreen - new Vector2(Screen.width, Screen.height) * 0.5f) / canvasScale;
+            Vector2 hit = targetScreen - attackerScreen;
+            if (hit.sqrMagnitude > 1.0f)
+            {
+                angle = Mathf.Atan2(hit.y, hit.x) * Mathf.Rad2Deg + 90.0f;
+            }
+        }
+
         StartCoroutine(FlashSequence());
-        StartCoroutine(Slash(-28.0f, new Vector2(0, 40), 1.0f, 1.0f));
-        SpawnShards();
+        StartCoroutine(Slash(angle, center, 1.3f, 1.0f));
+        SpawnShards(angle, center);
 
-        yield return new WaitForSecondsRealtime(0.09f);
-        StartCoroutine(Slash(32.0f, new Vector2(-60, -20), 0.9f, 1.18f));
-
-        yield return new WaitForSecondsRealtime(HitStopDuration - 0.09f);
+        yield return new WaitForSecondsRealtime(HitStopDuration);
         UnfreezeTime();
 
-        yield return new WaitForSecondsRealtime(0.04f);
-        StartCoroutine(Slash(-78.0f, new Vector2(80, 0), 0.75f, 0.85f));
-
-        yield return new WaitForSecondsRealtime(1.4f);
+        yield return new WaitForSecondsRealtime(1.5f);
         Destroy(gameObject);
+    }
+
+    // Of the enabled cameras, the one drawn last is the one the player sees.
+    private static Camera ActiveCamera()
+    {
+        Camera best = null;
+        foreach (Camera camera in Camera.allCameras)
+        {
+            if (camera.cameraType == CameraType.Game && (best == null || camera.depth > best.depth))
+            {
+                best = camera;
+            }
+        }
+        return best;
     }
 
     // White frame, black "impact" frame, then a red tint that fades out.
@@ -161,25 +186,25 @@ public class SlashEffect : MonoBehaviour
         Destroy(slashObject);
     }
 
-    private void SpawnShards()
+    private void SpawnShards(float angle, Vector2 center)
     {
         for (int i = 0; i < ShardCount; i++)
         {
-            StartCoroutine(Shard());
+            StartCoroutine(Shard(angle, center));
         }
     }
 
-    private IEnumerator Shard()
+    private IEnumerator Shard(float angle, Vector2 center)
     {
         Image shard = CreateImage("Shard", shakeRoot, PixelSprite);
         float size = Random.Range(2, 6) * 6.0f;
         shard.rectTransform.sizeDelta = new Vector2(size, size);
         shard.color = Random.value < 0.4f ? Color.white : SlashRed;
 
-        // Start along the first slash and fly outwards.
+        // Start along the slash and fly outwards.
         float along = Random.Range(-700.0f, 700.0f);
-        Vector2 slashDirection = Quaternion.Euler(0, 0, -28.0f) * Vector2.right;
-        Vector2 position = slashDirection * along + new Vector2(0, 40);
+        Vector2 slashDirection = Quaternion.Euler(0, 0, angle) * Vector2.right;
+        Vector2 position = center + slashDirection * along;
         Vector2 velocity = Random.insideUnitCircle.normalized * Random.Range(600.0f, 2200.0f);
         float life = Random.Range(0.5f, 1.0f);
 

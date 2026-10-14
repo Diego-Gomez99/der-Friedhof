@@ -139,12 +139,12 @@ public class PlayerController : MonoBehaviour
         {
             // The player touched an object with the "Enemy" tag.
             // End the game or perform game over actions here.
-            EndGame();
+            EndGame(other.GetComponentInParent<Enemy>());
         }
     }
 
     // Custom method to end the game.
-    private void EndGame()
+    private void EndGame(Enemy killer)
     {
         // The enemy's weapon and body colliders can both fire the trigger.
         if (GameManager.instance.isGameOver)
@@ -153,7 +153,12 @@ public class PlayerController : MonoBehaviour
         }
 
         GameManager.instance.isGameOver = true;
-        SlashEffect.Play(slashImpactSound);
+        Vector3 attackerPosition = killer != null ? killer.transform.position : transform.position - transform.forward;
+        if (killer != null)
+        {
+            killer.Attack();
+        }
+        SlashEffect.Play(slashImpactSound, transform.position + Vector3.up, attackerPosition + Vector3.up);
         playerAnimator.SetTrigger("die");
         if (audioSource != null && deathSound != null)
         {
