@@ -4,8 +4,8 @@ None of these block the game. They are listed so they are not mistaken for new r
 
 ## Console warnings that are expected
 
-- `The character used for Underline is not available in font asset [HorrorFont-Regular SDF]` / `[horrh___ SDF]`: the horror fonts have no underscore glyph. Harmless.
 - `Color primaries 0 is unknown or unsupported by WindowsMediaFoundation`: comes from the main menu background video. Harmless.
+- `Project ID request failed ... 404` and `Unknown Unity Connect error (400)` on editor startup: `ProjectSettings.asset` is still linked to a Unity Cloud project (`cloudProjectId`) that no longer exists or is not accessible. Cloud services are off (`cloudEnabled: 0`). Unlinking it in Project Settings > Services removes the message.
 
 ## Scene transitions
 
