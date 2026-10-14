@@ -20,6 +20,7 @@
 | `CamerasController`, `FollowCamera`, `StaticCamera` (in `CamerasScripts/`), `SwitchCameraCollider`, `CameraController` | Per-area cameras and switching between them. |
 | `Checkpoint` | Saves the player position to `PlayerPrefs`. The loading side in `PlayerController` is commented out, so checkpoints currently have no effect. |
 | `SlashEffect` | Full-screen slash, hit-stop, shake and slice sound played when an enemy touches the player. Created at runtime by `SlashEffect.Play`. |
+| `GroundImpactEffect` | Burst of dust and dirt clods where an enemy's scythe butt first touches the ground during the attack (or where it is planted, if it never reaches the ground). Built at runtime by `GroundImpactEffect.Play`, uses the always included `Sprites/Default` shader and destroys itself after 2.5 s. |
 | `WalkSteps`, `LampEffect`, `HeadFalling`, `AreaNameShow` | Footstep audio and ambience effects. |
 | `LimitFPS` | Caps the frame rate at 60. |
 
