@@ -28,6 +28,7 @@ The enemy has a child named `weapon` with a `BoxCollider`, plus a `CapsuleCollid
 ## Assets worth knowing
 
 - Player animator: `Assets/Animations/PlayerAnimations.controller`. A blend tree state named `Movement`, driven by `speed` and `turnSpeed`, and a `Death` state entered from Any State by the `die` trigger.
+- Enemy model and animator: the 32 enemies in `Final Scene` are instances of `Assets/Animations/Enemy Animations/T-Pose.fbx` (the Dead Cowboy skeleton rigged with Mixamo, humanoid), still named `CB_squeleton_lowpolywithoutacc (n)`. Their controller is `Assets/Animations/CB_squeleton_lowpolywithoutacc.controller`: `idle` plays `Enemy Animations/Idle.fbx` and `EnemyWalking 0` plays `Enemy Animations/Wheelbarrow Walk (1).fbx` while `Persiguiendo` is true. The scythe (`weapon`) is a child of the enemy root, not of the hand bone. The unrigged `Quixel/.../DeadCowboy/CB_squeleton_lowpolywithoutacc.fbx` has no bones and cannot be animated; `EnemyWalking.anim` is an empty clip.
 - Animation clips: `Assets/Animations/` (Mixamo-style FBX: idle, walking, running, strafes, turns, jump, dying).
 - Audio: `Assets/Audios/` has the footsteps and the player death scream. `Assets/Horror Elements/` has ambience and hit sounds (for example `Hits/Hit_Drama.wav`).
 - Fonts: the horror fonts in `Assets/Fonts/` are TextMeshPro SDF assets with a limited character set.
