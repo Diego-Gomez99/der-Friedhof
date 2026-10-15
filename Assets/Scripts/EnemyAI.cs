@@ -442,6 +442,7 @@ public class Enemy : MonoBehaviour
                 isWeaponPlanted = true;
                 plantedLocalPosition = weapon.localPosition;
                 plantedLocalRotation = weapon.localRotation;
+                DeathMarkers.Record(weapon);
                 buttInGround = true;
             }
 
