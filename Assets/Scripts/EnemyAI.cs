@@ -99,8 +99,12 @@ public class Enemy : MonoBehaviour
 
     // The enemy is only seen, and its scythe only kills, while it chases the player.
     // Attacking and dead enemies stay visible.
+    // Seconds an enemy stays visible at least, once shown, before it can vanish again.
+    private const float MinVisibleTime = 1.0f;
     private Renderer[] renderers;
     private bool isVisible = true;
+    private float visibleSince;
+    private Coroutine pendingVisibility;
 
     void Start()
     {
@@ -120,8 +124,10 @@ public class Enemy : MonoBehaviour
         rightLowerArm = animator.GetBoneTransform(HumanBodyBones.RightLowerArm);
         rightHand = animator.GetBoneTransform(HumanBodyBones.RightHand);
 
+        // Hidden from the start, without smoke.
         renderers = GetComponentsInChildren<Renderer>();
-        SetVisible(false);
+        isVisible = false;
+        ApplyVisibility(false);
     }
 
     private void Update()
@@ -165,17 +171,47 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    // Shows or hides the enemy and its scythe, and arms or disarms the scythe's kill trigger with it.
+    // Shows or hides the enemy and its scythe inside a puff of black smoke. The switch happens once
+    // the smoke covers the body. The scythe is disarmed at once when hiding, and armed only when shown.
     private void SetVisible(bool visible)
     {
         if (visible == isVisible) return;
-        isVisible = visible;
+        // Keeps a player standing at the edge of detectionDistance from setting off a puff every frame.
+        if (!visible && Time.time - visibleSince < MinVisibleTime) return;
 
+        isVisible = visible;
+        if (visible)
+        {
+            visibleSince = Time.time;
+        }
+        else
+        {
+            weaponCollider.enabled = false;
+        }
+
+        SmokeEffect.Play(transform.position, capsuleCollider.height * transform.lossyScale.y, capsuleCollider.radius * transform.lossyScale.x);
+        if (pendingVisibility != null)
+        {
+            StopCoroutine(pendingVisibility);
+        }
+        pendingVisibility = StartCoroutine(ApplyVisibilityAfterSmoke(visible));
+    }
+
+    private IEnumerator ApplyVisibilityAfterSmoke(bool visible)
+    {
+        yield return new WaitForSeconds(SmokeEffect.CoverDelay);
+        pendingVisibility = null;
+        ApplyVisibility(visible);
+    }
+
+    private void ApplyVisibility(bool visible)
+    {
         foreach (Renderer part in renderers)
         {
             part.enabled = visible;
         }
-        weaponCollider.enabled = visible;
+        // A dead enemy's scythe stays disarmed.
+        weaponCollider.enabled = visible && !isDead;
     }
 
     // Runs after the Animator, so it overrides the clip's pose for the right arm:

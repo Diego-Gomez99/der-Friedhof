@@ -1,0 +1,184 @@
+using UnityEngine;
+
+// Puff of black smoke that wraps an enemy while it appears or disappears. It swells quickly,
+// so it covers the body by the time the enemy is shown or hidden, then rises and thins out.
+// Everything is built at runtime, so no prefab or scene setup is needed. The object destroys
+// itself when the particles are gone.
+public class SmokeEffect : MonoBehaviour
+{
+    // Seconds from Play until the cloud is thick enough to hide the switch.
+    public const float CoverDelay = 0.2f;
+
+    private const int CloudCount = 60;
+    private const int WispCount = 24;
+    private const float Lifetime = 3.0f; // Longer than any particle lives.
+
+    private static readonly Color SmokeLight = new Color(0.08f, 0.08f, 0.09f, 0.9f);
+    private static readonly Color SmokeDark = new Color(0.0f, 0.0f, 0.0f, 0.95f);
+
+    private static Material smokeMaterial;
+
+    // feet is the bottom of the body, height and radius its size in metres.
+    public static void Play(Vector3 feet, float height, float radius)
+    {
+        GameObject root = new GameObject("Smoke Effect");
+        root.transform.position = feet;
+        root.AddComponent<SmokeEffect>();
+
+        CreateCloud(root.transform, height, radius);
+        CreateWisps(root.transform, height, radius);
+    }
+
+    private void Start()
+    {
+        Destroy(gameObject, Lifetime);
+    }
+
+    // Thick puffs filling the whole body, which swell, drift up and fade.
+    private static void CreateCloud(Transform parent, float height, float radius)
+    {
+        ParticleSystem particles = CreateSystem("Cloud", parent);
+
+        ParticleSystem.MainModule main = particles.main;
+        main.startLifetime = new ParticleSystem.MinMaxCurve(1.2f, 2.0f);
+        main.startSpeed = new ParticleSystem.MinMaxCurve(0.2f, 0.6f);
+        main.startSize = new ParticleSystem.MinMaxCurve(radius * 2.0f, radius * 3.5f);
+        main.startRotation = new ParticleSystem.MinMaxCurve(0.0f, 2.0f * Mathf.PI);
+        main.startColor = new ParticleSystem.MinMaxGradient(SmokeDark, SmokeLight);
+        main.gravityModifier = -0.08f;
+
+        ParticleSystem.EmissionModule emission = particles.emission;
+        emission.SetBursts(new[] { new ParticleSystem.Burst(0.0f, CloudCount) });
+
+        // A box as tall as the body: the puffs start all over it and push slightly outward.
+        ParticleSystem.ShapeModule shape = particles.shape;
+        shape.enabled = true;
+        shape.shapeType = ParticleSystemShapeType.Box;
+        shape.position = new Vector3(0.0f, height * 0.5f, 0.0f);
+        shape.scale = new Vector3(radius * 1.6f, height, radius * 1.6f);
+        shape.randomDirectionAmount = 1.0f;
+
+        ParticleSystem.SizeOverLifetimeModule size = particles.sizeOverLifetime;
+        size.enabled = true;
+        size.size = new ParticleSystem.MinMaxCurve(1.0f, AnimationCurve.EaseInOut(0.0f, 0.4f, 1.0f, 1.6f));
+
+        ParticleSystem.RotationOverLifetimeModule rotation = particles.rotationOverLifetime;
+        rotation.enabled = true;
+        rotation.z = new ParticleSystem.MinMaxCurve(-1.2f, 1.2f);
+
+        // Opaque early, so the body is covered at CoverDelay, then a slow fade.
+        ParticleSystem.ColorOverLifetimeModule color = particles.colorOverLifetime;
+        color.enabled = true;
+        color.color = Fade(new[] { new GradientAlphaKey(0.0f, 0.0f), new GradientAlphaKey(1.0f, 0.12f), new GradientAlphaKey(0.8f, 0.5f), new GradientAlphaKey(0.0f, 1.0f) });
+
+        particles.Play();
+    }
+
+    // Thin trails that curl up out of the cloud and outlast it.
+    private static void CreateWisps(Transform parent, float height, float radius)
+    {
+        ParticleSystem particles = CreateSystem("Wisps", parent);
+
+        ParticleSystem.MainModule main = particles.main;
+        main.startLifetime = new ParticleSystem.MinMaxCurve(1.2f, 2.0f);
+        main.startSpeed = new ParticleSystem.MinMaxCurve(0.8f, 1.6f);
+        main.startSize = new ParticleSystem.MinMaxCurve(radius * 0.6f, radius * 1.2f);
+        main.startRotation = new ParticleSystem.MinMaxCurve(0.0f, 2.0f * Mathf.PI);
+        main.startColor = new ParticleSystem.MinMaxGradient(SmokeDark, SmokeLight);
+        main.gravityModifier = -0.15f;
+
+        ParticleSystem.EmissionModule emission = particles.emission;
+        emission.SetBursts(new[] { new ParticleSystem.Burst(0.05f, WispCount) });
+
+        ParticleSystem.ShapeModule shape = particles.shape;
+        shape.enabled = true;
+        shape.shapeType = ParticleSystemShapeType.Cone;
+        shape.angle = 30.0f;
+        shape.radius = radius;
+        shape.position = new Vector3(0.0f, height * 0.3f, 0.0f);
+        shape.rotation = new Vector3(-90.0f, 0.0f, 0.0f);
+
+        // A sideways sway, so the trails curl instead of going straight up.
+        ParticleSystem.NoiseModule noise = particles.noise;
+        noise.enabled = true;
+        noise.strength = 0.6f;
+        noise.frequency = 0.8f;
+        noise.scrollSpeed = 0.5f;
+
+        ParticleSystem.SizeOverLifetimeModule size = particles.sizeOverLifetime;
+        size.enabled = true;
+        size.size = new ParticleSystem.MinMaxCurve(1.0f, AnimationCurve.Linear(0.0f, 0.6f, 1.0f, 1.8f));
+
+        ParticleSystem.ColorOverLifetimeModule color = particles.colorOverLifetime;
+        color.enabled = true;
+        color.color = Fade(new[] { new GradientAlphaKey(0.0f, 0.0f), new GradientAlphaKey(0.8f, 0.15f), new GradientAlphaKey(0.0f, 1.0f) });
+
+        particles.Play();
+    }
+
+    // A one-shot system that does not loop or play on its own, so it can be configured first.
+    private static ParticleSystem CreateSystem(string name, Transform parent)
+    {
+        GameObject child = new GameObject(name);
+        child.transform.SetParent(parent, false);
+
+        ParticleSystem particles = child.AddComponent<ParticleSystem>();
+        particles.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
+
+        ParticleSystem.MainModule main = particles.main;
+        main.duration = 0.1f;
+        main.loop = false;
+        main.playOnAwake = false;
+        main.simulationSpace = ParticleSystemSimulationSpace.World;
+        main.maxParticles = 96;
+
+        ParticleSystem.EmissionModule emission = particles.emission;
+        emission.rateOverTime = 0.0f;
+
+        ParticleSystemRenderer renderer = child.GetComponent<ParticleSystemRenderer>();
+        renderer.material = SmokeMaterial;
+        renderer.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
+        renderer.receiveShadows = false;
+        return particles;
+    }
+
+    private static Gradient Fade(GradientAlphaKey[] alphaKeys)
+    {
+        Gradient gradient = new Gradient();
+        gradient.SetKeys(new[] { new GradientColorKey(Color.white, 0.0f), new GradientColorKey(Color.white, 1.0f) }, alphaKeys);
+        return gradient;
+    }
+
+    // Sprites/Default is in the always included shaders, so it is also available in builds.
+    private static Material SmokeMaterial
+    {
+        get
+        {
+            if (smokeMaterial == null)
+            {
+                smokeMaterial = new Material(Shader.Find("Sprites/Default")) { mainTexture = SoftPuff(64) };
+            }
+            return smokeMaterial;
+        }
+    }
+
+    // White puff whose alpha falls off from the centre and is broken up by a little noise,
+    // so overlapping puffs read as smoke rather than as round blobs.
+    private static Texture2D SoftPuff(int size)
+    {
+        Texture2D texture = new Texture2D(size, size) { wrapMode = TextureWrapMode.Clamp };
+        for (int x = 0; x < size; x++)
+        {
+            for (int y = 0; y < size; y++)
+            {
+                Vector2 offset = new Vector2(x + 0.5f, y + 0.5f) / size * 2.0f - Vector2.one;
+                float noise = Mathf.PerlinNoise(x * 0.12f, y * 0.12f) * 0.5f + Mathf.PerlinNoise(x * 0.3f + 7.0f, y * 0.3f + 3.0f) * 0.5f;
+                float falloff = Mathf.SmoothStep(0.0f, 1.0f, 1.0f - offset.magnitude);
+                float alpha = Mathf.Clamp01(Mathf.Sqrt(falloff) * (0.7f + 0.8f * noise));
+                texture.SetPixel(x, y, new Color(1.0f, 1.0f, 1.0f, alpha));
+            }
+        }
+        texture.Apply();
+        return texture;
+    }
+}
