@@ -22,6 +22,9 @@ public class SmokeEffect : MonoBehaviour
     private const float TrailSpacing = 0.25f; // Metres between trail puffs.
     private const int TrailMaxPuffs = 160;
     private const float TrailLifetime = 1.6f; // Longer than any trail puff lives.
+    // Once there, the trail keeps puffing in place where the new body will be, until it appears.
+    private const float HoldPuffsPerSecond = 30.0f;
+    private const int HoldMaxPuffs = 48;
     private static readonly Color TrailColor = new Color(0.0f, 0.0f, 0.0f, 0.45f);
 
     private static Material smokeMaterial;
@@ -31,6 +34,9 @@ public class SmokeEffect : MonoBehaviour
     private Vector3 trailTo;
     private float trailStartTime;
     private float trailEmittedDistance;
+    private float trailHoldTime;
+    private float trailHeight;
+    private int holdPuffsEmitted;
 
     // feet is the bottom of the body, height and radius its size in metres.
     public static void Play(Vector3 feet, float height, float radius)
@@ -45,7 +51,8 @@ public class SmokeEffect : MonoBehaviour
 
     // A faint thread of black smoke that runs low over the ground from one body's feet to
     // another's, as if the enemy slid there unseen. height is the body's height in metres.
-    public static void PlayTrail(Vector3 fromFeet, Vector3 toFeet, float height)
+    // Once it gets there, it lingers in place for holdTime seconds.
+    public static void PlayTrail(Vector3 fromFeet, Vector3 toFeet, float height, float holdTime)
     {
         Vector3 lift = Vector3.up * height * 0.35f;
 
@@ -55,21 +62,28 @@ public class SmokeEffect : MonoBehaviour
         effect.trailFrom = fromFeet + lift;
         effect.trailTo = toFeet + lift;
         effect.trailStartTime = Time.time;
+        effect.trailHoldTime = holdTime;
+        effect.trailHeight = height;
         effect.trailParticles = CreateTrail(root.transform, height);
     }
 
     private void Start()
     {
-        Destroy(gameObject, trailParticles != null ? TrailTravelTime + TrailLifetime : Lifetime);
+        Destroy(gameObject, trailParticles != null ? TrailTravelTime + trailHoldTime + TrailLifetime : Lifetime);
     }
 
     // Moves the head of the trail and leaves puffs evenly along the stretch it covered this frame.
+    // Then puffs around the end of the trail while it lingers there.
     private void Update()
     {
         if (trailParticles == null) return;
 
         float length = Vector3.Distance(trailFrom, trailTo);
-        if (trailEmittedDistance >= length) return;
+        if (trailEmittedDistance >= length)
+        {
+            EmitHoldPuffs();
+            return;
+        }
 
         // Starts fast and slows down as it reaches the new body.
         float t = Mathf.Clamp01((Time.time - trailStartTime) / TrailTravelTime);
@@ -87,6 +101,20 @@ public class SmokeEffect : MonoBehaviour
             trailParticles.Emit(puff, 1);
         }
         transform.position = trailFrom + direction * headDistance;
+    }
+
+    // Puffs at a steady rate around the end of the trail, from when it arrives until holdTime later.
+    private void EmitHoldPuffs()
+    {
+        float holding = Mathf.Min(Time.time - trailStartTime - TrailTravelTime, trailHoldTime);
+        int due = Mathf.Min(Mathf.FloorToInt(holding * HoldPuffsPerSecond), HoldMaxPuffs);
+        ParticleSystem.EmitParams puff = new ParticleSystem.EmitParams();
+        for (; holdPuffsEmitted < due; holdPuffsEmitted++)
+        {
+            puff.position = trailTo + Random.insideUnitSphere * trailHeight * 0.15f;
+            puff.velocity = Random.insideUnitSphere * 0.15f + Vector3.up * 0.15f;
+            trailParticles.Emit(puff, 1);
+        }
     }
 
     // Thick puffs filling the whole body, which swell, drift up and fade.
@@ -182,7 +210,7 @@ public class SmokeEffect : MonoBehaviour
         main.startRotation = new ParticleSystem.MinMaxCurve(0.0f, 2.0f * Mathf.PI);
         main.startColor = TrailColor;
         main.gravityModifier = -0.03f;
-        main.maxParticles = TrailMaxPuffs + 16;
+        main.maxParticles = TrailMaxPuffs + HoldMaxPuffs + 16;
         // Keeps playing, so the puffs emitted after the first 0.1 s are simulated too.
         main.loop = true;
 

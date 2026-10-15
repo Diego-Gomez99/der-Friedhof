@@ -320,7 +320,7 @@ public class Enemy : MonoBehaviour
             if (!isDead && lastVanishPosition.HasValue
                 && Vector3.Distance(lastVanishPosition.Value, transform.position) >= MinTrailDistance)
             {
-                SmokeEffect.PlayTrail(lastVanishPosition.Value, transform.position, height);
+                SmokeEffect.PlayTrail(lastVanishPosition.Value, transform.position, height, AppearAfterTrailPause);
                 puffDelay = SmokeEffect.TrailTravelTime + AppearAfterTrailPause;
             }
             appearTime = Time.time + puffDelay;
