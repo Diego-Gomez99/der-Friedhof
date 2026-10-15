@@ -120,7 +120,7 @@ public class Enemy : MonoBehaviour
     // Cooldown, in seconds, of an enemy that vanished because a closer one took over. After it,
     // respawnMinDistance applies as well.
     [SerializeField]
-    private float yieldCooldown = 0.5f;
+    private float yieldCooldown = 1.0f;
     private float cooldownEndTime;
     private bool isRespawning = false;
 
