@@ -7358,6 +7358,7 @@ GameObject:
   - component: {fileID: 62252550}
   - component: {fileID: 62252552}
   - component: {fileID: 62252551}
+  - component: {fileID: 62252553}
   m_Layer: 0
   m_Name: Aset_building_relief_M_xdpleabdw_00_LOD0 (2)
   m_TagString: Untagged
@@ -7430,6 +7431,27 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 62252549}
   m_Mesh: {fileID: -8508764991035993200, guid: 6029a29d2deeec24686da5af6d033eb2, type: 3}
+--- !u!65 &62252553
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 62252549}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.27752855, y: 2.3417244, z: 0.26975572}
+  m_Center: {x: 0.021000126, y: 1.1659921, z: 0}
 --- !u!1001 &63228104
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15114,6 +15136,7 @@ GameObject:
   - component: {fileID: 149895774}
   - component: {fileID: 149895776}
   - component: {fileID: 149895775}
+  - component: {fileID: 149895777}
   m_Layer: 0
   m_Name: Aset_props__M_welhfhldw_00_LOD0 (21)
   m_TagString: Untagged
@@ -15186,6 +15209,27 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 149895773}
   m_Mesh: {fileID: 7223325279404511040, guid: 94df3833a28578744a158085c5f33ec7, type: 3}
+--- !u!65 &149895777
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 149895773}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 3.5000012, y: 1.3189893, z: 0.39854348}
+  m_Center: {x: -1.7499996, y: 0.6594943, z: 0.08196038}
 --- !u!1001 &150032056
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15295,6 +15339,7 @@ GameObject:
   - component: {fileID: 150300650}
   - component: {fileID: 150300652}
   - component: {fileID: 150300651}
+  - component: {fileID: 150300653}
   m_Layer: 0
   m_Name: Aset_props__M_welhfhldw_00_LOD0 (24)
   m_TagString: Untagged
@@ -15367,6 +15412,27 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 150300649}
   m_Mesh: {fileID: 7223325279404511040, guid: 94df3833a28578744a158085c5f33ec7, type: 3}
+--- !u!65 &150300653
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 150300649}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 3.500002, y: 1.3189893, z: 0.3985437}
+  m_Center: {x: -1.7500458, y: 0.6594943, z: 0.081960484}
 --- !u!1001 &151582334
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16689,6 +16755,7 @@ GameObject:
   - component: {fileID: 166008285}
   - component: {fileID: 166008287}
   - component: {fileID: 166008286}
+  - component: {fileID: 166008288}
   m_Layer: 0
   m_Name: Aset_props__M_welhfhldw_00_LOD0 (9)
   m_TagString: Untagged
@@ -16761,6 +16828,27 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 166008284}
   m_Mesh: {fileID: 7223325279404511040, guid: 94df3833a28578744a158085c5f33ec7, type: 3}
+--- !u!65 &166008288
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 166008284}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 3.500002, y: 1.3189893, z: 0.39854375}
+  m_Center: {x: -1.75, y: 0.6594945, z: 0.08196052}
 --- !u!1001 &166050269
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22122,6 +22210,7 @@ GameObject:
   - component: {fileID: 213074879}
   - component: {fileID: 213074881}
   - component: {fileID: 213074880}
+  - component: {fileID: 213074882}
   m_Layer: 0
   m_Name: Aset_props__M_welhfhldw_00_LOD0 (6)
   m_TagString: Untagged
@@ -22194,6 +22283,27 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 213074878}
   m_Mesh: {fileID: 7223325279404511040, guid: 94df3833a28578744a158085c5f33ec7, type: 3}
+--- !u!65 &213074882
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 213074878}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 3.500002, y: 1.3189893, z: 0.39854375}
+  m_Center: {x: -1.7499847, y: 0.65949404, z: 0.08199104}
 --- !u!1001 &213414711
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24621,6 +24731,7 @@ GameObject:
   - component: {fileID: 241505952}
   - component: {fileID: 241505954}
   - component: {fileID: 241505953}
+  - component: {fileID: 241505955}
   m_Layer: 0
   m_Name: Aset_building_relief_M_xdpleabdw_00_LOD0 (1)
   m_TagString: Untagged
@@ -24693,6 +24804,27 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 241505951}
   m_Mesh: {fileID: -8508764991035993200, guid: 6029a29d2deeec24686da5af6d033eb2, type: 3}
+--- !u!65 &241505955
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 241505951}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.27752855, y: 2.3417244, z: 0.26975572}
+  m_Center: {x: 0.020984868, y: 1.1659921, z: 0}
 --- !u!1001 &242503052
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27966,6 +28098,7 @@ GameObject:
   - component: {fileID: 276018642}
   - component: {fileID: 276018644}
   - component: {fileID: 276018643}
+  - component: {fileID: 276018645}
   m_Layer: 0
   m_Name: Aset_building_relief_M_xdpleabdw_00_LOD0 (7)
   m_TagString: Untagged
@@ -28038,6 +28171,27 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 276018641}
   m_Mesh: {fileID: -8508764991035993200, guid: 6029a29d2deeec24686da5af6d033eb2, type: 3}
+--- !u!65 &276018645
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 276018641}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.27752855, y: 2.3417244, z: 0.26975572}
+  m_Center: {x: 0.021000126, y: 1.1659921, z: 0}
 --- !u!1001 &276243152
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -31411,6 +31565,7 @@ GameObject:
   - component: {fileID: 306821224}
   - component: {fileID: 306821226}
   - component: {fileID: 306821225}
+  - component: {fileID: 306821227}
   m_Layer: 0
   m_Name: Aset_props__M_welhfhldw_00_LOD0 (18)
   m_TagString: Untagged
@@ -31483,6 +31638,27 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 306821223}
   m_Mesh: {fileID: 7223325279404511040, guid: 94df3833a28578744a158085c5f33ec7, type: 3}
+--- !u!65 &306821227
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 306821223}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 3.5000007, y: 1.3189893, z: 0.39854348}
+  m_Center: {x: -1.7499994, y: 0.65949404, z: 0.08196038}
 --- !u!1001 &308285343
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -41028,6 +41204,7 @@ GameObject:
   - component: {fileID: 410762219}
   - component: {fileID: 410762221}
   - component: {fileID: 410762220}
+  - component: {fileID: 410762222}
   m_Layer: 0
   m_Name: Aset_props__M_welhfhldw_00_LOD0 (20)
   m_TagString: Untagged
@@ -41100,6 +41277,27 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 410762218}
   m_Mesh: {fileID: 7223325279404511040, guid: 94df3833a28578744a158085c5f33ec7, type: 3}
+--- !u!65 &410762222
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 410762218}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 3.5000012, y: 1.3189893, z: 0.39854348}
+  m_Center: {x: -1.7499844, y: 0.65949404, z: 0.08196038}
 --- !u!1001 &410868652
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -46082,6 +46280,7 @@ GameObject:
   - component: {fileID: 464993366}
   - component: {fileID: 464993368}
   - component: {fileID: 464993367}
+  - component: {fileID: 464993369}
   m_Layer: 0
   m_Name: Aset_props__M_welhfhldw_00_LOD0 (22)
   m_TagString: Untagged
@@ -46154,6 +46353,27 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 464993365}
   m_Mesh: {fileID: 7223325279404511040, guid: 94df3833a28578744a158085c5f33ec7, type: 3}
+--- !u!65 &464993369
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 464993365}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 3.500001, y: 1.3189893, z: 0.39854348}
+  m_Center: {x: -1.7499843, y: 0.6594943, z: 0.08196038}
 --- !u!1001 &465891871
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -48317,6 +48537,7 @@ GameObject:
   - component: {fileID: 490794096}
   - component: {fileID: 490794098}
   - component: {fileID: 490794097}
+  - component: {fileID: 490794099}
   m_Layer: 0
   m_Name: Aset_building_relief_M_xdpleabdw_00_LOD0 (6)
   m_TagString: Untagged
@@ -48389,6 +48610,27 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 490794095}
   m_Mesh: {fileID: -8508764991035993200, guid: 6029a29d2deeec24686da5af6d033eb2, type: 3}
+--- !u!65 &490794099
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 490794095}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.27752855, y: 2.3417244, z: 0.26975572}
+  m_Center: {x: 0.021000126, y: 1.1659921, z: 0}
 --- !u!1001 &491214525
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -65752,6 +65994,7 @@ GameObject:
   - component: {fileID: 652478161}
   - component: {fileID: 652478163}
   - component: {fileID: 652478162}
+  - component: {fileID: 652478164}
   m_Layer: 0
   m_Name: Aset_props__M_welhfhldw_00_LOD0 (16)
   m_TagString: Untagged
@@ -65824,6 +66067,27 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 652478160}
   m_Mesh: {fileID: 7223325279404511040, guid: 94df3833a28578744a158085c5f33ec7, type: 3}
+--- !u!65 &652478164
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 652478160}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 3.5000007, y: 1.3189893, z: 0.39854348}
+  m_Center: {x: -1.7499994, y: 0.6594943, z: 0.08196038}
 --- !u!1 &652976982
 GameObject:
   m_ObjectHideFlags: 0
@@ -68291,6 +68555,7 @@ GameObject:
   - component: {fileID: 677978989}
   - component: {fileID: 677978991}
   - component: {fileID: 677978990}
+  - component: {fileID: 677978992}
   m_Layer: 0
   m_Name: Aset_props__M_welhfhldw_00_LOD0 (13)
   m_TagString: Untagged
@@ -68363,6 +68628,27 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 677978988}
   m_Mesh: {fileID: 7223325279404511040, guid: 94df3833a28578744a158085c5f33ec7, type: 3}
+--- !u!65 &677978992
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 677978988}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 3.500002, y: 1.3189893, z: 0.39854375}
+  m_Center: {x: -1.7500153, y: 0.6594943, z: 0.081930004}
 --- !u!1001 &682138520
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -70326,6 +70612,7 @@ GameObject:
   - component: {fileID: 698338548}
   - component: {fileID: 698338550}
   - component: {fileID: 698338549}
+  - component: {fileID: 698338551}
   m_Layer: 0
   m_Name: Aset_props__M_welhfhldw_00_LOD0 (7)
   m_TagString: Untagged
@@ -70398,6 +70685,27 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 698338547}
   m_Mesh: {fileID: 7223325279404511040, guid: 94df3833a28578744a158085c5f33ec7, type: 3}
+--- !u!65 &698338551
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 698338547}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 3.500002, y: 1.3189893, z: 0.39854375}
+  m_Center: {x: -1.7499847, y: 0.65949404, z: 0.08199104}
 --- !u!1001 &698361733
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -79231,6 +79539,7 @@ GameObject:
   - component: {fileID: 763035564}
   - component: {fileID: 763035566}
   - component: {fileID: 763035565}
+  - component: {fileID: 763035567}
   m_Layer: 0
   m_Name: Aset_building_railing_S_xdiiajjdw_00_LOD0 (2)
   m_TagString: Untagged
@@ -79303,6 +79612,27 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 763035563}
   m_Mesh: {fileID: -6111661699891763900, guid: ea9abcac9f4f48047839d731dc6bc2eb, type: 3}
+--- !u!65 &763035567
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 763035563}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.81070596, y: 0.40154782, z: 0.038773112}
+  m_Center: {x: -0.3967199, y: 0.20077334, z: -0.00016012322}
 --- !u!1001 &763125629
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -83041,6 +83371,7 @@ GameObject:
   - component: {fileID: 794474479}
   - component: {fileID: 794474481}
   - component: {fileID: 794474480}
+  - component: {fileID: 794474482}
   m_Layer: 0
   m_Name: Aset_props__M_welhfhldw_00_LOD0 (11)
   m_TagString: Untagged
@@ -83113,6 +83444,27 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 794474478}
   m_Mesh: {fileID: 7223325279404511040, guid: 94df3833a28578744a158085c5f33ec7, type: 3}
+--- !u!65 &794474482
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 794474478}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 3.500002, y: 1.3189893, z: 0.39854375}
+  m_Center: {x: -1.7500153, y: 0.6594943, z: 0.081930004}
 --- !u!1001 &794861595
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -84739,6 +85091,7 @@ GameObject:
   - component: {fileID: 809398178}
   - component: {fileID: 809398180}
   - component: {fileID: 809398179}
+  - component: {fileID: 809398181}
   m_Layer: 0
   m_Name: Aset_props__M_welhfhldw_00_LOD0 (15)
   m_TagString: Untagged
@@ -84811,6 +85164,27 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 809398177}
   m_Mesh: {fileID: 7223325279404511040, guid: 94df3833a28578744a158085c5f33ec7, type: 3}
+--- !u!65 &809398181
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 809398177}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 3.5000012, y: 1.3189893, z: 0.39854348}
+  m_Center: {x: -1.7500149, y: 0.65949404, z: 0.08196038}
 --- !u!1001 &810821529
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -102776,6 +103150,7 @@ GameObject:
   - component: {fileID: 982499845}
   - component: {fileID: 982499847}
   - component: {fileID: 982499846}
+  - component: {fileID: 982499848}
   m_Layer: 0
   m_Name: Aset_props__M_welhfhldw_00_LOD0 (19)
   m_TagString: Untagged
@@ -102848,6 +103223,27 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 982499844}
   m_Mesh: {fileID: 7223325279404511040, guid: 94df3833a28578744a158085c5f33ec7, type: 3}
+--- !u!65 &982499848
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 982499844}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 3.500002, y: 1.3189893, z: 0.3985437}
+  m_Center: {x: -1.7500305, y: 0.6594945, z: 0.081960484}
 --- !u!1001 &983160459
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -103113,6 +103509,7 @@ GameObject:
   - component: {fileID: 984686738}
   - component: {fileID: 984686740}
   - component: {fileID: 984686739}
+  - component: {fileID: 984686741}
   m_Layer: 0
   m_Name: Aset_props__M_welhfhldw_00_LOD0 (1)
   m_TagString: Untagged
@@ -103185,6 +103582,27 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 984686737}
   m_Mesh: {fileID: 7223325279404511040, guid: 94df3833a28578744a158085c5f33ec7, type: 3}
+--- !u!65 &984686741
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 984686737}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 3.5000012, y: 1.3189893, z: 0.39854348}
+  m_Center: {x: -1.7499996, y: 0.6594945, z: 0.0819909}
 --- !u!1001 &986820118
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -104116,6 +104534,7 @@ GameObject:
   - component: {fileID: 992306239}
   - component: {fileID: 992306241}
   - component: {fileID: 992306240}
+  - component: {fileID: 992306242}
   m_Layer: 0
   m_Name: Aset_props__M_welhfhldw_00_LOD0 (2)
   m_TagString: Untagged
@@ -104188,6 +104607,27 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 992306238}
   m_Mesh: {fileID: 7223325279404511040, guid: 94df3833a28578744a158085c5f33ec7, type: 3}
+--- !u!65 &992306242
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 992306238}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 3.5000012, y: 1.3189893, z: 0.39854348}
+  m_Center: {x: -1.7499996, y: 0.6594943, z: 0.08196038}
 --- !u!1001 &993044898
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -113583,6 +114023,7 @@ GameObject:
   - component: {fileID: 1101499125}
   - component: {fileID: 1101499127}
   - component: {fileID: 1101499126}
+  - component: {fileID: 1101499128}
   m_Layer: 0
   m_Name: Aset_building_relief_M_xdpleabdw_00_LOD0 (5)
   m_TagString: Untagged
@@ -113655,6 +114096,27 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1101499124}
   m_Mesh: {fileID: -8508764991035993200, guid: 6029a29d2deeec24686da5af6d033eb2, type: 3}
+--- !u!65 &1101499128
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1101499124}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.27752855, y: 2.3417244, z: 0.26975572}
+  m_Center: {x: 0.021000126, y: 1.1659921, z: 0}
 --- !u!1 &1102732832
 GameObject:
   m_ObjectHideFlags: 0
@@ -113666,6 +114128,7 @@ GameObject:
   - component: {fileID: 1102732833}
   - component: {fileID: 1102732835}
   - component: {fileID: 1102732834}
+  - component: {fileID: 1102732836}
   m_Layer: 0
   m_Name: Aset_props__M_welhfhldw_00_LOD0 (4)
   m_TagString: Untagged
@@ -113738,6 +114201,27 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1102732832}
   m_Mesh: {fileID: 7223325279404511040, guid: 94df3833a28578744a158085c5f33ec7, type: 3}
+--- !u!65 &1102732836
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1102732832}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 3.500002, y: 1.3189893, z: 0.39854375}
+  m_Center: {x: -1.75, y: 0.6594943, z: 0.08199104}
 --- !u!1001 &1102851575
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -117801,6 +118285,7 @@ GameObject:
   - component: {fileID: 1150765822}
   - component: {fileID: 1150765824}
   - component: {fileID: 1150765823}
+  - component: {fileID: 1150765825}
   m_Layer: 0
   m_Name: Aset_building_relief_M_xdpleabdw_00_LOD0 (3)
   m_TagString: Untagged
@@ -117873,6 +118358,27 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1150765821}
   m_Mesh: {fileID: -8508764991035993200, guid: 6029a29d2deeec24686da5af6d033eb2, type: 3}
+--- !u!65 &1150765825
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1150765821}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.27752855, y: 2.3417244, z: 0.26975572}
+  m_Center: {x: 0.021000126, y: 1.1659921, z: 0}
 --- !u!1001 &1151024395
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -139114,6 +139620,7 @@ GameObject:
   - component: {fileID: 1391199376}
   - component: {fileID: 1391199378}
   - component: {fileID: 1391199377}
+  - component: {fileID: 1391199379}
   m_Layer: 0
   m_Name: Aset_props__M_welhfhldw_00_LOD0 (8)
   m_TagString: Untagged
@@ -139186,6 +139693,27 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1391199375}
   m_Mesh: {fileID: 7223325279404511040, guid: 94df3833a28578744a158085c5f33ec7, type: 3}
+--- !u!65 &1391199379
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1391199375}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 3.500002, y: 1.3189893, z: 0.39854375}
+  m_Center: {x: -1.7499847, y: 0.6594943, z: 0.08196052}
 --- !u!1 &1395490623
 GameObject:
   m_ObjectHideFlags: 0
@@ -145678,6 +146206,7 @@ GameObject:
   - component: {fileID: 1459771854}
   - component: {fileID: 1459771856}
   - component: {fileID: 1459771855}
+  - component: {fileID: 1459771857}
   m_Layer: 0
   m_Name: Aset_props__M_welhfhldw_00_LOD0 (10)
   m_TagString: Untagged
@@ -145750,6 +146279,27 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1459771853}
   m_Mesh: {fileID: 7223325279404511040, guid: 94df3833a28578744a158085c5f33ec7, type: 3}
+--- !u!65 &1459771857
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1459771853}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 3.500002, y: 1.3189893, z: 0.39854375}
+  m_Center: {x: -1.7500153, y: 0.6594943, z: 0.081930004}
 --- !u!1001 &1460503587
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -151815,6 +152365,7 @@ GameObject:
   - component: {fileID: 1528624251}
   - component: {fileID: 1528624253}
   - component: {fileID: 1528624252}
+  - component: {fileID: 1528624254}
   m_Layer: 0
   m_Name: Aset_props__M_welhfhldw_00_LOD0 (12)
   m_TagString: Untagged
@@ -151887,6 +152438,27 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1528624250}
   m_Mesh: {fileID: 7223325279404511040, guid: 94df3833a28578744a158085c5f33ec7, type: 3}
+--- !u!65 &1528624254
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1528624250}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 3.500002, y: 1.3189893, z: 0.39854375}
+  m_Center: {x: -1.7500153, y: 0.6594943, z: 0.081930004}
 --- !u!1001 &1528742129
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -157982,6 +158554,7 @@ GameObject:
   - component: {fileID: 1583084960}
   - component: {fileID: 1583084962}
   - component: {fileID: 1583084961}
+  - component: {fileID: 1583084963}
   m_Layer: 0
   m_Name: Aset_props__M_welhfhldw_00_LOD0 (3)
   m_TagString: Untagged
@@ -158054,6 +158627,27 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1583084959}
   m_Mesh: {fileID: 7223325279404511040, guid: 94df3833a28578744a158085c5f33ec7, type: 3}
+--- !u!65 &1583084963
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1583084959}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 3.5000014, y: 1.3189893, z: 0.39854348}
+  m_Center: {x: -1.7499926, y: 0.6594945, z: 0.08196038}
 --- !u!1001 &1584508322
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -158768,6 +159362,7 @@ GameObject:
   - component: {fileID: 1589561983}
   - component: {fileID: 1589561985}
   - component: {fileID: 1589561984}
+  - component: {fileID: 1589561986}
   m_Layer: 0
   m_Name: Aset_props__M_welhfhldw_00_LOD0 (23)
   m_TagString: Untagged
@@ -158840,6 +159435,27 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1589561982}
   m_Mesh: {fileID: 7223325279404511040, guid: 94df3833a28578744a158085c5f33ec7, type: 3}
+--- !u!65 &1589561986
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1589561982}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 3.5000012, y: 1.3189893, z: 0.39854348}
+  m_Center: {x: -1.7499844, y: 0.6594943, z: 0.08196038}
 --- !u!1001 &1589629742
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -159868,6 +160484,7 @@ GameObject:
   - component: {fileID: 1595417244}
   - component: {fileID: 1595417246}
   - component: {fileID: 1595417245}
+  - component: {fileID: 1595417247}
   m_Layer: 0
   m_Name: Aset_building_railing_S_xdiiajjdw_00_LOD0 (1)
   m_TagString: Untagged
@@ -159940,6 +160557,27 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1595417243}
   m_Mesh: {fileID: -6111661699891763900, guid: ea9abcac9f4f48047839d731dc6bc2eb, type: 3}
+--- !u!65 &1595417247
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1595417243}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.81070596, y: 0.40154782, z: 0.038773112}
+  m_Center: {x: -0.3967199, y: 0.20077334, z: -0.00016012322}
 --- !u!1001 &1595715941
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -166305,6 +166943,7 @@ GameObject:
   - component: {fileID: 1669239392}
   - component: {fileID: 1669239394}
   - component: {fileID: 1669239393}
+  - component: {fileID: 1669239395}
   m_Layer: 0
   m_Name: Aset_building_relief_M_xdpleabdw_00_LOD0 (9)
   m_TagString: Untagged
@@ -166377,6 +167016,27 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1669239391}
   m_Mesh: {fileID: -8508764991035993200, guid: 6029a29d2deeec24686da5af6d033eb2, type: 3}
+--- !u!65 &1669239395
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1669239391}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.27752855, y: 2.3417244, z: 0.26975572}
+  m_Center: {x: 0.021000126, y: 1.1659921, z: 0}
 --- !u!1 &1669678497
 GameObject:
   m_ObjectHideFlags: 0
@@ -166388,6 +167048,7 @@ GameObject:
   - component: {fileID: 1669678498}
   - component: {fileID: 1669678500}
   - component: {fileID: 1669678499}
+  - component: {fileID: 1669678501}
   m_Layer: 0
   m_Name: Aset_props__M_welhfhldw_00_LOD0 (17)
   m_TagString: Untagged
@@ -166460,6 +167121,27 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1669678497}
   m_Mesh: {fileID: 7223325279404511040, guid: 94df3833a28578744a158085c5f33ec7, type: 3}
+--- !u!65 &1669678501
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1669678497}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 3.5000007, y: 1.3189893, z: 0.39854348}
+  m_Center: {x: -1.7499994, y: 0.6594943, z: 0.08196038}
 --- !u!1001 &1671511984
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -170022,6 +170704,7 @@ GameObject:
   - component: {fileID: 1709455051}
   - component: {fileID: 1709455053}
   - component: {fileID: 1709455052}
+  - component: {fileID: 1709455054}
   m_Layer: 0
   m_Name: Aset_props__M_welhfhldw_00_LOD0 (14)
   m_TagString: Untagged
@@ -170094,6 +170777,27 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1709455050}
   m_Mesh: {fileID: 7223325279404511040, guid: 94df3833a28578744a158085c5f33ec7, type: 3}
+--- !u!65 &1709455054
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1709455050}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 3.5000012, y: 1.3189893, z: 0.39854348}
+  m_Center: {x: -1.7499996, y: 0.6594943, z: 0.08196038}
 --- !u!1001 &1710974329
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -179996,6 +180700,7 @@ GameObject:
   - component: {fileID: 1803673572}
   - component: {fileID: 1803673574}
   - component: {fileID: 1803673573}
+  - component: {fileID: 1803673575}
   m_Layer: 0
   m_Name: Aset_props__M_welhfhldw_00_LOD0 (5)
   m_TagString: Untagged
@@ -180068,6 +180773,27 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1803673571}
   m_Mesh: {fileID: 7223325279404511040, guid: 94df3833a28578744a158085c5f33ec7, type: 3}
+--- !u!65 &1803673575
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1803673571}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 3.500002, y: 1.3189893, z: 0.39854375}
+  m_Center: {x: -1.75, y: 0.65949404, z: 0.08199104}
 --- !u!1001 &1804817020
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -182820,6 +183546,7 @@ GameObject:
   - component: {fileID: 1836999329}
   - component: {fileID: 1836999331}
   - component: {fileID: 1836999330}
+  - component: {fileID: 1836999332}
   m_Layer: 0
   m_Name: Aset_building_relief_M_xdpleabdw_00_LOD0 (8)
   m_TagString: Untagged
@@ -182892,6 +183619,27 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1836999328}
   m_Mesh: {fileID: -8508764991035993200, guid: 6029a29d2deeec24686da5af6d033eb2, type: 3}
+--- !u!65 &1836999332
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1836999328}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.27752855, y: 2.3417244, z: 0.26975572}
+  m_Center: {x: 0.021000126, y: 1.1659921, z: 0}
 --- !u!1001 &1838909991
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -194385,6 +195133,7 @@ GameObject:
   - component: {fileID: 1944064972}
   - component: {fileID: 1944064974}
   - component: {fileID: 1944064973}
+  - component: {fileID: 1944064975}
   m_Layer: 0
   m_Name: Aset_building_relief_M_xdpleabdw_00_LOD0 (4)
   m_TagString: Untagged
@@ -194457,6 +195206,27 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1944064971}
   m_Mesh: {fileID: -8508764991035993200, guid: 6029a29d2deeec24686da5af6d033eb2, type: 3}
+--- !u!65 &1944064975
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1944064971}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.27752855, y: 2.3417244, z: 0.26975572}
+  m_Center: {x: 0.021000126, y: 1.1659921, z: 0}
 --- !u!43 &1944089097
 Mesh:
   m_ObjectHideFlags: 0
