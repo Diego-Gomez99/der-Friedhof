@@ -117,6 +117,10 @@ public class Enemy : MonoBehaviour
     // so it does not appear on top of the player.
     [SerializeField]
     private float respawnMinDistance = 5.0f;
+    // Cooldown, in seconds, of an enemy that vanished because a closer one took over. After it,
+    // respawnMinDistance applies as well.
+    [SerializeField]
+    private float yieldCooldown = 0.5f;
     private float cooldownEndTime;
     private bool isRespawning = false;
 
@@ -157,7 +161,7 @@ public class Enemy : MonoBehaviour
 
         if (isVisible && Time.time - visibleSince >= maxVisibleTime)
         {
-            StartCooldown();
+            StartCooldown(respawnCooldown);
             return;
         }
 
@@ -198,9 +202,17 @@ public class Enemy : MonoBehaviour
         }
         else
         {
+            // Shown and still in range: it only stops because a closer enemy takes over.
+            bool yielding = isVisible && distanceToTarget <= detectionDistance;
+
             myaudio.Stop();
             animator.SetBool("Persiguiendo", false);
             SetVisible(false);
+            // Once it has actually vanished (not held by its minimum visible time).
+            if (yielding && !isVisible)
+            {
+                StartCooldown(yieldCooldown);
+            }
         }
     }
 
@@ -254,9 +266,9 @@ public class Enemy : MonoBehaviour
 
     // Vanishes where it stands and stays hidden and still until the cooldown is over and the
     // player is at least respawnMinDistance away.
-    private void StartCooldown()
+    private void StartCooldown(float duration)
     {
-        cooldownEndTime = Time.time + respawnCooldown;
+        cooldownEndTime = Time.time + duration;
         isRespawning = true;
         rb.velocity = new Vector3(0.0f, rb.velocity.y, 0.0f);
         animator.SetFloat("walkSpeed", 0.0f);
