@@ -106,6 +106,20 @@ public class Enemy : MonoBehaviour
     private float visibleSince;
     private Coroutine pendingVisibility;
 
+    [Header("Visibility")]
+    // Seconds an enemy can stay visible in a row. Then it vanishes for respawnCooldown seconds,
+    // during which it neither chases nor shows up, even with the player in range.
+    [SerializeField]
+    private float maxVisibleTime = 30.0f;
+    [SerializeField]
+    private float respawnCooldown = 10.0f;
+    // After the cooldown, it shows up again only with the player at least this many metres away,
+    // so it does not appear on top of the player.
+    [SerializeField]
+    private float respawnMinDistance = 5.0f;
+    private float cooldownEndTime;
+    private bool isRespawning = false;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -133,6 +147,16 @@ public class Enemy : MonoBehaviour
     private void Update()
     {
         if (isDead || isAttacking) return;
+        if (Time.time < cooldownEndTime) return;
+
+        if (isVisible && Time.time - visibleSince >= maxVisibleTime)
+        {
+            StartCooldown();
+            return;
+        }
+
+        float distanceToTarget = Vector3.Distance(transform.position, target.position);
+        if (isRespawning && distanceToTarget < respawnMinDistance) return;
 
         // The walk clip plays faster or slower to match how fast the enemy actually moved in the
         // last physics step, so its feet keep up with the ground and it stands still when blocked.
@@ -140,10 +164,9 @@ public class Enemy : MonoBehaviour
         groundVelocity.y = 0.0f;
         animator.SetFloat("walkSpeed", groundVelocity.magnitude / WalkClipSpeed);
 
-        float distanceToTarget = Vector3.Distance(transform.position, target.position);
-
         if (distanceToTarget <= detectionDistance)
         {
+            isRespawning = false;
             SetVisible(true);
             float speedMultiplier = Mathf.Clamp01(1 - (distanceToTarget / detectionDistance));
             float currentMovementSpeed = Mathf.Lerp(minMovementSpeed, maxMovementSpeed, speedMultiplier);
@@ -169,6 +192,19 @@ public class Enemy : MonoBehaviour
             animator.SetBool("Persiguiendo", false);
             SetVisible(false);
         }
+    }
+
+    // Vanishes where it stands and stays hidden and still until the cooldown is over and the
+    // player is at least respawnMinDistance away.
+    private void StartCooldown()
+    {
+        cooldownEndTime = Time.time + respawnCooldown;
+        isRespawning = true;
+        rb.velocity = new Vector3(0.0f, rb.velocity.y, 0.0f);
+        animator.SetFloat("walkSpeed", 0.0f);
+        animator.SetBool("Persiguiendo", false);
+        myaudio.Stop();
+        SetVisible(false);
     }
 
     // Shows or hides the enemy and its scythe inside a puff of black smoke. The switch happens once
