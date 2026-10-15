@@ -407,19 +407,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4404a6ae9be1c194bb6bc2c6849e2980, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  detectionDistance: 10
-  maxMovementSpeed: 6
-  minMovementSpeed: 0.5
-  rotationSpeed: 5
-  audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
-  armOpenAngle: 85
-  armDropAngle: 65
-  weaponGripPoint: {x: 1.544571, y: 4.177524, z: -0.882705}
-  maxVisibleTime: 30
-  respawnCooldown: 10
-  respawnMinDistance: 5
-  yieldCooldown: 1
 --- !u!95 &3145708449886577897
 Animator:
   serializedVersion: 5

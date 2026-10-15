@@ -1623,12 +1623,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4404a6ae9be1c194bb6bc2c6849e2980, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  detectionDistance: 12
-  maxMovementSpeed: 7
-  minMovementSpeed: 0.1
-  rotationSpeed: 5
   fadeDuration: 2
-  audiovolume: 0.5
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
 --- !u!54 &5724902915413045595
 Rigidbody:

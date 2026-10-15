@@ -7,10 +7,15 @@ using static UnityEngine.GraphicsBuffer;
 
 public class Enemy : MonoBehaviour
 {
-    public float detectionDistance = 5.0f;
-    public float maxMovementSpeed = 2.0f;
-    public float minMovementSpeed = 0.5f;
-    public float rotationSpeed = 5.0f;
+    // Every enemy behaves the same, so its tuning values are constants rather than serialized
+    // fields (a serialized field keeps its old value in the scene when the default changes in code).
+    // A hidden enemy appears once the player is this many metres away or closer.
+    private const float DetectionDistance = 10.0f;
+    // Chase speed, in metres per second: the minimum with the player at DetectionDistance, rising
+    // to the maximum as the player gets closer.
+    private const float MaxMovementSpeed = 6.0f;
+    private const float MinMovementSpeed = 0.5f;
+    private const float RotationSpeed = 5.0f;
     // Speed, in metres per second, at which the walk clip plays at its normal rate.
     private const float WalkClipSpeed = 1.8f;
 
@@ -21,10 +26,7 @@ public class Enemy : MonoBehaviour
     private CapsuleCollider capsuleCollider;
     private Collider[] playerColliders;
 
-    [Header("Volume")]
-    [SerializeField]
-    private float audiovolume;
-
+    private const float AudioVolume = 0.7f;
 
     private AudioSource myaudio;
     [SerializeField]
@@ -32,17 +34,13 @@ public class Enemy : MonoBehaviour
 
     private Animator animator;
 
-    [Header("Weapon arm")]
     // Degrees the right arm opens outward (to the enemy's right) from straight back.
-    [SerializeField]
-    private float armOpenAngle = 85.0f;
+    private const float ArmOpenAngle = 85.0f;
     // Degrees the right arm drops below the horizontal.
-    [SerializeField]
-    private float armDropAngle = 65.0f;
+    private const float ArmDropAngle = 65.0f;
     // Point of the scythe handle that sits in the right hand, in the weapon's local space.
     // The scythe keeps the rotation it has in the scene, relative to the enemy.
-    [SerializeField]
-    private Vector3 weaponGripPoint = new Vector3(1.545f, 4.178f, -0.883f);
+    private static readonly Vector3 WeaponGripPoint = new Vector3(1.544571f, 4.177524f, -0.882705f);
 
     // Scythe pose during the attack. The clip is a great sword raise and plunge, and the scythe is
     // held near the butt of the handle like the sword's hilt. It follows the hand's position, but
@@ -108,24 +106,21 @@ public class Enemy : MonoBehaviour
     private float visibleSince;
     private Coroutine pendingVisibility;
 
-    [Header("Visibility")]
-    // Seconds an enemy can stay visible in a row. Then it vanishes for respawnCooldown seconds,
+    // These are the same for every enemy, so they are constants rather than serialized fields
+    // (a serialized field keeps its old value in the scene when the default changes in code).
+    // Seconds an enemy can stay visible in a row. Then it vanishes for RespawnCooldown seconds,
     // during which it neither chases nor shows up, even with the player in range.
-    [SerializeField]
-    private float maxVisibleTime = 30.0f;
-    [SerializeField]
-    private float respawnCooldown = 10.0f;
+    private const float MaxVisibleTime = 30.0f;
+    private const float RespawnCooldown = 10.0f;
     // After the cooldown, it shows up again only with the player at least this many metres away,
     // so it does not appear on top of the player.
-    [SerializeField]
-    private float respawnMinDistance = 5.0f;
+    private const float RespawnMinDistance = 5.0f;
     // Cooldown, in seconds, of an enemy that vanished because a closer one took over. After it,
-    // respawnMinDistance applies as well.
-    [SerializeField]
-    private float yieldCooldown = 1.0f;
+    // RespawnMinDistance applies as well.
+    private const float YieldCooldown = 1.0f;
     // A shown enemy farther than this many metres from the player vanishes and, once hidden and
     // with a chance of TeleportChance (0 to 1), moves to where the player is. After VanishCooldown
-    // seconds, it comes back once the player is respawnMinDistance away from where it is.
+    // seconds, it comes back once the player is RespawnMinDistance away from where it is.
     private const float VanishDistance = 40.0f;
     private const float VanishCooldown = 3.0f;
     private const float TeleportChance = 0.25f;
@@ -198,9 +193,9 @@ public class Enemy : MonoBehaviour
         }
         if (Time.time < cooldownEndTime) return;
 
-        if (isVisible && Time.time - visibleSince >= maxVisibleTime)
+        if (isVisible && Time.time - visibleSince >= MaxVisibleTime)
         {
-            StartCooldown(respawnCooldown);
+            StartCooldown(RespawnCooldown);
             return;
         }
 
@@ -212,7 +207,7 @@ public class Enemy : MonoBehaviour
             StartCooldown(VanishCooldown);
             return;
         }
-        if (isRespawning && distanceToTarget < respawnMinDistance) return;
+        if (isRespawning && distanceToTarget < RespawnMinDistance) return;
 
         // The walk clip plays faster or slower to match how fast the enemy actually moved in the
         // last physics step, so its feet keep up with the ground and it stands still when blocked.
@@ -221,7 +216,7 @@ public class Enemy : MonoBehaviour
         animator.SetFloat("walkSpeed", groundVelocity.magnitude / WalkClipSpeed);
 
         // Once shown, it keeps chasing until the player is VanishDistance away.
-        bool mayChase = (isVisible || distanceToTarget <= detectionDistance)
+        bool mayChase = (isVisible || distanceToTarget <= DetectionDistance)
             && ClosestCandidate(target.position) == this
             && (isVisible || (!AnotherEnemyVisible() && Time.time - lastVanishTime >= AppearAfterVanishDelay));
 
@@ -229,21 +224,21 @@ public class Enemy : MonoBehaviour
         {
             isRespawning = false;
             SetVisible(true);
-            float speedMultiplier = Mathf.Clamp01(1 - (distanceToTarget / detectionDistance));
-            float currentMovementSpeed = Mathf.Lerp(minMovementSpeed, maxMovementSpeed, speedMultiplier);
+            float speedMultiplier = Mathf.Clamp01(1 - (distanceToTarget / DetectionDistance));
+            float currentMovementSpeed = Mathf.Lerp(MinMovementSpeed, MaxMovementSpeed, speedMultiplier);
             Vector3 directionToPlayer = (target.position - transform.position).normalized;
 
             Quaternion targetRotation = Quaternion.LookRotation(
                 new Vector3(directionToPlayer.x, 0, directionToPlayer.z));
 
             transform.rotation = Quaternion.Slerp(
-                transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+                transform.rotation, targetRotation, RotationSpeed * Time.deltaTime);
 
             rb.velocity = directionToPlayer * currentMovementSpeed;
 
             if(!myaudio.isPlaying)
             {
-                myaudio.PlayOneShot(chasesong, audiovolume);
+                myaudio.PlayOneShot(chasesong, AudioVolume);
                 animator.SetBool("Persiguiendo", true);
             }
         }
@@ -258,7 +253,7 @@ public class Enemy : MonoBehaviour
             // Once it has actually vanished (not held by its minimum visible time).
             if (yielding && !isVisible)
             {
-                StartCooldown(yieldCooldown);
+                StartCooldown(YieldCooldown);
             }
         }
     }
@@ -282,8 +277,8 @@ public class Enemy : MonoBehaviour
     private bool CanChase(float distanceToPlayer)
     {
         return !isDead && !isAttacking && Time.time >= cooldownEndTime
-            && (isVisible || distanceToPlayer <= detectionDistance)
-            && !(isRespawning && distanceToPlayer < respawnMinDistance);
+            && (isVisible || distanceToPlayer <= DetectionDistance)
+            && !(isRespawning && distanceToPlayer < RespawnMinDistance);
     }
 
     // The enemy closest to the player among those that could chase it, worked out once per frame.
@@ -317,7 +312,7 @@ public class Enemy : MonoBehaviour
     }
 
     // Vanishes where it stands and stays hidden and still until the cooldown is over and the
-    // player is at least respawnMinDistance away.
+    // player is at least RespawnMinDistance away.
     private void StartCooldown(float duration)
     {
         cooldownEndTime = Time.time + duration;
@@ -336,7 +331,7 @@ public class Enemy : MonoBehaviour
         bool teleport = teleportOnVanish;
         teleportOnVanish = false;
         if (visible == isVisible) return;
-        // Keeps a player standing at the edge of detectionDistance from setting off a puff every frame.
+        // Keeps a player standing at the edge of DetectionDistance from setting off a puff every frame.
         if (!visible && Time.time - visibleSince < MinVisibleTime) return;
 
         isVisible = visible;
@@ -487,14 +482,14 @@ public class Enemy : MonoBehaviour
         }
 
         // A negative turn around the up axis moves backward towards the enemy's right.
-        Vector3 armHorizontal = Quaternion.AngleAxis(-armOpenAngle, transform.up) * -transform.forward;
-        float drop = armDropAngle * Mathf.Deg2Rad;
+        Vector3 armHorizontal = Quaternion.AngleAxis(-ArmOpenAngle, transform.up) * -transform.forward;
+        float drop = ArmDropAngle * Mathf.Deg2Rad;
         Vector3 armDirection = Mathf.Cos(drop) * armHorizontal - Mathf.Sin(drop) * transform.up;
         AimBone(rightUpperArm, rightLowerArm, armDirection);
         AimBone(rightLowerArm, rightHand, armDirection);
 
         weapon.localRotation = weaponRestLocalRotation;
-        weapon.position += rightHand.position - weapon.TransformPoint(weaponGripPoint);
+        weapon.position += rightHand.position - weapon.TransformPoint(WeaponGripPoint);
 
         Vector3 displacement = weapon.position - transform.TransformPoint(weaponRestLocalPosition);
         weaponCollider.center = weaponColliderRestCenter - weapon.InverseTransformVector(displacement);
@@ -552,7 +547,7 @@ public class Enemy : MonoBehaviour
 
     // Editor only, in Play mode, in the Scene view and in the Game view with Gizmos on.
     // A hidden enemy is outlined: white while it waits for the player, orange during the cooldown,
-    // and red once the cooldown is over but the player is still closer than respawnMinDistance.
+    // and red once the cooldown is over but the player is still closer than RespawnMinDistance.
     // A label above it counts down to vanishing (while visible) or to the end of the cooldown.
     // The scythe's hitbox is drawn in red while it can kill.
     private void OnDrawGizmos()
@@ -568,7 +563,7 @@ public class Enemy : MonoBehaviour
 
         if (isVisible)
         {
-            float untilHidden = Mathf.Max(0.0f, maxVisibleTime - (Time.time - visibleSince));
+            float untilHidden = Mathf.Max(0.0f, MaxVisibleTime - (Time.time - visibleSince));
             DrawGizmoLabel(labelPosition, $"Vanishes in {untilHidden:0.0} s", Color.white);
             return;
         }
@@ -579,7 +574,7 @@ public class Enemy : MonoBehaviour
             Gizmos.color = new Color(1.0f, 0.55f, 0.1f);
             label = $"Returns in {cooldownEndTime - Time.time:0.0} s";
         }
-        else if (isRespawning && Vector3.Distance(transform.position, target.position) < respawnMinDistance)
+        else if (isRespawning && Vector3.Distance(transform.position, target.position) < RespawnMinDistance)
         {
             Gizmos.color = Color.red;
             label = "Player too close";
