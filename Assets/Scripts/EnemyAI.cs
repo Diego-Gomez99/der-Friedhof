@@ -19,6 +19,7 @@ public class Enemy : MonoBehaviour
     private bool isDead = false;
     private Renderer enemyRenderer;
     private CapsuleCollider capsuleCollider;
+    private Collider[] playerColliders;
 
     [Header("Volume")]
     [SerializeField]
@@ -157,6 +158,7 @@ public class Enemy : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         target = GameObject.FindGameObjectWithTag("Player").transform;
+        playerColliders = target.GetComponentsInChildren<Collider>();
         enemyRenderer = GetComponent<Renderer>();
         capsuleCollider = GetComponent<CapsuleCollider>();
         myaudio = GetComponent<AudioSource>();
@@ -397,6 +399,11 @@ public class Enemy : MonoBehaviour
         }
         // A dead enemy's scythe stays disarmed.
         weaponCollider.enabled = visible && !isDead;
+        // The player walks through a hidden body. The collider stays on so the body keeps standing on the ground.
+        foreach (Collider playerCollider in playerColliders)
+        {
+            Physics.IgnoreCollision(capsuleCollider, playerCollider, !visible);
+        }
     }
 
     // Runs after the Animator, so it overrides the clip's pose for the right arm:
