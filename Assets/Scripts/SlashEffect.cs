@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.UI;
 
-// Full-screen pixel-art slash played when an enemy hits the player: impact frames,
+// Full-screen slash played when an enemy hits the player: impact frames,
 // one slash drawn across the player, flying shards, hit-stop, camera shake and a loud slice sound.
 // Everything is built at runtime, so no prefab or scene setup is needed.
 public class SlashEffect : MonoBehaviour
@@ -18,6 +18,8 @@ public class SlashEffect : MonoBehaviour
     private static readonly Color DarkRed = new Color(0.35f, 0.0f, 0.02f);
 
     private static Sprite slashSprite;
+    private static Sprite glowSprite;
+    private static Sprite sparkSprite;
     private static Sprite pixelSprite;
     private static AudioClip sliceClip;
 
@@ -151,7 +153,7 @@ public class SlashEffect : MonoBehaviour
         slash.localRotation = Quaternion.Euler(0.0f, 0.0f, angle);
 
         // A wide dark-red glow behind the bright stroke.
-        Image glow = CreateImage("Glow", slash, SlashSprite);
+        Image glow = CreateImage("Glow", slash, GlowSprite);
         glow.rectTransform.sizeDelta = new Vector2(2900, 260 * thickness);
         glow.color = new Color(DarkRed.r, DarkRed.g, DarkRed.b, 0.85f);
         MakeFilled(glow);
@@ -196,9 +198,8 @@ public class SlashEffect : MonoBehaviour
 
     private IEnumerator Shard(float angle, Vector2 center)
     {
-        Image shard = CreateImage("Shard", shakeRoot, PixelSprite);
-        float size = Random.Range(2, 6) * 6.0f;
-        shard.rectTransform.sizeDelta = new Vector2(size, size);
+        Image shard = CreateImage("Shard", shakeRoot, SparkSprite);
+        float size = Random.Range(10.0f, 30.0f);
         shard.color = Random.value < 0.4f ? Color.white : SlashRed;
 
         // Start along the slash and fly outwards.
@@ -214,8 +215,10 @@ public class SlashEffect : MonoBehaviour
             velocity += Vector2.down * 2600.0f * dt;
             velocity *= 1.0f - 2.0f * dt;
             position += velocity * dt;
-            // Snap to a 6 px grid so the shards move like pixel art.
-            shard.rectTransform.anchoredPosition = new Vector2(Mathf.Round(position.x / 6) * 6, Mathf.Round(position.y / 6) * 6);
+            // Each spark points where it flies and stretches with its speed.
+            shard.rectTransform.anchoredPosition = position;
+            shard.rectTransform.localRotation = Quaternion.Euler(0.0f, 0.0f, Mathf.Atan2(velocity.y, velocity.x) * Mathf.Rad2Deg);
+            shard.rectTransform.sizeDelta = new Vector2(size + velocity.magnitude * 0.04f, size * 0.35f);
             Color c = shard.color;
             c.a = 1.0f - t / life;
             shard.color = c;
@@ -334,45 +337,100 @@ public class SlashEffect : MonoBehaviour
         }
     }
 
-    // A low-resolution crescent with a white core and red edges, drawn with point filtering
-    // so it reads as pixel art when stretched across the screen.
+    // A crescent with a white core that blends into red edges, drawn at a high resolution with
+    // bilinear filtering so it stays smooth when stretched across the screen.
     private static Sprite SlashSprite
     {
         get
         {
             if (slashSprite == null)
             {
-                const int width = 96;
-                const int height = 9;
-                Texture2D texture = new Texture2D(width, height) { filterMode = FilterMode.Point, wrapMode = TextureWrapMode.Clamp };
-                for (int x = 0; x < width; x++)
+                slashSprite = CreateCrescentSprite((r, aa) =>
                 {
-                    float u = (x + 0.5f) / width;
-                    // Thick in the middle, pointed at both ends, a little heavier towards the end of the stroke.
-                    float halfThickness = Mathf.Pow(Mathf.Sin(Mathf.PI * Mathf.Pow(u, 0.8f)), 0.6f) * (height / 2.0f);
-                    for (int y = 0; y < height; y++)
-                    {
-                        float d = Mathf.Abs(y - (height - 1) / 2.0f);
-                        Color c = Color.clear;
-                        if (d <= halfThickness * 0.35f)
-                        {
-                            c = Color.white;
-                        }
-                        else if (d <= halfThickness * 0.7f)
-                        {
-                            c = new Color(1.0f, 0.55f, 0.55f);
-                        }
-                        else if (d <= halfThickness)
-                        {
-                            c = SlashRed;
-                        }
-                        texture.SetPixel(x, y, c);
-                    }
-                }
-                texture.Apply();
-                slashSprite = Sprite.Create(texture, new Rect(0, 0, width, height), new Vector2(0.5f, 0.5f));
+                    Color c = r < 0.5f
+                        ? Color.Lerp(Color.white, new Color(1.0f, 0.55f, 0.55f), Mathf.SmoothStep(0.15f, 0.5f, r))
+                        : Color.Lerp(new Color(1.0f, 0.55f, 0.55f), SlashRed, Mathf.SmoothStep(0.5f, 0.85f, r));
+                    // Anti-aliased outer edge.
+                    c.a = Mathf.Clamp01((1.0f - r) / aa);
+                    return c;
+                });
             }
             return slashSprite;
+        }
+    }
+
+    // The same crescent as a soft white halo that fades out towards its edges, tinted for the glow.
+    private static Sprite GlowSprite
+    {
+        get
+        {
+            if (glowSprite == null)
+            {
+                glowSprite = CreateCrescentSprite((r, aa) => new Color(1.0f, 1.0f, 1.0f, Mathf.Pow(Mathf.Clamp01(1.0f - r), 1.5f)));
+            }
+            return glowSprite;
+        }
+    }
+
+    // Builds a crescent texture: thick in the middle, pointed at both ends, a little heavier towards
+    // the end of the stroke. colorAt gets the distance from the centre line (0) to the edge (1) and
+    // the width of one pixel in those units.
+    private static Sprite CreateCrescentSprite(System.Func<float, float, Color> colorAt)
+    {
+        const int width = 512;
+        const int height = 64;
+        Texture2D texture = new Texture2D(width, height) { filterMode = FilterMode.Bilinear, wrapMode = TextureWrapMode.Clamp };
+        Color[] pixels = new Color[width * height];
+        for (int x = 0; x < width; x++)
+        {
+            float u = (x + 0.5f) / width;
+            float halfThickness = Mathf.Pow(Mathf.Sin(Mathf.PI * Mathf.Pow(u, 0.8f)), 0.6f) * (height / 2.0f - 1.0f);
+            for (int y = 0; y < height; y++)
+            {
+                float d = Mathf.Abs(y + 0.5f - height / 2.0f);
+                Color c = Color.clear;
+                if (halfThickness > 0.01f && d < halfThickness + 1.0f)
+                {
+                    c = colorAt(Mathf.Min(d / halfThickness, 1.0f), 1.0f / halfThickness);
+                    if (d > halfThickness)
+                    {
+                        c.a = 0.0f;
+                    }
+                }
+                pixels[y * width + x] = c;
+            }
+        }
+        texture.SetPixels(pixels);
+        texture.Apply();
+        return Sprite.Create(texture, new Rect(0, 0, width, height), new Vector2(0.5f, 0.5f));
+    }
+
+    // A soft white streak, brighter in the middle, used for the sparks that fly off the slash.
+    private static Sprite SparkSprite
+    {
+        get
+        {
+            if (sparkSprite == null)
+            {
+                const int width = 64;
+                const int height = 16;
+                Texture2D texture = new Texture2D(width, height) { filterMode = FilterMode.Bilinear, wrapMode = TextureWrapMode.Clamp };
+                Color[] pixels = new Color[width * height];
+                for (int y = 0; y < height; y++)
+                {
+                    for (int x = 0; x < width; x++)
+                    {
+                        float dx = (x + 0.5f) / width * 2.0f - 1.0f;
+                        float dy = (y + 0.5f) / height * 2.0f - 1.0f;
+                        float r = Mathf.Sqrt(dx * dx + dy * dy);
+                        pixels[y * width + x] = new Color(1.0f, 1.0f, 1.0f, Mathf.Pow(Mathf.Clamp01(1.0f - r), 0.7f));
+                    }
+                }
+                texture.SetPixels(pixels);
+                texture.Apply();
+                sparkSprite = Sprite.Create(texture, new Rect(0, 0, width, height), new Vector2(0.5f, 0.5f));
+            }
+            return sparkSprite;
         }
     }
 
