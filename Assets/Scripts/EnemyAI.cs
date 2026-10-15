@@ -368,20 +368,70 @@ public class Enemy : MonoBehaviour
         bone.rotation = Quaternion.FromToRotation(child.position - bone.position, direction) * bone.rotation;
     }
 
-    // Editor only: outlines a hidden enemy in Play mode, in the Scene view and in the Game view
-    // with Gizmos on. White while it waits for the player, orange while it cannot show up
-    // (cooldown, or waiting for the player to be respawnMinDistance away).
+    // Editor only, in Play mode, in the Scene view and in the Game view with Gizmos on.
+    // A hidden enemy is outlined: white while it waits for the player, orange during the cooldown,
+    // and red once the cooldown is over but the player is still closer than respawnMinDistance.
+    // A label above it counts down to vanishing (while visible) or to the end of the cooldown.
+    // The scythe's hitbox is drawn in red while it can kill.
     private void OnDrawGizmos()
     {
-        if (!Application.isPlaying || isVisible || isDead || capsuleCollider == null) return;
+        if (!Application.isPlaying || isDead || capsuleCollider == null) return;
+
+        DrawWeaponHitbox();
+        if (isAttacking) return;
 
         float height = capsuleCollider.height * transform.lossyScale.y;
         float radius = capsuleCollider.radius * transform.lossyScale.x;
-        bool blocked = Time.time < cooldownEndTime
-            || (isRespawning && Vector3.Distance(transform.position, target.position) < respawnMinDistance);
-        Gizmos.color = blocked ? new Color(1.0f, 0.55f, 0.1f) : Color.white;
+        Vector3 labelPosition = transform.position + Vector3.up * (height + 0.3f);
+
+        if (isVisible)
+        {
+            float untilHidden = Mathf.Max(0.0f, maxVisibleTime - (Time.time - visibleSince));
+            DrawGizmoLabel(labelPosition, $"Vanishes in {untilHidden:0.0} s", Color.white);
+            return;
+        }
+
+        string label = null;
+        if (Time.time < cooldownEndTime)
+        {
+            Gizmos.color = new Color(1.0f, 0.55f, 0.1f);
+            label = $"Returns in {cooldownEndTime - Time.time:0.0} s";
+        }
+        else if (isRespawning && Vector3.Distance(transform.position, target.position) < respawnMinDistance)
+        {
+            Gizmos.color = Color.red;
+            label = "Player too close";
+        }
+        else
+        {
+            Gizmos.color = Color.white;
+        }
         Gizmos.DrawWireCube(transform.position + Vector3.up * height * 0.5f, new Vector3(radius * 2.0f, height, radius * 2.0f));
         Gizmos.DrawWireSphere(transform.position + Vector3.up * (height - radius), radius);
+        if (label != null)
+        {
+            DrawGizmoLabel(labelPosition, label, Gizmos.color);
+        }
+    }
+
+    // The scythe's kill trigger, while it is armed.
+    private void DrawWeaponHitbox()
+    {
+        if (!weaponCollider.enabled) return;
+
+        Gizmos.color = Color.red;
+        Gizmos.matrix = weapon.localToWorldMatrix;
+        Gizmos.DrawWireCube(weaponCollider.center, weaponCollider.size);
+        Gizmos.matrix = Matrix4x4.identity;
+    }
+
+    private static void DrawGizmoLabel(Vector3 position, string text, Color color)
+    {
+#if UNITY_EDITOR
+        GUIStyle style = new GUIStyle(UnityEditor.EditorStyles.boldLabel) { alignment = TextAnchor.MiddleCenter };
+        style.normal.textColor = color;
+        UnityEditor.Handles.Label(position, text, style);
+#endif
     }
 
     // Called when this enemy kills the player: it stops, faces the player and swings the scythe.
