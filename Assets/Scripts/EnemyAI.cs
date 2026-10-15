@@ -110,7 +110,7 @@ public class Enemy : MonoBehaviour
     // Seconds an enemy can stay visible in a row. Then it vanishes for respawnCooldown seconds,
     // during which it neither chases nor shows up, even with the player in range.
     [SerializeField]
-    private float maxVisibleTime = 20.0f;
+    private float maxVisibleTime = 30.0f;
     [SerializeField]
     private float respawnCooldown = 10.0f;
     // After the cooldown, it shows up again only with the player at least this many metres away,
