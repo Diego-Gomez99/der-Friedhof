@@ -8542,9 +8542,9 @@ MonoBehaviour:
   rotationSpeed: 5
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
-  weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
   armOpenAngle: 85
-  weaponTurnAngle: 12
+  armDropAngle: 65
+  weaponGripPoint: {x: 1.544571, y: 4.177524, z: -0.882705}
   maxVisibleTime: 30
   respawnCooldown: 10
   respawnMinDistance: 5
@@ -10918,7 +10918,7 @@ Transform:
   m_GameObject: {fileID: 105716454}
   serializedVersion: 2
   m_LocalRotation: {x: 0.49999994, y: 0.50000006, z: -0.50000006, w: 0.49999994}
-  m_LocalPosition: {x: -1.33, y: -0.311, z: 0.449}
+  m_LocalPosition: {x: -1.281, y: 0.613, z: 0.643}
   m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -10943,8 +10943,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 4.170121, y: 2.896228, z: 0.3675623}
-  m_Center: {x: -0.9760511, y: 3.1891947, z: -1.2980368}
+  m_Size: {x: 6.604312, y: 2.896229, z: 3.783548}
+  m_Center: {x: -0.2909078, y: 3.141302, z: -0.7371513}
 --- !u!23 &105716457
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -11101,7 +11101,7 @@ Transform:
   m_GameObject: {fileID: 108231009}
   serializedVersion: 2
   m_LocalRotation: {x: 0.49999994, y: 0.50000006, z: -0.50000006, w: 0.49999994}
-  m_LocalPosition: {x: -1.33, y: -0.311, z: 0.449}
+  m_LocalPosition: {x: -1.281, y: 0.613, z: 0.643}
   m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -11126,8 +11126,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 4.170121, y: 2.896228, z: 0.3675623}
-  m_Center: {x: -0.9760511, y: 3.1891947, z: -1.2980368}
+  m_Size: {x: 6.604312, y: 2.896229, z: 3.783548}
+  m_Center: {x: -0.2909078, y: 3.141302, z: -0.7371513}
 --- !u!23 &108231012
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -17345,7 +17345,7 @@ Transform:
   m_GameObject: {fileID: 172986719}
   serializedVersion: 2
   m_LocalRotation: {x: 0.49999994, y: 0.50000006, z: -0.50000006, w: 0.49999994}
-  m_LocalPosition: {x: -1.33, y: -0.311, z: 0.449}
+  m_LocalPosition: {x: -1.281, y: 0.613, z: 0.643}
   m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -17370,8 +17370,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 4.170121, y: 2.896228, z: 0.3675623}
-  m_Center: {x: -0.9760511, y: 3.1891947, z: -1.2980368}
+  m_Size: {x: 6.604312, y: 2.896229, z: 3.783548}
+  m_Center: {x: -0.2909078, y: 3.141302, z: -0.7371513}
 --- !u!23 &172986722
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -18954,7 +18954,7 @@ Transform:
   m_GameObject: {fileID: 184312500}
   serializedVersion: 2
   m_LocalRotation: {x: 0.49999994, y: 0.50000006, z: -0.50000006, w: 0.49999994}
-  m_LocalPosition: {x: -1.33, y: -0.311, z: 0.449}
+  m_LocalPosition: {x: -1.281, y: 0.613, z: 0.643}
   m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -18979,8 +18979,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 4.170121, y: 2.896228, z: 0.3675623}
-  m_Center: {x: -0.9760511, y: 3.1891947, z: -1.2980368}
+  m_Size: {x: 6.604312, y: 2.896229, z: 3.783548}
+  m_Center: {x: -0.2909078, y: 3.141302, z: -0.7371513}
 --- !u!23 &184312503
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -20872,9 +20872,9 @@ MonoBehaviour:
   rotationSpeed: 5
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
-  weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
   armOpenAngle: 85
-  weaponTurnAngle: 12
+  armDropAngle: 65
+  weaponGripPoint: {x: 1.544571, y: 4.177524, z: -0.882705}
   maxVisibleTime: 30
   respawnCooldown: 10
   respawnMinDistance: 5
@@ -23475,9 +23475,9 @@ MonoBehaviour:
   rotationSpeed: 5
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
-  weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
   armOpenAngle: 85
-  weaponTurnAngle: 12
+  armDropAngle: 65
+  weaponGripPoint: {x: 1.544571, y: 4.177524, z: -0.882705}
   maxVisibleTime: 30
   respawnCooldown: 10
   respawnMinDistance: 5
@@ -30213,9 +30213,9 @@ MonoBehaviour:
   rotationSpeed: 5
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
-  weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
   armOpenAngle: 85
-  weaponTurnAngle: 12
+  armDropAngle: 65
+  weaponGripPoint: {x: 1.544571, y: 4.177524, z: -0.882705}
   maxVisibleTime: 30
   respawnCooldown: 10
   respawnMinDistance: 5
@@ -30554,9 +30554,9 @@ MonoBehaviour:
   rotationSpeed: 5
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
-  weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
   armOpenAngle: 85
-  weaponTurnAngle: 12
+  armDropAngle: 65
+  weaponGripPoint: {x: 1.544571, y: 4.177524, z: -0.882705}
   maxVisibleTime: 30
   respawnCooldown: 10
   respawnMinDistance: 5
@@ -36495,9 +36495,9 @@ MonoBehaviour:
   rotationSpeed: 5
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
-  weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
   armOpenAngle: 85
-  weaponTurnAngle: 12
+  armDropAngle: 65
+  weaponGripPoint: {x: 1.544571, y: 4.177524, z: -0.882705}
   maxVisibleTime: 30
   respawnCooldown: 10
   respawnMinDistance: 5
@@ -37991,7 +37991,7 @@ Transform:
   m_GameObject: {fileID: 371629293}
   serializedVersion: 2
   m_LocalRotation: {x: 0.49999994, y: 0.50000006, z: -0.50000006, w: 0.49999994}
-  m_LocalPosition: {x: -1.33, y: -0.311, z: 0.449}
+  m_LocalPosition: {x: -1.281, y: 0.613, z: 0.643}
   m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -38016,8 +38016,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 4.170121, y: 2.896228, z: 0.3675623}
-  m_Center: {x: -0.9760511, y: 3.1891947, z: -1.2980368}
+  m_Size: {x: 6.604312, y: 2.896229, z: 3.783548}
+  m_Center: {x: -0.2909078, y: 3.141302, z: -0.7371513}
 --- !u!23 &371629296
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -39480,9 +39480,9 @@ MonoBehaviour:
   rotationSpeed: 5
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
-  weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
   armOpenAngle: 85
-  weaponTurnAngle: 12
+  armDropAngle: 65
+  weaponGripPoint: {x: 1.544571, y: 4.177524, z: -0.882705}
   maxVisibleTime: 30
   respawnCooldown: 10
   respawnMinDistance: 5
@@ -39904,9 +39904,9 @@ MonoBehaviour:
   rotationSpeed: 5
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
-  weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
   armOpenAngle: 85
-  weaponTurnAngle: 12
+  armDropAngle: 65
+  weaponGripPoint: {x: 1.544571, y: 4.177524, z: -0.882705}
   maxVisibleTime: 30
   respawnCooldown: 10
   respawnMinDistance: 5
@@ -43560,9 +43560,9 @@ MonoBehaviour:
   rotationSpeed: 5
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
-  weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
   armOpenAngle: 85
-  weaponTurnAngle: 12
+  armDropAngle: 65
+  weaponGripPoint: {x: 1.544571, y: 4.177524, z: -0.882705}
   maxVisibleTime: 30
   respawnCooldown: 10
   respawnMinDistance: 5
@@ -52116,9 +52116,9 @@ MonoBehaviour:
   rotationSpeed: 5
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
-  weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
   armOpenAngle: 85
-  weaponTurnAngle: 12
+  armDropAngle: 65
+  weaponGripPoint: {x: 1.544571, y: 4.177524, z: -0.882705}
   maxVisibleTime: 30
   respawnCooldown: 10
   respawnMinDistance: 5
@@ -54774,9 +54774,9 @@ MonoBehaviour:
   rotationSpeed: 5
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
-  weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
   armOpenAngle: 85
-  weaponTurnAngle: 12
+  armDropAngle: 65
+  weaponGripPoint: {x: 1.544571, y: 4.177524, z: -0.882705}
   maxVisibleTime: 30
   respawnCooldown: 10
   respawnMinDistance: 5
@@ -64035,7 +64035,7 @@ Transform:
   m_GameObject: {fileID: 629345777}
   serializedVersion: 2
   m_LocalRotation: {x: 0.49999994, y: 0.50000006, z: -0.50000006, w: 0.49999994}
-  m_LocalPosition: {x: -1.33, y: -0.311, z: 0.449}
+  m_LocalPosition: {x: -1.281, y: 0.613, z: 0.643}
   m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -64060,8 +64060,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 4.170121, y: 2.896228, z: 0.3675623}
-  m_Center: {x: -0.9760511, y: 3.1891947, z: -1.2980368}
+  m_Size: {x: 6.604312, y: 2.896229, z: 3.783548}
+  m_Center: {x: -0.2909078, y: 3.141302, z: -0.7371513}
 --- !u!23 &629345780
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -68837,9 +68837,9 @@ MonoBehaviour:
   rotationSpeed: 5
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
-  weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
   armOpenAngle: 85
-  weaponTurnAngle: 12
+  armDropAngle: 65
+  weaponGripPoint: {x: 1.544571, y: 4.177524, z: -0.882705}
   maxVisibleTime: 30
   respawnCooldown: 10
   respawnMinDistance: 5
@@ -69018,7 +69018,7 @@ Transform:
   m_GameObject: {fileID: 682174661}
   serializedVersion: 2
   m_LocalRotation: {x: 0.49999994, y: 0.50000006, z: -0.50000006, w: 0.49999994}
-  m_LocalPosition: {x: -1.33, y: -0.311, z: 0.449}
+  m_LocalPosition: {x: -1.281, y: 0.613, z: 0.643}
   m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -69043,8 +69043,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 4.170121, y: 2.896228, z: 0.3675623}
-  m_Center: {x: -0.9760511, y: 3.1891947, z: -1.2980368}
+  m_Size: {x: 6.604312, y: 2.896229, z: 3.783548}
+  m_Center: {x: -0.2909078, y: 3.141302, z: -0.7371513}
 --- !u!23 &682174664
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -70812,7 +70812,7 @@ Transform:
   m_GameObject: {fileID: 698474399}
   serializedVersion: 2
   m_LocalRotation: {x: 0.49999994, y: 0.50000006, z: -0.50000006, w: 0.49999994}
-  m_LocalPosition: {x: -1.33, y: -0.311, z: 0.449}
+  m_LocalPosition: {x: -1.281, y: 0.613, z: 0.643}
   m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -70837,8 +70837,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 4.170121, y: 2.896228, z: 0.3675623}
-  m_Center: {x: -0.9760511, y: 3.1891947, z: -1.2980368}
+  m_Size: {x: 6.604312, y: 2.896229, z: 3.783548}
+  m_Center: {x: -0.2909078, y: 3.141302, z: -0.7371513}
 --- !u!23 &698474402
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -76827,9 +76827,9 @@ MonoBehaviour:
   rotationSpeed: 5
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
-  weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
   armOpenAngle: 85
-  weaponTurnAngle: 12
+  armDropAngle: 65
+  weaponGripPoint: {x: 1.544571, y: 4.177524, z: -0.882705}
   maxVisibleTime: 30
   respawnCooldown: 10
   respawnMinDistance: 5
@@ -77853,9 +77853,9 @@ MonoBehaviour:
   rotationSpeed: 5
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
-  weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
   armOpenAngle: 85
-  weaponTurnAngle: 12
+  armDropAngle: 65
+  weaponGripPoint: {x: 1.544571, y: 4.177524, z: -0.882705}
   maxVisibleTime: 30
   respawnCooldown: 10
   respawnMinDistance: 5
@@ -82040,9 +82040,9 @@ MonoBehaviour:
   rotationSpeed: 5
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
-  weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
   armOpenAngle: 85
-  weaponTurnAngle: 12
+  armDropAngle: 65
+  weaponGripPoint: {x: 1.544571, y: 4.177524, z: -0.882705}
   maxVisibleTime: 30
   respawnCooldown: 10
   respawnMinDistance: 5
@@ -84749,7 +84749,7 @@ Transform:
   m_GameObject: {fileID: 807766556}
   serializedVersion: 2
   m_LocalRotation: {x: 0.49999994, y: 0.50000006, z: -0.50000006, w: 0.49999994}
-  m_LocalPosition: {x: -1.33, y: -0.311, z: 0.449}
+  m_LocalPosition: {x: -1.281, y: 0.613, z: 0.643}
   m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -84774,8 +84774,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 4.170121, y: 2.896228, z: 0.3675623}
-  m_Center: {x: -0.9760511, y: 3.1891947, z: -1.2980368}
+  m_Size: {x: 6.604312, y: 2.896229, z: 3.783548}
+  m_Center: {x: -0.2909078, y: 3.141302, z: -0.7371513}
 --- !u!23 &807766559
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -89454,9 +89454,9 @@ MonoBehaviour:
   rotationSpeed: 5
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
-  weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
   armOpenAngle: 85
-  weaponTurnAngle: 12
+  armDropAngle: 65
+  weaponGripPoint: {x: 1.544571, y: 4.177524, z: -0.882705}
   maxVisibleTime: 30
   respawnCooldown: 10
   respawnMinDistance: 5
@@ -91743,7 +91743,7 @@ Transform:
   m_GameObject: {fileID: 867926406}
   serializedVersion: 2
   m_LocalRotation: {x: 0.49999994, y: 0.50000006, z: -0.50000006, w: 0.49999994}
-  m_LocalPosition: {x: -1.33, y: -0.311, z: 0.449}
+  m_LocalPosition: {x: -1.281, y: 0.613, z: 0.643}
   m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -91768,8 +91768,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 4.170121, y: 2.896228, z: 0.3675623}
-  m_Center: {x: -0.9760511, y: 3.1891947, z: -1.2980368}
+  m_Size: {x: 6.604312, y: 2.896229, z: 3.783548}
+  m_Center: {x: -0.2909078, y: 3.141302, z: -0.7371513}
 --- !u!23 &867926409
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -96028,7 +96028,7 @@ Transform:
   m_GameObject: {fileID: 916276769}
   serializedVersion: 2
   m_LocalRotation: {x: 0.49999994, y: 0.50000006, z: -0.50000006, w: 0.49999994}
-  m_LocalPosition: {x: -1.33, y: -0.311, z: 0.449}
+  m_LocalPosition: {x: -1.281, y: 0.613, z: 0.643}
   m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -96053,8 +96053,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 4.170121, y: 2.896228, z: 0.3675623}
-  m_Center: {x: -0.9760511, y: 3.1891947, z: -1.2980368}
+  m_Size: {x: 6.604312, y: 2.896229, z: 3.783548}
+  m_Center: {x: -0.2909078, y: 3.141302, z: -0.7371513}
 --- !u!23 &916276772
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -96901,9 +96901,9 @@ MonoBehaviour:
   rotationSpeed: 5
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
-  weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
   armOpenAngle: 85
-  weaponTurnAngle: 12
+  armDropAngle: 65
+  weaponGripPoint: {x: 1.544571, y: 4.177524, z: -0.882705}
   maxVisibleTime: 30
   respawnCooldown: 10
   respawnMinDistance: 5
@@ -97854,9 +97854,9 @@ MonoBehaviour:
   rotationSpeed: 5
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
-  weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
   armOpenAngle: 85
-  weaponTurnAngle: 12
+  armDropAngle: 65
+  weaponGripPoint: {x: 1.544571, y: 4.177524, z: -0.882705}
   maxVisibleTime: 30
   respawnCooldown: 10
   respawnMinDistance: 5
@@ -103791,9 +103791,9 @@ MonoBehaviour:
   rotationSpeed: 5
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
-  weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
   armOpenAngle: 85
-  weaponTurnAngle: 12
+  armDropAngle: 65
+  weaponGripPoint: {x: 1.544571, y: 4.177524, z: -0.882705}
   maxVisibleTime: 30
   respawnCooldown: 10
   respawnMinDistance: 5
@@ -105237,7 +105237,7 @@ Transform:
   m_GameObject: {fileID: 997434165}
   serializedVersion: 2
   m_LocalRotation: {x: 0.49999994, y: 0.50000006, z: -0.50000006, w: 0.49999994}
-  m_LocalPosition: {x: -1.33, y: -0.311, z: 0.449}
+  m_LocalPosition: {x: -1.281, y: 0.613, z: 0.643}
   m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -105262,8 +105262,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 4.170121, y: 2.896228, z: 0.3675623}
-  m_Center: {x: -0.9760511, y: 3.1891947, z: -1.2980368}
+  m_Size: {x: 6.604312, y: 2.896229, z: 3.783548}
+  m_Center: {x: -0.2909078, y: 3.141302, z: -0.7371513}
 --- !u!23 &997434168
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -108228,9 +108228,9 @@ MonoBehaviour:
   rotationSpeed: 5
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
-  weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
   armOpenAngle: 85
-  weaponTurnAngle: 12
+  armDropAngle: 65
+  weaponGripPoint: {x: 1.544571, y: 4.177524, z: -0.882705}
   maxVisibleTime: 30
   respawnCooldown: 10
   respawnMinDistance: 5
@@ -111268,7 +111268,7 @@ Transform:
   m_GameObject: {fileID: 1072391213}
   serializedVersion: 2
   m_LocalRotation: {x: 0.49999994, y: 0.50000006, z: -0.50000006, w: 0.49999994}
-  m_LocalPosition: {x: -1.33, y: -0.311, z: 0.449}
+  m_LocalPosition: {x: -1.281, y: 0.613, z: 0.643}
   m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -111293,8 +111293,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 4.170121, y: 2.896228, z: 0.3675623}
-  m_Center: {x: -0.9760511, y: 3.1891947, z: -1.2980368}
+  m_Size: {x: 6.604312, y: 2.896229, z: 3.783548}
+  m_Center: {x: -0.2909078, y: 3.141302, z: -0.7371513}
 --- !u!23 &1072391216
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -113364,7 +113364,7 @@ Transform:
   m_GameObject: {fileID: 1093518325}
   serializedVersion: 2
   m_LocalRotation: {x: 0.49999994, y: 0.50000006, z: -0.50000006, w: 0.49999994}
-  m_LocalPosition: {x: -1.33, y: -0.311, z: 0.449}
+  m_LocalPosition: {x: -1.281, y: 0.613, z: 0.643}
   m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -113389,8 +113389,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 4.170121, y: 2.896228, z: 0.3675623}
-  m_Center: {x: -0.9760511, y: 3.1891947, z: -1.2980368}
+  m_Size: {x: 6.604312, y: 2.896229, z: 3.783548}
+  m_Center: {x: -0.2909078, y: 3.141302, z: -0.7371513}
 --- !u!23 &1093518328
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -114734,7 +114734,7 @@ Transform:
   m_GameObject: {fileID: 1108517503}
   serializedVersion: 2
   m_LocalRotation: {x: 0.49999994, y: 0.50000006, z: -0.50000006, w: 0.49999994}
-  m_LocalPosition: {x: -1.33, y: -0.311, z: 0.449}
+  m_LocalPosition: {x: -1.281, y: 0.613, z: 0.643}
   m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -114759,8 +114759,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 4.170121, y: 2.896228, z: 0.3675623}
-  m_Center: {x: -0.9760511, y: 3.1891947, z: -1.2980368}
+  m_Size: {x: 6.604312, y: 2.896229, z: 3.783548}
+  m_Center: {x: -0.2909078, y: 3.141302, z: -0.7371513}
 --- !u!23 &1108517506
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -121127,7 +121127,7 @@ Transform:
   m_GameObject: {fileID: 1182387356}
   serializedVersion: 2
   m_LocalRotation: {x: 0.49999994, y: 0.50000006, z: -0.50000006, w: 0.49999994}
-  m_LocalPosition: {x: -1.33, y: -0.311, z: 0.449}
+  m_LocalPosition: {x: -1.281, y: 0.613, z: 0.643}
   m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -121152,8 +121152,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 4.170121, y: 2.896228, z: 0.3675623}
-  m_Center: {x: -0.9760511, y: 3.1891947, z: -1.2980368}
+  m_Size: {x: 6.604312, y: 2.896229, z: 3.783548}
+  m_Center: {x: -0.2909078, y: 3.141302, z: -0.7371513}
 --- !u!23 &1182387359
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -127459,9 +127459,9 @@ MonoBehaviour:
   rotationSpeed: 5
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
-  weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
   armOpenAngle: 85
-  weaponTurnAngle: 12
+  armDropAngle: 65
+  weaponGripPoint: {x: 1.544571, y: 4.177524, z: -0.882705}
   maxVisibleTime: 30
   respawnCooldown: 10
   respawnMinDistance: 5
@@ -129535,7 +129535,7 @@ Transform:
   m_GameObject: {fileID: 1287994907}
   serializedVersion: 2
   m_LocalRotation: {x: 0.49999994, y: 0.50000006, z: -0.50000006, w: 0.49999994}
-  m_LocalPosition: {x: -1.33, y: -0.311, z: 0.449}
+  m_LocalPosition: {x: -1.281, y: 0.613, z: 0.643}
   m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -129560,8 +129560,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 4.170121, y: 2.896228, z: 0.3675623}
-  m_Center: {x: -0.9760511, y: 3.1891947, z: -1.2980368}
+  m_Size: {x: 6.604312, y: 2.896229, z: 3.783548}
+  m_Center: {x: -0.2909078, y: 3.141302, z: -0.7371513}
 --- !u!23 &1287994910
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -130763,7 +130763,7 @@ Transform:
   m_GameObject: {fileID: 1296045739}
   serializedVersion: 2
   m_LocalRotation: {x: 0.49999994, y: 0.50000006, z: -0.50000006, w: 0.49999994}
-  m_LocalPosition: {x: -1.33, y: -0.311, z: 0.449}
+  m_LocalPosition: {x: -1.281, y: 0.613, z: 0.643}
   m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -130788,8 +130788,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 4.170121, y: 2.896228, z: 0.3675623}
-  m_Center: {x: -0.9760511, y: 3.1891947, z: -1.2980368}
+  m_Size: {x: 6.604312, y: 2.896229, z: 3.783548}
+  m_Center: {x: -0.2909078, y: 3.141302, z: -0.7371513}
 --- !u!23 &1296045742
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -131536,7 +131536,7 @@ Transform:
   m_GameObject: {fileID: 1302296630}
   serializedVersion: 2
   m_LocalRotation: {x: 0.49999994, y: 0.50000006, z: -0.50000006, w: 0.49999994}
-  m_LocalPosition: {x: -1.33, y: -0.311, z: 0.449}
+  m_LocalPosition: {x: -1.281, y: 0.613, z: 0.643}
   m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -131561,8 +131561,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 4.170121, y: 2.896228, z: 0.3675623}
-  m_Center: {x: -0.9760511, y: 3.1891947, z: -1.2980368}
+  m_Size: {x: 6.604312, y: 2.896229, z: 3.783548}
+  m_Center: {x: -0.2909078, y: 3.141302, z: -0.7371513}
 --- !u!23 &1302296633
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -137396,7 +137396,7 @@ Transform:
   m_GameObject: {fileID: 1360740618}
   serializedVersion: 2
   m_LocalRotation: {x: 0.49999994, y: 0.50000006, z: -0.50000006, w: 0.49999994}
-  m_LocalPosition: {x: -1.33, y: -0.311, z: 0.449}
+  m_LocalPosition: {x: -1.281, y: 0.613, z: 0.643}
   m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -137421,8 +137421,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 4.170121, y: 2.896228, z: 0.3675623}
-  m_Center: {x: -0.9760511, y: 3.1891947, z: -1.2980368}
+  m_Size: {x: 6.604312, y: 2.896229, z: 3.783548}
+  m_Center: {x: -0.2909078, y: 3.141302, z: -0.7371513}
 --- !u!23 &1360740621
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -142368,7 +142368,7 @@ Transform:
   m_GameObject: {fileID: 1421212053}
   serializedVersion: 2
   m_LocalRotation: {x: 0.49999994, y: 0.50000006, z: -0.50000006, w: 0.49999994}
-  m_LocalPosition: {x: -1.33, y: -0.311, z: 0.449}
+  m_LocalPosition: {x: -1.281, y: 0.613, z: 0.643}
   m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -142393,8 +142393,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 4.170121, y: 2.896228, z: 0.3675623}
-  m_Center: {x: -0.9760511, y: 3.1891947, z: -1.2980368}
+  m_Size: {x: 6.604312, y: 2.896229, z: 3.783548}
+  m_Center: {x: -0.2909078, y: 3.141302, z: -0.7371513}
 --- !u!23 &1421212056
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -146118,7 +146118,7 @@ Transform:
   m_GameObject: {fileID: 1458260134}
   serializedVersion: 2
   m_LocalRotation: {x: 0.49999994, y: 0.50000006, z: -0.50000006, w: 0.49999994}
-  m_LocalPosition: {x: -1.33, y: -0.311, z: 0.449}
+  m_LocalPosition: {x: -1.281, y: 0.613, z: 0.643}
   m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -146143,8 +146143,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 4.170121, y: 2.896228, z: 0.3675623}
-  m_Center: {x: -0.9760511, y: 3.1891947, z: -1.2980368}
+  m_Size: {x: 6.604312, y: 2.896229, z: 3.783548}
+  m_Center: {x: -0.2909078, y: 3.141302, z: -0.7371513}
 --- !u!23 &1458260137
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -147977,9 +147977,9 @@ MonoBehaviour:
   rotationSpeed: 5
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
-  weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
   armOpenAngle: 85
-  weaponTurnAngle: 12
+  armDropAngle: 65
+  weaponGripPoint: {x: 1.544571, y: 4.177524, z: -0.882705}
   maxVisibleTime: 30
   respawnCooldown: 10
   respawnMinDistance: 5
@@ -155050,9 +155050,9 @@ MonoBehaviour:
   rotationSpeed: 5
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
-  weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
   armOpenAngle: 85
-  weaponTurnAngle: 12
+  armDropAngle: 65
+  weaponGripPoint: {x: 1.544571, y: 4.177524, z: -0.882705}
   maxVisibleTime: 30
   respawnCooldown: 10
   respawnMinDistance: 5
@@ -159791,7 +159791,7 @@ Transform:
   m_GameObject: {fileID: 1592102964}
   serializedVersion: 2
   m_LocalRotation: {x: 0.49999994, y: 0.50000006, z: -0.50000006, w: 0.49999994}
-  m_LocalPosition: {x: -1.33, y: -0.311, z: 0.449}
+  m_LocalPosition: {x: -1.281, y: 0.613, z: 0.643}
   m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -159816,8 +159816,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 4.170121, y: 2.896228, z: 0.3675623}
-  m_Center: {x: -0.9760511, y: 3.1891947, z: -1.2980368}
+  m_Size: {x: 6.604312, y: 2.896229, z: 3.783548}
+  m_Center: {x: -0.2909078, y: 3.141302, z: -0.7371513}
 --- !u!23 &1592102967
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -166608,9 +166608,9 @@ MonoBehaviour:
   rotationSpeed: 5
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
-  weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
   armOpenAngle: 85
-  weaponTurnAngle: 12
+  armDropAngle: 65
+  weaponGripPoint: {x: 1.544571, y: 4.177524, z: -0.882705}
   maxVisibleTime: 30
   respawnCooldown: 10
   respawnMinDistance: 5
@@ -168420,7 +168420,7 @@ Transform:
   m_GameObject: {fileID: 1689989338}
   serializedVersion: 2
   m_LocalRotation: {x: 0.49999994, y: 0.50000006, z: -0.50000006, w: 0.49999994}
-  m_LocalPosition: {x: -1.33, y: -0.311, z: 0.449}
+  m_LocalPosition: {x: -1.281, y: 0.613, z: 0.643}
   m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -168445,8 +168445,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 4.170121, y: 2.896228, z: 0.3675623}
-  m_Center: {x: -0.9760511, y: 3.1891947, z: -1.2980368}
+  m_Size: {x: 6.604312, y: 2.896229, z: 3.783548}
+  m_Center: {x: -0.2909078, y: 3.141302, z: -0.7371513}
 --- !u!23 &1689989341
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -169050,9 +169050,9 @@ MonoBehaviour:
   rotationSpeed: 5
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
-  weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
   armOpenAngle: 85
-  weaponTurnAngle: 12
+  armDropAngle: 65
+  weaponGripPoint: {x: 1.544571, y: 4.177524, z: -0.882705}
   maxVisibleTime: 30
   respawnCooldown: 10
   respawnMinDistance: 5
@@ -177128,7 +177128,7 @@ Transform:
   m_GameObject: {fileID: 1768197581}
   serializedVersion: 2
   m_LocalRotation: {x: 0.49999994, y: 0.50000006, z: -0.50000006, w: 0.49999994}
-  m_LocalPosition: {x: -1.33, y: -0.311, z: 0.449}
+  m_LocalPosition: {x: -1.281, y: 0.613, z: 0.643}
   m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -177153,8 +177153,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 4.170121, y: 2.896228, z: 0.3675623}
-  m_Center: {x: -0.9760511, y: 3.1891947, z: -1.2980368}
+  m_Size: {x: 6.604312, y: 2.896229, z: 3.783548}
+  m_Center: {x: -0.2909078, y: 3.141302, z: -0.7371513}
 --- !u!23 &1768197584
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -179082,9 +179082,9 @@ MonoBehaviour:
   rotationSpeed: 5
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
-  weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
   armOpenAngle: 85
-  weaponTurnAngle: 12
+  armDropAngle: 65
+  weaponGripPoint: {x: 1.544571, y: 4.177524, z: -0.882705}
   maxVisibleTime: 30
   respawnCooldown: 10
   respawnMinDistance: 5
@@ -182202,7 +182202,7 @@ Transform:
   m_GameObject: {fileID: 1825924585}
   serializedVersion: 2
   m_LocalRotation: {x: 0.49999994, y: 0.50000006, z: -0.50000006, w: 0.49999994}
-  m_LocalPosition: {x: -1.33, y: -0.311, z: 0.449}
+  m_LocalPosition: {x: -1.281, y: 0.613, z: 0.643}
   m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -182227,8 +182227,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 4.170121, y: 2.896228, z: 0.3675623}
-  m_Center: {x: -0.9760511, y: 3.1891947, z: -1.2980368}
+  m_Size: {x: 6.604312, y: 2.896229, z: 3.783548}
+  m_Center: {x: -0.2909078, y: 3.141302, z: -0.7371513}
 --- !u!23 &1825924588
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -185604,7 +185604,7 @@ Transform:
   m_GameObject: {fileID: 1864576598}
   serializedVersion: 2
   m_LocalRotation: {x: 0.49999994, y: 0.50000006, z: -0.50000006, w: 0.49999994}
-  m_LocalPosition: {x: -1.33, y: -0.311, z: 0.449}
+  m_LocalPosition: {x: -1.281, y: 0.613, z: 0.643}
   m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -185629,8 +185629,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 4.170121, y: 2.896228, z: 0.3675623}
-  m_Center: {x: -0.9760511, y: 3.1891947, z: -1.2980368}
+  m_Size: {x: 6.604312, y: 2.896229, z: 3.783548}
+  m_Center: {x: -0.2909078, y: 3.141302, z: -0.7371513}
 --- !u!23 &1864576601
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -187229,9 +187229,9 @@ MonoBehaviour:
   rotationSpeed: 5
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
-  weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
   armOpenAngle: 85
-  weaponTurnAngle: 12
+  armDropAngle: 65
+  weaponGripPoint: {x: 1.544571, y: 4.177524, z: -0.882705}
   maxVisibleTime: 30
   respawnCooldown: 10
   respawnMinDistance: 5
@@ -188112,7 +188112,7 @@ Transform:
   m_GameObject: {fileID: 1884599911}
   serializedVersion: 2
   m_LocalRotation: {x: 0.49999994, y: 0.50000006, z: -0.50000006, w: 0.49999994}
-  m_LocalPosition: {x: -1.33, y: -0.311, z: 0.449}
+  m_LocalPosition: {x: -1.281, y: 0.613, z: 0.643}
   m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -188137,8 +188137,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 4.170121, y: 2.896228, z: 0.3675623}
-  m_Center: {x: -0.9760511, y: 3.1891947, z: -1.2980368}
+  m_Size: {x: 6.604312, y: 2.896229, z: 3.783548}
+  m_Center: {x: -0.2909078, y: 3.141302, z: -0.7371513}
 --- !u!23 &1884599914
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -188383,7 +188383,7 @@ Transform:
   m_GameObject: {fileID: 1888450174}
   serializedVersion: 2
   m_LocalRotation: {x: 0.49999994, y: 0.50000006, z: -0.50000006, w: 0.49999994}
-  m_LocalPosition: {x: -1.33, y: -0.311, z: 0.449}
+  m_LocalPosition: {x: -1.281, y: 0.613, z: 0.643}
   m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -188408,8 +188408,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 4.170121, y: 2.896228, z: 0.3675623}
-  m_Center: {x: -0.9760511, y: 3.1891947, z: -1.2980368}
+  m_Size: {x: 6.604312, y: 2.896229, z: 3.783548}
+  m_Center: {x: -0.2909078, y: 3.141302, z: -0.7371513}
 --- !u!23 &1888450177
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -193145,7 +193145,7 @@ Transform:
   m_GameObject: {fileID: 1934596539}
   serializedVersion: 2
   m_LocalRotation: {x: 0.49999994, y: 0.50000006, z: -0.50000006, w: 0.49999994}
-  m_LocalPosition: {x: -1.33, y: -0.311, z: 0.449}
+  m_LocalPosition: {x: -1.281, y: 0.613, z: 0.643}
   m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -193170,8 +193170,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 4.170121, y: 2.896228, z: 0.3675623}
-  m_Center: {x: -0.9760511, y: 3.1891947, z: -1.2980368}
+  m_Size: {x: 6.604312, y: 2.896229, z: 3.783548}
+  m_Center: {x: -0.2909078, y: 3.141302, z: -0.7371513}
 --- !u!23 &1934596542
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -194536,9 +194536,9 @@ MonoBehaviour:
   rotationSpeed: 5
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
-  weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
   armOpenAngle: 85
-  weaponTurnAngle: 12
+  armDropAngle: 65
+  weaponGripPoint: {x: 1.544571, y: 4.177524, z: -0.882705}
   maxVisibleTime: 30
   respawnCooldown: 10
   respawnMinDistance: 5
@@ -196587,9 +196587,9 @@ MonoBehaviour:
   rotationSpeed: 5
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
-  weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
   armOpenAngle: 85
-  weaponTurnAngle: 12
+  armDropAngle: 65
+  weaponGripPoint: {x: 1.544571, y: 4.177524, z: -0.882705}
   maxVisibleTime: 30
   respawnCooldown: 10
   respawnMinDistance: 5
@@ -197933,9 +197933,9 @@ MonoBehaviour:
   rotationSpeed: 5
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
-  weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
   armOpenAngle: 85
-  weaponTurnAngle: 12
+  armDropAngle: 65
+  weaponGripPoint: {x: 1.544571, y: 4.177524, z: -0.882705}
   maxVisibleTime: 30
   respawnCooldown: 10
   respawnMinDistance: 5
@@ -201823,7 +201823,7 @@ Transform:
   m_GameObject: {fileID: 2000586405}
   serializedVersion: 2
   m_LocalRotation: {x: 0.49999994, y: 0.50000006, z: -0.50000006, w: 0.49999994}
-  m_LocalPosition: {x: -1.33, y: -0.311, z: 0.449}
+  m_LocalPosition: {x: -1.281, y: 0.613, z: 0.643}
   m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -201848,8 +201848,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 4.170121, y: 2.896228, z: 0.3675623}
-  m_Center: {x: -0.9760511, y: 3.1891947, z: -1.2980368}
+  m_Size: {x: 6.604312, y: 2.896229, z: 3.783548}
+  m_Center: {x: -0.2909078, y: 3.141302, z: -0.7371513}
 --- !u!23 &2000586408
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -205830,9 +205830,9 @@ MonoBehaviour:
   rotationSpeed: 5
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
-  weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
   armOpenAngle: 85
-  weaponTurnAngle: 12
+  armDropAngle: 65
+  weaponGripPoint: {x: 1.544571, y: 4.177524, z: -0.882705}
   maxVisibleTime: 30
   respawnCooldown: 10
   respawnMinDistance: 5
@@ -208649,7 +208649,7 @@ Transform:
   m_GameObject: {fileID: 2069538402}
   serializedVersion: 2
   m_LocalRotation: {x: 0.49999994, y: 0.50000006, z: -0.50000006, w: 0.49999994}
-  m_LocalPosition: {x: -1.33, y: -0.311, z: 0.449}
+  m_LocalPosition: {x: -1.281, y: 0.613, z: 0.643}
   m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -208674,8 +208674,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 4.170121, y: 2.896228, z: 0.3675623}
-  m_Center: {x: -0.9760511, y: 3.1891947, z: -1.2980368}
+  m_Size: {x: 6.604312, y: 2.896229, z: 3.783548}
+  m_Center: {x: -0.2909078, y: 3.141302, z: -0.7371513}
 --- !u!23 &2069538405
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -212607,9 +212607,9 @@ MonoBehaviour:
   rotationSpeed: 5
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
-  weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
   armOpenAngle: 85
-  weaponTurnAngle: 12
+  armDropAngle: 65
+  weaponGripPoint: {x: 1.544571, y: 4.177524, z: -0.882705}
   maxVisibleTime: 30
   respawnCooldown: 10
   respawnMinDistance: 5

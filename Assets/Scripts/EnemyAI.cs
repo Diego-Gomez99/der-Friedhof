@@ -32,18 +32,16 @@ public class Enemy : MonoBehaviour
     private Animator animator;
 
     [Header("Weapon arm")]
-    // Point of the scythe handle that sits in the right hand, in the weapon's local space.
-    [SerializeField]
-    private Vector3 weaponGripPoint = new Vector3(-0.25f, 4.31f, -0.92f);
     // Degrees the right arm opens outward (to the enemy's right) from straight back.
     [SerializeField]
     private float armOpenAngle = 85.0f;
     // Degrees the right arm drops below the horizontal.
     [SerializeField]
     private float armDropAngle = 65.0f;
-    // Degrees the scythe turns to the enemy's right around the vertical axis.
+    // Point of the scythe handle that sits in the right hand, in the weapon's local space.
+    // The scythe keeps the rotation it has in the scene, relative to the enemy.
     [SerializeField]
-    private float weaponTurnAngle = 12.0f;
+    private Vector3 weaponGripPoint = new Vector3(1.545f, 4.178f, -0.883f);
 
     // Scythe pose during the attack. The clip is a great sword raise and plunge, and the scythe is
     // held near the butt of the handle like the sword's hilt. It follows the hand's position, but
@@ -407,7 +405,7 @@ public class Enemy : MonoBehaviour
         AimBone(rightUpperArm, rightLowerArm, armDirection);
         AimBone(rightLowerArm, rightHand, armDirection);
 
-        weapon.localRotation = Quaternion.AngleAxis(weaponTurnAngle, Vector3.up) * weaponRestLocalRotation;
+        weapon.localRotation = weaponRestLocalRotation;
         weapon.position += rightHand.position - weapon.TransformPoint(weaponGripPoint);
 
         Vector3 displacement = weapon.position - transform.TransformPoint(weaponRestLocalPosition);
