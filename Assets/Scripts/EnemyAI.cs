@@ -129,6 +129,9 @@ public class Enemy : MonoBehaviour
     private static readonly List<Enemy> allEnemies = new List<Enemy>();
     private static Enemy closestCandidate;
     private static int closestCandidateFrame = -1;
+    // After any enemy vanishes, no enemy may appear for this many seconds.
+    private const float AppearAfterVanishDelay = 0.5f;
+    private static float lastVanishTime = float.MinValue;
 
     void Start()
     {
@@ -176,7 +179,7 @@ public class Enemy : MonoBehaviour
 
         bool mayChase = distanceToTarget <= detectionDistance
             && ClosestCandidate(target.position) == this
-            && (isVisible || !AnotherEnemyVisible());
+            && (isVisible || (!AnotherEnemyVisible() && Time.time - lastVanishTime >= AppearAfterVanishDelay));
 
         if (mayChase)
         {
@@ -293,6 +296,7 @@ public class Enemy : MonoBehaviour
         else
         {
             weaponCollider.enabled = false;
+            lastVanishTime = Time.time;
         }
 
         SmokeEffect.Play(transform.position, capsuleCollider.height * transform.lossyScale.y, capsuleCollider.radius * transform.lossyScale.x);
