@@ -16,7 +16,21 @@ public class SmokeEffect : MonoBehaviour
     private static readonly Color SmokeLight = new Color(0.08f, 0.08f, 0.09f, 0.9f);
     private static readonly Color SmokeDark = new Color(0.0f, 0.0f, 0.0f, 0.95f);
 
+    // Trail from where the last enemy vanished to where the next one appears.
+    // Seconds the head of the trail takes to get there, about when the puff hides the switch.
+    private const float TrailTravelTime = 0.3f;
+    private const float TrailSpacing = 0.25f; // Metres between trail puffs.
+    private const int TrailMaxPuffs = 160;
+    private const float TrailLifetime = 1.6f; // Longer than any trail puff lives.
+    private static readonly Color TrailColor = new Color(0.0f, 0.0f, 0.0f, 0.45f);
+
     private static Material smokeMaterial;
+
+    private ParticleSystem trailParticles;
+    private Vector3 trailFrom;
+    private Vector3 trailTo;
+    private float trailStartTime;
+    private float trailEmittedDistance;
 
     // feet is the bottom of the body, height and radius its size in metres.
     public static void Play(Vector3 feet, float height, float radius)
@@ -29,9 +43,50 @@ public class SmokeEffect : MonoBehaviour
         CreateWisps(root.transform, height, radius);
     }
 
+    // A faint thread of black smoke that runs low over the ground from one body's feet to
+    // another's, as if the enemy slid there unseen. height is the body's height in metres.
+    public static void PlayTrail(Vector3 fromFeet, Vector3 toFeet, float height)
+    {
+        Vector3 lift = Vector3.up * height * 0.35f;
+
+        GameObject root = new GameObject("Smoke Trail");
+        root.transform.position = fromFeet + lift;
+        SmokeEffect effect = root.AddComponent<SmokeEffect>();
+        effect.trailFrom = fromFeet + lift;
+        effect.trailTo = toFeet + lift;
+        effect.trailStartTime = Time.time;
+        effect.trailParticles = CreateTrail(root.transform, height);
+    }
+
     private void Start()
     {
-        Destroy(gameObject, Lifetime);
+        Destroy(gameObject, trailParticles != null ? TrailTravelTime + TrailLifetime : Lifetime);
+    }
+
+    // Moves the head of the trail and leaves puffs evenly along the stretch it covered this frame.
+    private void Update()
+    {
+        if (trailParticles == null) return;
+
+        float length = Vector3.Distance(trailFrom, trailTo);
+        if (trailEmittedDistance >= length) return;
+
+        // Starts fast and slows down as it reaches the new body.
+        float t = Mathf.Clamp01((Time.time - trailStartTime) / TrailTravelTime);
+        float headDistance = length * (1.0f - (1.0f - t) * (1.0f - t));
+
+        // Very long trails get sparser puffs instead of more of them.
+        float spacing = Mathf.Max(TrailSpacing, length / TrailMaxPuffs);
+        Vector3 direction = (trailTo - trailFrom) / length;
+        ParticleSystem.EmitParams puff = new ParticleSystem.EmitParams();
+        while (trailEmittedDistance + spacing <= headDistance || (t >= 1.0f && trailEmittedDistance < length))
+        {
+            trailEmittedDistance = Mathf.Min(trailEmittedDistance + spacing, length);
+            puff.position = trailFrom + direction * trailEmittedDistance + Random.insideUnitSphere * 0.1f;
+            puff.velocity = Random.insideUnitSphere * 0.15f + Vector3.up * 0.1f;
+            trailParticles.Emit(puff, 1);
+        }
+        transform.position = trailFrom + direction * headDistance;
     }
 
     // Thick puffs filling the whole body, which swell, drift up and fade.
@@ -114,6 +169,46 @@ public class SmokeEffect : MonoBehaviour
         color.color = Fade(new[] { new GradientAlphaKey(0.0f, 0.0f), new GradientAlphaKey(0.8f, 0.15f), new GradientAlphaKey(0.0f, 1.0f) });
 
         particles.Play();
+    }
+
+    // Small, thin puffs emitted by hand from Update, which swell a little, sway and fade.
+    private static ParticleSystem CreateTrail(Transform parent, float height)
+    {
+        ParticleSystem particles = CreateSystem("Trail", parent);
+
+        ParticleSystem.MainModule main = particles.main;
+        main.startLifetime = new ParticleSystem.MinMaxCurve(0.8f, 1.3f);
+        main.startSize = new ParticleSystem.MinMaxCurve(height * 0.15f, height * 0.3f);
+        main.startRotation = new ParticleSystem.MinMaxCurve(0.0f, 2.0f * Mathf.PI);
+        main.startColor = TrailColor;
+        main.gravityModifier = -0.03f;
+        main.maxParticles = TrailMaxPuffs + 16;
+        // Keeps playing, so the puffs emitted after the first 0.1 s are simulated too.
+        main.loop = true;
+
+        ParticleSystem.EmissionModule emission = particles.emission;
+        emission.enabled = false;
+
+        ParticleSystem.NoiseModule noise = particles.noise;
+        noise.enabled = true;
+        noise.strength = 0.3f;
+        noise.frequency = 0.6f;
+        noise.scrollSpeed = 0.4f;
+
+        ParticleSystem.SizeOverLifetimeModule size = particles.sizeOverLifetime;
+        size.enabled = true;
+        size.size = new ParticleSystem.MinMaxCurve(1.0f, AnimationCurve.EaseInOut(0.0f, 0.6f, 1.0f, 1.5f));
+
+        ParticleSystem.RotationOverLifetimeModule rotation = particles.rotationOverLifetime;
+        rotation.enabled = true;
+        rotation.z = new ParticleSystem.MinMaxCurve(-0.8f, 0.8f);
+
+        ParticleSystem.ColorOverLifetimeModule color = particles.colorOverLifetime;
+        color.enabled = true;
+        color.color = Fade(new[] { new GradientAlphaKey(0.0f, 0.0f), new GradientAlphaKey(1.0f, 0.15f), new GradientAlphaKey(0.0f, 1.0f) });
+
+        particles.Play();
+        return particles;
     }
 
     // A one-shot system that does not loop or play on its own, so it can be configured first.

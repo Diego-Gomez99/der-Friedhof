@@ -132,6 +132,10 @@ public class Enemy : MonoBehaviour
     // After any enemy vanishes, no enemy may appear for this many seconds.
     private const float AppearAfterVanishDelay = 0.5f;
     private static float lastVanishTime = float.MinValue;
+    // Where the last enemy vanished. The next one to appear draws a smoke trail from there.
+    private static Vector3? lastVanishPosition;
+    // Closer than this, in metres, the trail is skipped (the same enemy coming back in place).
+    private const float MinTrailDistance = 1.0f;
 
     void Start()
     {
@@ -221,6 +225,11 @@ public class Enemy : MonoBehaviour
 
     private void OnEnable()
     {
+        // The first enemy of a freshly loaded scene: forget where the previous run's enemy vanished.
+        if (allEnemies.Count == 0)
+        {
+            lastVanishPosition = null;
+        }
         allEnemies.Add(this);
     }
 
@@ -289,17 +298,25 @@ public class Enemy : MonoBehaviour
         if (!visible && Time.time - visibleSince < MinVisibleTime) return;
 
         isVisible = visible;
+        float height = capsuleCollider.height * transform.lossyScale.y;
         if (visible)
         {
             visibleSince = Time.time;
+            // Not for an enemy shown because it was killed.
+            if (!isDead && lastVanishPosition.HasValue
+                && Vector3.Distance(lastVanishPosition.Value, transform.position) >= MinTrailDistance)
+            {
+                SmokeEffect.PlayTrail(lastVanishPosition.Value, transform.position, height);
+            }
         }
         else
         {
             weaponCollider.enabled = false;
             lastVanishTime = Time.time;
+            lastVanishPosition = transform.position;
         }
 
-        SmokeEffect.Play(transform.position, capsuleCollider.height * transform.lossyScale.y, capsuleCollider.radius * transform.lossyScale.x);
+        SmokeEffect.Play(transform.position, height, capsuleCollider.radius * transform.lossyScale.x);
         if (pendingVisibility != null)
         {
             StopCoroutine(pendingVisibility);
