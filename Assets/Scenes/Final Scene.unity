@@ -8523,6 +8523,10 @@ MonoBehaviour:
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
   armOpenAngle: 45
   weaponTurnAngle: 12
+  maxVisibleTime: 30
+  respawnCooldown: 10
+  respawnMinDistance: 5
+  yieldCooldown: 0.5
 --- !u!82 &74247591
 AudioSource:
   m_ObjectHideFlags: 0
@@ -20783,6 +20787,10 @@ MonoBehaviour:
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
   armOpenAngle: 45
   weaponTurnAngle: 12
+  maxVisibleTime: 30
+  respawnCooldown: 10
+  respawnMinDistance: 5
+  yieldCooldown: 0.5
 --- !u!82 &199865047
 AudioSource:
   m_ObjectHideFlags: 0
@@ -23360,6 +23368,10 @@ MonoBehaviour:
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
   armOpenAngle: 45
   weaponTurnAngle: 12
+  maxVisibleTime: 30
+  respawnCooldown: 10
+  respawnMinDistance: 5
+  yieldCooldown: 0.5
 --- !u!82 &222161838
 AudioSource:
   m_ObjectHideFlags: 0
@@ -30050,6 +30062,10 @@ MonoBehaviour:
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
   armOpenAngle: 45
   weaponTurnAngle: 12
+  maxVisibleTime: 30
+  respawnCooldown: 10
+  respawnMinDistance: 5
+  yieldCooldown: 0.5
 --- !u!82 &297851237
 AudioSource:
   m_ObjectHideFlags: 0
@@ -30387,6 +30403,10 @@ MonoBehaviour:
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
   armOpenAngle: 45
   weaponTurnAngle: 12
+  maxVisibleTime: 30
+  respawnCooldown: 10
+  respawnMinDistance: 5
+  yieldCooldown: 0.5
 --- !u!82 &298598023
 AudioSource:
   m_ObjectHideFlags: 0
@@ -36302,6 +36322,10 @@ MonoBehaviour:
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
   armOpenAngle: 45
   weaponTurnAngle: 12
+  maxVisibleTime: 30
+  respawnCooldown: 10
+  respawnMinDistance: 5
+  yieldCooldown: 0.5
 --- !u!82 &354048947
 AudioSource:
   m_ObjectHideFlags: 0
@@ -39283,6 +39307,10 @@ MonoBehaviour:
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
   armOpenAngle: 45
   weaponTurnAngle: 12
+  maxVisibleTime: 30
+  respawnCooldown: 10
+  respawnMinDistance: 5
+  yieldCooldown: 0.5
 --- !u!82 &400441959
 AudioSource:
   m_ObjectHideFlags: 0
@@ -39703,6 +39731,10 @@ MonoBehaviour:
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
   armOpenAngle: 45
   weaponTurnAngle: 12
+  maxVisibleTime: 30
+  respawnCooldown: 10
+  respawnMinDistance: 5
+  yieldCooldown: 0.5
 --- !u!82 &403783704
 AudioSource:
   m_ObjectHideFlags: 0
@@ -43333,6 +43365,10 @@ MonoBehaviour:
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
   armOpenAngle: 45
   weaponTurnAngle: 12
+  maxVisibleTime: 30
+  respawnCooldown: 10
+  respawnMinDistance: 5
+  yieldCooldown: 0.5
 --- !u!82 &440703214
 AudioSource:
   m_ObjectHideFlags: 0
@@ -51841,6 +51877,10 @@ MonoBehaviour:
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
   armOpenAngle: 45
   weaponTurnAngle: 12
+  maxVisibleTime: 30
+  respawnCooldown: 10
+  respawnMinDistance: 5
+  yieldCooldown: 0.5
 --- !u!82 &524165514
 AudioSource:
   m_ObjectHideFlags: 0
@@ -54495,6 +54535,10 @@ MonoBehaviour:
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
   armOpenAngle: 45
   weaponTurnAngle: 12
+  maxVisibleTime: 30
+  respawnCooldown: 10
+  respawnMinDistance: 5
+  yieldCooldown: 0.5
 --- !u!82 &548087237
 AudioSource:
   m_ObjectHideFlags: 0
@@ -54749,8 +54793,8 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3593740734441989150, guid: 120d7631bf5b4b94f8271411b1868e06,
         type: 3}
-      propertyPath: m_Color.r
-      value: 0.2
+      propertyPath: m_Color.b
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 3593740734441989150, guid: 120d7631bf5b4b94f8271411b1868e06,
         type: 3}
@@ -54759,33 +54803,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3593740734441989150, guid: 120d7631bf5b4b94f8271411b1868e06,
         type: 3}
-      propertyPath: m_Color.b
-      value: 0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 3593740734441989150, guid: 120d7631bf5b4b94f8271411b1868e06,
-        type: 3}
-      propertyPath: m_SpotAngle
-      value: 75
-      objectReference: {fileID: 0}
-    - target: {fileID: 3593740734441989150, guid: 120d7631bf5b4b94f8271411b1868e06,
-        type: 3}
-      propertyPath: m_InnerSpotAngle
-      value: 35
-      objectReference: {fileID: 0}
-    - target: {fileID: 6703942919109676015, guid: 120d7631bf5b4b94f8271411b1868e06,
-        type: 3}
       propertyPath: m_Color.r
       value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6703942919109676015, guid: 120d7631bf5b4b94f8271411b1868e06,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6703942919109676015, guid: 120d7631bf5b4b94f8271411b1868e06,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 3593740734441989150, guid: 120d7631bf5b4b94f8271411b1868e06,
         type: 3}
@@ -54851,6 +54870,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: StreetLampRound2A (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6703942919109676015, guid: 120d7631bf5b4b94f8271411b1868e06,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 6703942919109676015, guid: 120d7631bf5b4b94f8271411b1868e06,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6703942919109676015, guid: 120d7631bf5b4b94f8271411b1868e06,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 7392195693734223995, guid: 120d7631bf5b4b94f8271411b1868e06,
         type: 3}
@@ -68520,6 +68554,10 @@ MonoBehaviour:
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
   armOpenAngle: 45
   weaponTurnAngle: 12
+  maxVisibleTime: 30
+  respawnCooldown: 10
+  respawnMinDistance: 5
+  yieldCooldown: 0.5
 --- !u!82 &682138525
 AudioSource:
   m_ObjectHideFlags: 0
@@ -76484,6 +76522,10 @@ MonoBehaviour:
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
   armOpenAngle: 45
   weaponTurnAngle: 12
+  maxVisibleTime: 30
+  respawnCooldown: 10
+  respawnMinDistance: 5
+  yieldCooldown: 0.5
 --- !u!82 &746298664
 AudioSource:
   m_ObjectHideFlags: 0
@@ -77506,6 +77548,10 @@ MonoBehaviour:
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
   armOpenAngle: 45
   weaponTurnAngle: 12
+  maxVisibleTime: 30
+  respawnCooldown: 10
+  respawnMinDistance: 5
+  yieldCooldown: 0.5
 --- !u!82 &749848785
 AudioSource:
   m_ObjectHideFlags: 0
@@ -81667,6 +81713,10 @@ MonoBehaviour:
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
   armOpenAngle: 45
   weaponTurnAngle: 12
+  maxVisibleTime: 30
+  respawnCooldown: 10
+  respawnMinDistance: 5
+  yieldCooldown: 0.5
 --- !u!82 &788914472
 AudioSource:
   m_ObjectHideFlags: 0
@@ -89033,6 +89083,10 @@ MonoBehaviour:
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
   armOpenAngle: 45
   weaponTurnAngle: 12
+  maxVisibleTime: 30
+  respawnCooldown: 10
+  respawnMinDistance: 5
+  yieldCooldown: 0.5
 --- !u!82 &853307842
 AudioSource:
   m_ObjectHideFlags: 0
@@ -96641,6 +96695,10 @@ MonoBehaviour:
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
   armOpenAngle: 45
   weaponTurnAngle: 12
+  maxVisibleTime: 30
+  respawnCooldown: 10
+  respawnMinDistance: 5
+  yieldCooldown: 0.5
 --- !u!82 &924500401
 AudioSource:
   m_ObjectHideFlags: 0
@@ -97590,6 +97648,10 @@ MonoBehaviour:
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
   armOpenAngle: 45
   weaponTurnAngle: 12
+  maxVisibleTime: 30
+  respawnCooldown: 10
+  respawnMinDistance: 5
+  yieldCooldown: 0.5
 --- !u!82 &935395615
 AudioSource:
   m_ObjectHideFlags: 0
@@ -103479,6 +103541,10 @@ MonoBehaviour:
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
   armOpenAngle: 45
   weaponTurnAngle: 12
+  maxVisibleTime: 30
+  respawnCooldown: 10
+  respawnMinDistance: 5
+  yieldCooldown: 0.5
 --- !u!82 &986820123
 AudioSource:
   m_ObjectHideFlags: 0
@@ -103708,8 +103774,8 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3593740734441989150, guid: 120d7631bf5b4b94f8271411b1868e06,
         type: 3}
-      propertyPath: m_Color.r
-      value: 0.2
+      propertyPath: m_Color.b
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 3593740734441989150, guid: 120d7631bf5b4b94f8271411b1868e06,
         type: 3}
@@ -103718,33 +103784,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3593740734441989150, guid: 120d7631bf5b4b94f8271411b1868e06,
         type: 3}
-      propertyPath: m_Color.b
-      value: 0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 3593740734441989150, guid: 120d7631bf5b4b94f8271411b1868e06,
-        type: 3}
-      propertyPath: m_SpotAngle
-      value: 75
-      objectReference: {fileID: 0}
-    - target: {fileID: 3593740734441989150, guid: 120d7631bf5b4b94f8271411b1868e06,
-        type: 3}
-      propertyPath: m_InnerSpotAngle
-      value: 35
-      objectReference: {fileID: 0}
-    - target: {fileID: 6703942919109676015, guid: 120d7631bf5b4b94f8271411b1868e06,
-        type: 3}
       propertyPath: m_Color.r
       value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6703942919109676015, guid: 120d7631bf5b4b94f8271411b1868e06,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6703942919109676015, guid: 120d7631bf5b4b94f8271411b1868e06,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 3593740734441989150, guid: 120d7631bf5b4b94f8271411b1868e06,
         type: 3}
@@ -103810,6 +103851,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: StreetLampRound2A (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6703942919109676015, guid: 120d7631bf5b4b94f8271411b1868e06,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 6703942919109676015, guid: 120d7631bf5b4b94f8271411b1868e06,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6703942919109676015, guid: 120d7631bf5b4b94f8271411b1868e06,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 7392195693734223995, guid: 120d7631bf5b4b94f8271411b1868e06,
         type: 3}
@@ -107900,6 +107956,10 @@ MonoBehaviour:
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
   armOpenAngle: 45
   weaponTurnAngle: 12
+  maxVisibleTime: 30
+  respawnCooldown: 10
+  respawnMinDistance: 5
+  yieldCooldown: 0.5
 --- !u!82 &1026216211
 AudioSource:
   m_ObjectHideFlags: 0
@@ -127735,6 +127795,10 @@ MonoBehaviour:
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
   armOpenAngle: 45
   weaponTurnAngle: 12
+  maxVisibleTime: 30
+  respawnCooldown: 10
+  respawnMinDistance: 5
+  yieldCooldown: 0.5
 --- !u!82 &1263173299
 AudioSource:
   m_ObjectHideFlags: 0
@@ -148107,6 +148171,10 @@ MonoBehaviour:
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
   armOpenAngle: 45
   weaponTurnAngle: 12
+  maxVisibleTime: 30
+  respawnCooldown: 10
+  respawnMinDistance: 5
+  yieldCooldown: 0.5
 --- !u!82 &1476543811
 AudioSource:
   m_ObjectHideFlags: 0
@@ -155154,6 +155222,10 @@ MonoBehaviour:
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
   armOpenAngle: 45
   weaponTurnAngle: 12
+  maxVisibleTime: 30
+  respawnCooldown: 10
+  respawnMinDistance: 5
+  yieldCooldown: 0.5
 --- !u!82 &1548997861
 AudioSource:
   m_ObjectHideFlags: 0
@@ -166477,6 +166549,10 @@ MonoBehaviour:
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
   armOpenAngle: 45
   weaponTurnAngle: 12
+  maxVisibleTime: 30
+  respawnCooldown: 10
+  respawnMinDistance: 5
+  yieldCooldown: 0.5
 --- !u!82 &1664629577
 AudioSource:
   m_ObjectHideFlags: 0
@@ -168871,6 +168947,10 @@ MonoBehaviour:
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
   armOpenAngle: 45
   weaponTurnAngle: 12
+  maxVisibleTime: 30
+  respawnCooldown: 10
+  respawnMinDistance: 5
+  yieldCooldown: 0.5
 --- !u!82 &1695189516
 AudioSource:
   m_ObjectHideFlags: 0
@@ -176333,8 +176413,8 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3593740734441989150, guid: 120d7631bf5b4b94f8271411b1868e06,
         type: 3}
-      propertyPath: m_Color.r
-      value: 0.2
+      propertyPath: m_Color.b
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 3593740734441989150, guid: 120d7631bf5b4b94f8271411b1868e06,
         type: 3}
@@ -176343,33 +176423,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3593740734441989150, guid: 120d7631bf5b4b94f8271411b1868e06,
         type: 3}
-      propertyPath: m_Color.b
-      value: 0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 3593740734441989150, guid: 120d7631bf5b4b94f8271411b1868e06,
-        type: 3}
-      propertyPath: m_SpotAngle
-      value: 75
-      objectReference: {fileID: 0}
-    - target: {fileID: 3593740734441989150, guid: 120d7631bf5b4b94f8271411b1868e06,
-        type: 3}
-      propertyPath: m_InnerSpotAngle
-      value: 35
-      objectReference: {fileID: 0}
-    - target: {fileID: 6703942919109676015, guid: 120d7631bf5b4b94f8271411b1868e06,
-        type: 3}
       propertyPath: m_Color.r
       value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6703942919109676015, guid: 120d7631bf5b4b94f8271411b1868e06,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6703942919109676015, guid: 120d7631bf5b4b94f8271411b1868e06,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 3593740734441989150, guid: 120d7631bf5b4b94f8271411b1868e06,
         type: 3}
@@ -176435,6 +176490,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: StreetLampRound2A (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6703942919109676015, guid: 120d7631bf5b4b94f8271411b1868e06,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 6703942919109676015, guid: 120d7631bf5b4b94f8271411b1868e06,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6703942919109676015, guid: 120d7631bf5b4b94f8271411b1868e06,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 7392195693734223995, guid: 120d7631bf5b4b94f8271411b1868e06,
         type: 3}
@@ -178887,6 +178957,10 @@ MonoBehaviour:
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
   armOpenAngle: 45
   weaponTurnAngle: 12
+  maxVisibleTime: 30
+  respawnCooldown: 10
+  respawnMinDistance: 5
+  yieldCooldown: 0.5
 --- !u!82 &1788806567
 AudioSource:
   m_ObjectHideFlags: 0
@@ -182065,8 +182139,8 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3593740734441989150, guid: 120d7631bf5b4b94f8271411b1868e06,
         type: 3}
-      propertyPath: m_Color.r
-      value: 0.2
+      propertyPath: m_Color.b
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 3593740734441989150, guid: 120d7631bf5b4b94f8271411b1868e06,
         type: 3}
@@ -182075,33 +182149,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3593740734441989150, guid: 120d7631bf5b4b94f8271411b1868e06,
         type: 3}
-      propertyPath: m_Color.b
-      value: 0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 3593740734441989150, guid: 120d7631bf5b4b94f8271411b1868e06,
-        type: 3}
-      propertyPath: m_SpotAngle
-      value: 75
-      objectReference: {fileID: 0}
-    - target: {fileID: 3593740734441989150, guid: 120d7631bf5b4b94f8271411b1868e06,
-        type: 3}
-      propertyPath: m_InnerSpotAngle
-      value: 35
-      objectReference: {fileID: 0}
-    - target: {fileID: 6703942919109676015, guid: 120d7631bf5b4b94f8271411b1868e06,
-        type: 3}
       propertyPath: m_Color.r
       value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6703942919109676015, guid: 120d7631bf5b4b94f8271411b1868e06,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6703942919109676015, guid: 120d7631bf5b4b94f8271411b1868e06,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 3593740734441989150, guid: 120d7631bf5b4b94f8271411b1868e06,
         type: 3}
@@ -182167,6 +182216,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: StreetLampRound2A
+      objectReference: {fileID: 0}
+    - target: {fileID: 6703942919109676015, guid: 120d7631bf5b4b94f8271411b1868e06,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 6703942919109676015, guid: 120d7631bf5b4b94f8271411b1868e06,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6703942919109676015, guid: 120d7631bf5b4b94f8271411b1868e06,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 7392195693734223995, guid: 120d7631bf5b4b94f8271411b1868e06,
         type: 3}
@@ -186996,6 +187060,10 @@ MonoBehaviour:
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
   armOpenAngle: 45
   weaponTurnAngle: 12
+  maxVisibleTime: 30
+  respawnCooldown: 10
+  respawnMinDistance: 5
+  yieldCooldown: 0.5
 --- !u!82 &1878826986
 AudioSource:
   m_ObjectHideFlags: 0
@@ -194299,6 +194367,10 @@ MonoBehaviour:
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
   armOpenAngle: 45
   weaponTurnAngle: 12
+  maxVisibleTime: 30
+  respawnCooldown: 10
+  respawnMinDistance: 5
+  yieldCooldown: 0.5
 --- !u!82 &1937203139
 AudioSource:
   m_ObjectHideFlags: 0
@@ -196324,6 +196396,10 @@ MonoBehaviour:
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
   armOpenAngle: 45
   weaponTurnAngle: 12
+  maxVisibleTime: 30
+  respawnCooldown: 10
+  respawnMinDistance: 5
+  yieldCooldown: 0.5
 --- !u!82 &1956967839
 AudioSource:
   m_ObjectHideFlags: 0
@@ -197666,6 +197742,10 @@ MonoBehaviour:
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
   armOpenAngle: 45
   weaponTurnAngle: 12
+  maxVisibleTime: 30
+  respawnCooldown: 10
+  respawnMinDistance: 5
+  yieldCooldown: 0.5
 --- !u!82 &1968997272
 AudioSource:
   m_ObjectHideFlags: 0
@@ -202275,8 +202355,8 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3593740734441989150, guid: 120d7631bf5b4b94f8271411b1868e06,
         type: 3}
-      propertyPath: m_Color.r
-      value: 0.2
+      propertyPath: m_Color.b
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 3593740734441989150, guid: 120d7631bf5b4b94f8271411b1868e06,
         type: 3}
@@ -202285,33 +202365,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3593740734441989150, guid: 120d7631bf5b4b94f8271411b1868e06,
         type: 3}
-      propertyPath: m_Color.b
-      value: 0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 3593740734441989150, guid: 120d7631bf5b4b94f8271411b1868e06,
-        type: 3}
-      propertyPath: m_SpotAngle
-      value: 75
-      objectReference: {fileID: 0}
-    - target: {fileID: 3593740734441989150, guid: 120d7631bf5b4b94f8271411b1868e06,
-        type: 3}
-      propertyPath: m_InnerSpotAngle
-      value: 35
-      objectReference: {fileID: 0}
-    - target: {fileID: 6703942919109676015, guid: 120d7631bf5b4b94f8271411b1868e06,
-        type: 3}
       propertyPath: m_Color.r
       value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6703942919109676015, guid: 120d7631bf5b4b94f8271411b1868e06,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6703942919109676015, guid: 120d7631bf5b4b94f8271411b1868e06,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 3593740734441989150, guid: 120d7631bf5b4b94f8271411b1868e06,
         type: 3}
@@ -202377,6 +202432,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: StreetLampRound2A (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6703942919109676015, guid: 120d7631bf5b4b94f8271411b1868e06,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 6703942919109676015, guid: 120d7631bf5b4b94f8271411b1868e06,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6703942919109676015, guid: 120d7631bf5b4b94f8271411b1868e06,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 7392195693734223995, guid: 120d7631bf5b4b94f8271411b1868e06,
         type: 3}
@@ -205569,6 +205639,10 @@ MonoBehaviour:
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
   armOpenAngle: 45
   weaponTurnAngle: 12
+  maxVisibleTime: 30
+  respawnCooldown: 10
+  respawnMinDistance: 5
+  yieldCooldown: 0.5
 --- !u!82 &2030200531
 AudioSource:
   m_ObjectHideFlags: 0
@@ -208174,8 +208248,8 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3593740734441989150, guid: 120d7631bf5b4b94f8271411b1868e06,
         type: 3}
-      propertyPath: m_Color.r
-      value: 0.2
+      propertyPath: m_Color.b
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 3593740734441989150, guid: 120d7631bf5b4b94f8271411b1868e06,
         type: 3}
@@ -208184,33 +208258,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3593740734441989150, guid: 120d7631bf5b4b94f8271411b1868e06,
         type: 3}
-      propertyPath: m_Color.b
-      value: 0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 3593740734441989150, guid: 120d7631bf5b4b94f8271411b1868e06,
-        type: 3}
-      propertyPath: m_SpotAngle
-      value: 75
-      objectReference: {fileID: 0}
-    - target: {fileID: 3593740734441989150, guid: 120d7631bf5b4b94f8271411b1868e06,
-        type: 3}
-      propertyPath: m_InnerSpotAngle
-      value: 35
-      objectReference: {fileID: 0}
-    - target: {fileID: 6703942919109676015, guid: 120d7631bf5b4b94f8271411b1868e06,
-        type: 3}
       propertyPath: m_Color.r
       value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6703942919109676015, guid: 120d7631bf5b4b94f8271411b1868e06,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6703942919109676015, guid: 120d7631bf5b4b94f8271411b1868e06,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 3593740734441989150, guid: 120d7631bf5b4b94f8271411b1868e06,
         type: 3}
@@ -208276,6 +208325,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: StreetLampRound2A (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6703942919109676015, guid: 120d7631bf5b4b94f8271411b1868e06,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 6703942919109676015, guid: 120d7631bf5b4b94f8271411b1868e06,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6703942919109676015, guid: 120d7631bf5b4b94f8271411b1868e06,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 7392195693734223995, guid: 120d7631bf5b4b94f8271411b1868e06,
         type: 3}
@@ -212352,6 +212416,10 @@ MonoBehaviour:
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
   armOpenAngle: 45
   weaponTurnAngle: 12
+  maxVisibleTime: 30
+  respawnCooldown: 10
+  respawnMinDistance: 5
+  yieldCooldown: 0.5
 --- !u!82 &2105229453
 AudioSource:
   m_ObjectHideFlags: 0
