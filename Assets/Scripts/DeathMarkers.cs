@@ -3,7 +3,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 // Remembers where each killer's scythe ended up planted in the ground, and every time that scene
-// loads again leaves a copy of the scythe there, with no collider, to mark where the player died.
+// loads again leaves a copy of the scythe there, with no collider, and the mound of earth around
+// it, to mark where the player died.
 // The list is static, so it lasts until the game is closed, including trips through the main menu.
 public static class DeathMarkers
 {
@@ -13,6 +14,8 @@ public static class DeathMarkers
         public Vector3 position;
         public Quaternion rotation;
         public Vector3 scale;
+        public Vector3 groundPoint;
+        public int groundSeed;
     }
 
     private static readonly List<Marker> markers = new List<Marker>();
@@ -25,7 +28,8 @@ public static class DeathMarkers
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
-    public static void Record(Transform weapon)
+    // groundPoint is where the handle enters the ground, and groundSeed the seed its ScytheGroundMark was built from.
+    public static void Record(Transform weapon, Vector3 groundPoint, int groundSeed)
     {
         markers.Add(new Marker
         {
@@ -33,6 +37,8 @@ public static class DeathMarkers
             position = weapon.position,
             rotation = weapon.rotation,
             scale = weapon.lossyScale,
+            groundPoint = groundPoint,
+            groundSeed = groundSeed,
         });
     }
 
@@ -60,6 +66,8 @@ public static class DeathMarkers
             meshRenderer.sharedMaterials = templateRenderer.sharedMaterials;
             meshRenderer.shadowCastingMode = templateRenderer.shadowCastingMode;
             meshRenderer.receiveShadows = templateRenderer.receiveShadows;
+
+            SceneManager.MoveGameObjectToScene(ScytheGroundMark.Create(marker.groundPoint, marker.groundSeed, false), scene);
         }
     }
 }

@@ -467,7 +467,10 @@ public class Enemy : MonoBehaviour
                 isWeaponPlanted = true;
                 plantedLocalPosition = weapon.localPosition;
                 plantedLocalRotation = weapon.localRotation;
-                DeathMarkers.Record(weapon);
+                Vector3 entry = HandleGroundEntry(butt);
+                int markSeed = UnityEngine.Random.Range(int.MinValue, int.MaxValue);
+                ScytheGroundMark.Create(entry, markSeed, true);
+                DeathMarkers.Record(weapon, entry, markSeed);
                 buttInGround = true;
             }
 
@@ -493,6 +496,19 @@ public class Enemy : MonoBehaviour
 
         Vector3 displacement = weapon.position - transform.TransformPoint(weaponRestLocalPosition);
         weaponCollider.center = weaponColliderRestCenter - weapon.InverseTransformVector(displacement);
+    }
+
+    // Where the handle crosses the ground, going up the handle from the butt. The enemy's feet are the ground.
+    private Vector3 HandleGroundEntry(Vector3 butt)
+    {
+        float ground = transform.position.y;
+        Vector3 down = weapon.TransformDirection(WeaponButtDirection).normalized;
+        if (butt.y < ground && down.y < -0.1f)
+        {
+            butt -= down * ((ground - butt.y) / -down.y);
+        }
+        butt.y = ground;
+        return butt;
     }
 
     // Tilts the scythe around the hand, as little as possible, so that the blade stays above the
