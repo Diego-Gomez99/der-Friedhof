@@ -11,7 +11,7 @@
 
 | Script | Role |
 | --- | --- |
-| `PlayerController` | Movement from `Horizontal`/`Vertical` axes in `FixedUpdate`, sets Rigidbody velocity and the animator floats `speed` and `turnSpeed`. Handles trigger contacts: tag `Enemy` ends the game, tag `SS` kills enemies within 10 units. Stops moving while `GameManager.instance.isGameOver` is true. |
+| `PlayerController` | Movement from `Horizontal`/`Vertical` axes in `FixedUpdate`, sets Rigidbody velocity and the animator floats `speed` and `turnSpeed`. Handles trigger contacts: tag `Enemy` ends the game, while the player stands in a trigger tagged `SS`, every `FixedUpdate` kills the enemies within 10 units (tracked with enter/exit counts, because `OnTriggerStay` stops while the Rigidbody sleeps). Stops moving while `GameManager.instance.isGameOver` is true. |
 | `GameManager` | Singleton (`GameManager.instance`) present in every gameplay scene. Finds the object named `Game Over Panel` in `Awake`, hides it, and shows it when `GameOver()` is called. `LoadScene` darkens the used button and fades to the scene through `SceneFader`. It ignores every call after the first, because the Game Over buttons click on press and on release. Also starts the soundtrack. |
 | `Enemy` (file `EnemyAI.cs`) | Chases the object tagged `Player` when within `detectionDistance`, plays a chase clip, sets the animator bool `Persiguiendo`. `Attack()` stops it and plays its scythe swing when it kills the player. `Die()` disables its colliders and destroys it after a delay. |
 | `MainMenuManager` | Menu music and the Play and Quit handlers. Play fades into the game scene and Quit fades to black before quitting, both through `SceneFader`. |
