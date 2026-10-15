@@ -97,6 +97,11 @@ public class Enemy : MonoBehaviour
     private Vector3 deadWeaponHandPosition;
     private Quaternion deadWeaponHandRotation;
 
+    // The enemy is only seen, and its scythe only kills, while it chases the player.
+    // Attacking and dead enemies stay visible.
+    private Renderer[] renderers;
+    private bool isVisible = true;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -114,6 +119,9 @@ public class Enemy : MonoBehaviour
         rightUpperArm = animator.GetBoneTransform(HumanBodyBones.RightUpperArm);
         rightLowerArm = animator.GetBoneTransform(HumanBodyBones.RightLowerArm);
         rightHand = animator.GetBoneTransform(HumanBodyBones.RightHand);
+
+        renderers = GetComponentsInChildren<Renderer>();
+        SetVisible(false);
     }
 
     private void Update()
@@ -130,6 +138,7 @@ public class Enemy : MonoBehaviour
 
         if (distanceToTarget <= detectionDistance)
         {
+            SetVisible(true);
             float speedMultiplier = Mathf.Clamp01(1 - (distanceToTarget / detectionDistance));
             float currentMovementSpeed = Mathf.Lerp(minMovementSpeed, maxMovementSpeed, speedMultiplier);
             Vector3 directionToPlayer = (target.position - transform.position).normalized;
@@ -152,7 +161,21 @@ public class Enemy : MonoBehaviour
         {
             myaudio.Stop();
             animator.SetBool("Persiguiendo", false);
+            SetVisible(false);
         }
+    }
+
+    // Shows or hides the enemy and its scythe, and arms or disarms the scythe's kill trigger with it.
+    private void SetVisible(bool visible)
+    {
+        if (visible == isVisible) return;
+        isVisible = visible;
+
+        foreach (Renderer part in renderers)
+        {
+            part.enabled = visible;
+        }
+        weaponCollider.enabled = visible;
     }
 
     // Runs after the Animator, so it overrides the clip's pose for the right arm:
@@ -297,6 +320,7 @@ public class Enemy : MonoBehaviour
         if (isDead) return;
         isDead = true;
         isAttacking = false;
+        SetVisible(true);
 
         // It stops where it is and the body stays lying there. Kinematic, so it does not fall
         // through the ground once its collider is off.
