@@ -130,13 +130,18 @@ public class Enemy : MonoBehaviour
     private static readonly List<Enemy> allEnemies = new List<Enemy>();
     private static Enemy closestCandidate;
     private static int closestCandidateFrame = -1;
-    // After any enemy vanishes, no enemy may appear for this many seconds.
-    private const float AppearAfterVanishDelay = 0.5f;
+    // After any enemy vanishes, no enemy may appear for this many seconds. The smoke has hidden
+    // the vanished body by then, so the trail to the next enemy sets off right after.
+    private const float AppearAfterVanishDelay = SmokeEffect.CoverDelay;
     private static float lastVanishTime = float.MinValue;
     // Where the last enemy vanished. The next one to appear draws a smoke trail from there.
     private static Vector3? lastVanishPosition;
     // Closer than this, in metres, the trail is skipped (the same enemy coming back in place).
     private const float MinTrailDistance = 1.0f;
+    // Seconds between the trail reaching the new enemy and its puff of smoke. Until the puff hides
+    // the switch, the enemy stays hidden and still where the trail ended.
+    private const float AppearAfterTrailPause = 0.5f;
+    private float appearTime;
 
     void Start()
     {
@@ -165,6 +170,12 @@ public class Enemy : MonoBehaviour
     private void Update()
     {
         if (isDead || isAttacking) return;
+        if (isVisible && Time.time < appearTime)
+        {
+            rb.velocity = new Vector3(0.0f, rb.velocity.y, 0.0f);
+            animator.SetFloat("walkSpeed", 0.0f);
+            return;
+        }
         if (Time.time < cooldownEndTime) return;
 
         if (isVisible && Time.time - visibleSince >= maxVisibleTime)
@@ -300,15 +311,19 @@ public class Enemy : MonoBehaviour
 
         isVisible = visible;
         float height = capsuleCollider.height * transform.lossyScale.y;
+        // Seconds before the puff, while the trail crosses over and then a pause.
+        float puffDelay = 0.0f;
         if (visible)
         {
-            visibleSince = Time.time;
             // Not for an enemy shown because it was killed.
             if (!isDead && lastVanishPosition.HasValue
                 && Vector3.Distance(lastVanishPosition.Value, transform.position) >= MinTrailDistance)
             {
                 SmokeEffect.PlayTrail(lastVanishPosition.Value, transform.position, height);
+                puffDelay = SmokeEffect.TrailTravelTime + AppearAfterTrailPause;
             }
+            appearTime = Time.time + puffDelay;
+            visibleSince = appearTime;
         }
         else
         {
@@ -317,16 +332,20 @@ public class Enemy : MonoBehaviour
             lastVanishPosition = transform.position;
         }
 
-        SmokeEffect.Play(transform.position, height, capsuleCollider.radius * transform.lossyScale.x);
         if (pendingVisibility != null)
         {
             StopCoroutine(pendingVisibility);
         }
-        pendingVisibility = StartCoroutine(ApplyVisibilityAfterSmoke(visible));
+        pendingVisibility = StartCoroutine(ApplyVisibilityAfterSmoke(visible, puffDelay, height));
     }
 
-    private IEnumerator ApplyVisibilityAfterSmoke(bool visible)
+    private IEnumerator ApplyVisibilityAfterSmoke(bool visible, float puffDelay, float height)
     {
+        if (puffDelay > 0.0f)
+        {
+            yield return new WaitForSeconds(puffDelay);
+        }
+        SmokeEffect.Play(transform.position, height, capsuleCollider.radius * transform.lossyScale.x);
         yield return new WaitForSeconds(SmokeEffect.CoverDelay);
         pendingVisibility = null;
         ApplyVisibility(visible);

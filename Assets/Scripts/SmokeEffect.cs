@@ -17,8 +17,8 @@ public class SmokeEffect : MonoBehaviour
     private static readonly Color SmokeDark = new Color(0.0f, 0.0f, 0.0f, 0.95f);
 
     // Trail from where the last enemy vanished to where the next one appears.
-    // Seconds the head of the trail takes to get there, about when the puff hides the switch.
-    private const float TrailTravelTime = 0.3f;
+    // Seconds the head of the trail takes to get there. The enemy appears some time after that.
+    public const float TrailTravelTime = 0.3f;
     private const float TrailSpacing = 0.25f; // Metres between trail puffs.
     private const int TrailMaxPuffs = 160;
     private const float TrailLifetime = 1.6f; // Longer than any trail puff lives.
