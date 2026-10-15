@@ -193,7 +193,8 @@ public class Enemy : MonoBehaviour
         groundVelocity.y = 0.0f;
         animator.SetFloat("walkSpeed", groundVelocity.magnitude / WalkClipSpeed);
 
-        bool mayChase = distanceToTarget <= detectionDistance
+        // Once shown, it keeps chasing however far the player gets.
+        bool mayChase = (isVisible || distanceToTarget <= detectionDistance)
             && ClosestCandidate(target.position) == this
             && (isVisible || (!AnotherEnemyVisible() && Time.time - lastVanishTime >= AppearAfterVanishDelay));
 
@@ -221,8 +222,8 @@ public class Enemy : MonoBehaviour
         }
         else
         {
-            // Shown and still in range: it only stops because a closer enemy takes over.
-            bool yielding = isVisible && distanceToTarget <= detectionDistance;
+            // Shown: it only stops because a closer enemy takes over.
+            bool yielding = isVisible;
 
             myaudio.Stop();
             animator.SetBool("Persiguiendo", false);
@@ -254,7 +255,7 @@ public class Enemy : MonoBehaviour
     private bool CanChase(float distanceToPlayer)
     {
         return !isDead && !isAttacking && Time.time >= cooldownEndTime
-            && distanceToPlayer <= detectionDistance
+            && (isVisible || distanceToPlayer <= detectionDistance)
             && !(isRespawning && distanceToPlayer < respawnMinDistance);
     }
 
