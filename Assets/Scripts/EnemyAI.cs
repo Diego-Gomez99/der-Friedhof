@@ -120,6 +120,12 @@ public class Enemy : MonoBehaviour
     private float cooldownEndTime;
     private bool isRespawning = false;
 
+    // Only one enemy is shown at a time: the closest to the player of those that could chase it.
+    // Another one waits until the shown enemy has vanished, and a closer one takes over from it.
+    private static readonly List<Enemy> allEnemies = new List<Enemy>();
+    private static Enemy closestCandidate;
+    private static int closestCandidateFrame = -1;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -164,7 +170,11 @@ public class Enemy : MonoBehaviour
         groundVelocity.y = 0.0f;
         animator.SetFloat("walkSpeed", groundVelocity.magnitude / WalkClipSpeed);
 
-        if (distanceToTarget <= detectionDistance)
+        bool mayChase = distanceToTarget <= detectionDistance
+            && ClosestCandidate(target.position) == this
+            && (isVisible || !AnotherEnemyVisible());
+
+        if (mayChase)
         {
             isRespawning = false;
             SetVisible(true);
@@ -192,6 +202,54 @@ public class Enemy : MonoBehaviour
             animator.SetBool("Persiguiendo", false);
             SetVisible(false);
         }
+    }
+
+    private void OnEnable()
+    {
+        allEnemies.Add(this);
+    }
+
+    private void OnDisable()
+    {
+        allEnemies.Remove(this);
+    }
+
+    // Whether this enemy could chase a player this far away, ignoring the other enemies.
+    private bool CanChase(float distanceToPlayer)
+    {
+        return !isDead && !isAttacking && Time.time >= cooldownEndTime
+            && distanceToPlayer <= detectionDistance
+            && !(isRespawning && distanceToPlayer < respawnMinDistance);
+    }
+
+    // The enemy closest to the player among those that could chase it, worked out once per frame.
+    private static Enemy ClosestCandidate(Vector3 playerPosition)
+    {
+        if (closestCandidateFrame == Time.frameCount) return closestCandidate;
+        closestCandidateFrame = Time.frameCount;
+
+        closestCandidate = null;
+        float closestDistance = float.MaxValue;
+        foreach (Enemy enemy in allEnemies)
+        {
+            float distance = Vector3.Distance(enemy.transform.position, playerPosition);
+            if (distance < closestDistance && enemy.CanChase(distance))
+            {
+                closestCandidate = enemy;
+                closestDistance = distance;
+            }
+        }
+        return closestCandidate;
+    }
+
+    // A living enemy other than this one is shown, or still fading out (its minimum visible time).
+    private bool AnotherEnemyVisible()
+    {
+        foreach (Enemy enemy in allEnemies)
+        {
+            if (enemy != this && enemy.isVisible && !enemy.isDead) return true;
+        }
+        return false;
     }
 
     // Vanishes where it stands and stays hidden and still until the cooldown is over and the
