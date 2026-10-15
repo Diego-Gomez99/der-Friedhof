@@ -123,8 +123,16 @@ public class Enemy : MonoBehaviour
     // respawnMinDistance applies as well.
     [SerializeField]
     private float yieldCooldown = 1.0f;
+    // A shown enemy farther than this many metres from the player vanishes and, once hidden and
+    // with a chance of TeleportChance (0 to 1), moves to where the player is. After VanishCooldown
+    // seconds, it comes back once the player is respawnMinDistance away from where it is.
+    private const float VanishDistance = 40.0f;
+    private const float VanishCooldown = 3.0f;
+    private const float TeleportChance = 0.25f;
     private float cooldownEndTime;
     private bool isRespawning = false;
+    // Set while vanishing for distance, so the enemy moves to the player once the smoke hides it.
+    private bool teleportOnVanish = false;
 
     // Only one enemy is shown at a time: the closest to the player of those that could chase it.
     // Another one waits until the shown enemy has vanished, and a closer one takes over from it.
@@ -197,6 +205,13 @@ public class Enemy : MonoBehaviour
         }
 
         float distanceToTarget = Vector3.Distance(transform.position, target.position);
+        if (isVisible && distanceToTarget > VanishDistance)
+        {
+            // Random.value can be 0 or 1, so a chance of 0 never teleports and 1 always does.
+            teleportOnVanish = TeleportChance > 0.0f && UnityEngine.Random.value <= TeleportChance;
+            StartCooldown(VanishCooldown);
+            return;
+        }
         if (isRespawning && distanceToTarget < respawnMinDistance) return;
 
         // The walk clip plays faster or slower to match how fast the enemy actually moved in the
@@ -205,7 +220,7 @@ public class Enemy : MonoBehaviour
         groundVelocity.y = 0.0f;
         animator.SetFloat("walkSpeed", groundVelocity.magnitude / WalkClipSpeed);
 
-        // Once shown, it keeps chasing however far the player gets.
+        // Once shown, it keeps chasing until the player is VanishDistance away.
         bool mayChase = (isVisible || distanceToTarget <= detectionDistance)
             && ClosestCandidate(target.position) == this
             && (isVisible || (!AnotherEnemyVisible() && Time.time - lastVanishTime >= AppearAfterVanishDelay));
@@ -318,6 +333,8 @@ public class Enemy : MonoBehaviour
     // the smoke covers the body. The scythe is disarmed at once when hiding, and armed only when shown.
     private void SetVisible(bool visible)
     {
+        bool teleport = teleportOnVanish;
+        teleportOnVanish = false;
         if (visible == isVisible) return;
         // Keeps a player standing at the edge of detectionDistance from setting off a puff every frame.
         if (!visible && Time.time - visibleSince < MinVisibleTime) return;
@@ -362,10 +379,10 @@ public class Enemy : MonoBehaviour
         {
             StopCoroutine(pendingVisibility);
         }
-        pendingVisibility = StartCoroutine(ApplyVisibilityAfterSmoke(visible, trailTime, pause, sweep, height));
+        pendingVisibility = StartCoroutine(ApplyVisibilityAfterSmoke(visible, trailTime, pause, sweep, height, teleport && !visible));
     }
 
-    private IEnumerator ApplyVisibilityAfterSmoke(bool visible, float trailTime, float pause, bool sweep, float height)
+    private IEnumerator ApplyVisibilityAfterSmoke(bool visible, float trailTime, float pause, bool sweep, float height, bool teleport)
     {
         if (trailTime > 0.0f)
         {
@@ -389,6 +406,12 @@ public class Enemy : MonoBehaviour
         yield return new WaitForSeconds(SmokeEffect.CoverDelay);
         pendingVisibility = null;
         ApplyVisibility(visible);
+        if (teleport)
+        {
+            rb.velocity = Vector3.zero;
+            rb.position = target.position;
+            transform.position = target.position;
+        }
     }
 
     private void ApplyVisibility(bool visible)
