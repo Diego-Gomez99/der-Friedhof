@@ -142,6 +142,16 @@ public class Enemy : MonoBehaviour
     // the switch, the enemy stays hidden and still where the trail ended.
     private const float AppearAfterTrailPause = 0.5f;
     private float appearTime;
+    // While it appears, a sweep of smoke runs through these points, in metres from the enemy's
+    // feet along its right, its up and its front, drawing the scythe's outline to show its size: the
+    // handle from beside the enemy, at the height of the trail between enemies, to 4 m ahead and
+    // 1 m up, then the blade 2 m to the left, 1 m back and 2 m up.
+    private static readonly Vector3[] WeaponSweepPoints =
+    {
+        new Vector3(1.0f, 0.0f, 0.0f),
+        new Vector3(0.0f, 1.0f, 4.0f),
+        new Vector3(-2.0f, 3.0f, 3.0f),
+    };
 
     void Start()
     {
@@ -312,18 +322,31 @@ public class Enemy : MonoBehaviour
 
         isVisible = visible;
         float height = capsuleCollider.height * transform.lossyScale.y;
-        // Seconds before the puff, while the trail crosses over and then a pause.
-        float puffDelay = 0.0f;
+        // Seconds the trail takes to cross over, and the pause after it, before the puff.
+        float trailTime = 0.0f;
+        float pause = 0.0f;
+        // Not for an enemy shown because it was killed.
+        bool sweep = visible && !isDead;
         if (visible)
         {
-            // Not for an enemy shown because it was killed.
-            if (!isDead && lastVanishPosition.HasValue
+            if (sweep)
+            {
+                // It appears facing the player, so the sweep shows where the scythe will reach.
+                Vector3 toPlayer = target.position - transform.position;
+                toPlayer.y = 0.0f;
+                if (toPlayer != Vector3.zero)
+                {
+                    transform.rotation = Quaternion.LookRotation(toPlayer);
+                }
+            }
+            if (sweep && lastVanishPosition.HasValue
                 && Vector3.Distance(lastVanishPosition.Value, transform.position) >= MinTrailDistance)
             {
                 SmokeEffect.PlayTrail(lastVanishPosition.Value, transform.position, height, AppearAfterTrailPause);
-                puffDelay = SmokeEffect.TrailTravelTime + AppearAfterTrailPause;
+                trailTime = SmokeEffect.TrailTravelTime;
+                pause = AppearAfterTrailPause;
             }
-            appearTime = Time.time + puffDelay;
+            appearTime = Time.time + trailTime + pause;
             visibleSince = appearTime;
         }
         else
@@ -337,14 +360,28 @@ public class Enemy : MonoBehaviour
         {
             StopCoroutine(pendingVisibility);
         }
-        pendingVisibility = StartCoroutine(ApplyVisibilityAfterSmoke(visible, puffDelay, height));
+        pendingVisibility = StartCoroutine(ApplyVisibilityAfterSmoke(visible, trailTime, pause, sweep, height));
     }
 
-    private IEnumerator ApplyVisibilityAfterSmoke(bool visible, float puffDelay, float height)
+    private IEnumerator ApplyVisibilityAfterSmoke(bool visible, float trailTime, float pause, bool sweep, float height)
     {
-        if (puffDelay > 0.0f)
+        if (trailTime > 0.0f)
         {
-            yield return new WaitForSeconds(puffDelay);
+            yield return new WaitForSeconds(trailTime);
+        }
+        // Once the trail is there, a sweep of smoke along the scythe's reach hints at its size.
+        if (sweep)
+        {
+            Vector3[] sweepPoints = new Vector3[WeaponSweepPoints.Length];
+            for (int i = 0; i < sweepPoints.Length; i++)
+            {
+                sweepPoints[i] = transform.position + transform.rotation * WeaponSweepPoints[i];
+            }
+            SmokeEffect.PlayTrail(sweepPoints, height, 0.0f);
+        }
+        if (pause > 0.0f)
+        {
+            yield return new WaitForSeconds(pause);
         }
         SmokeEffect.Play(transform.position, height, capsuleCollider.radius * transform.lossyScale.x);
         yield return new WaitForSeconds(SmokeEffect.CoverDelay);
