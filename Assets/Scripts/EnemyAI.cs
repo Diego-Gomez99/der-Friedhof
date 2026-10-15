@@ -35,9 +35,12 @@ public class Enemy : MonoBehaviour
     // Point of the scythe handle that sits in the right hand, in the weapon's local space.
     [SerializeField]
     private Vector3 weaponGripPoint = new Vector3(-0.25f, 4.31f, -0.92f);
-    // Degrees the right arm opens outward (to the enemy's right) from straight ahead.
+    // Degrees the right arm opens outward (to the enemy's right) from straight back.
     [SerializeField]
-    private float armOpenAngle = 45.0f;
+    private float armOpenAngle = 85.0f;
+    // Degrees the right arm drops below the horizontal.
+    [SerializeField]
+    private float armDropAngle = 65.0f;
     // Degrees the scythe turns to the enemy's right around the vertical axis.
     [SerializeField]
     private float weaponTurnAngle = 12.0f;
@@ -342,7 +345,7 @@ public class Enemy : MonoBehaviour
     }
 
     // Runs after the Animator, so it overrides the clip's pose for the right arm:
-    // the arm points ahead, opened slightly outward, and the scythe follows the hand.
+    // the arm points back and down, opened outward, and the scythe follows the hand.
     // The scythe's kill trigger stays where it was authored, at the player's height.
     private void LateUpdate()
     {
@@ -397,8 +400,10 @@ public class Enemy : MonoBehaviour
             return;
         }
 
-        // A positive turn around the up axis moves forward towards the enemy's right.
-        Vector3 armDirection = Quaternion.AngleAxis(armOpenAngle, transform.up) * transform.forward;
+        // A negative turn around the up axis moves backward towards the enemy's right.
+        Vector3 armHorizontal = Quaternion.AngleAxis(-armOpenAngle, transform.up) * -transform.forward;
+        float drop = armDropAngle * Mathf.Deg2Rad;
+        Vector3 armDirection = Mathf.Cos(drop) * armHorizontal - Mathf.Sin(drop) * transform.up;
         AimBone(rightUpperArm, rightLowerArm, armDirection);
         AimBone(rightLowerArm, rightHand, armDirection);
 

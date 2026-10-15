@@ -8543,7 +8543,7 @@ MonoBehaviour:
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
-  armOpenAngle: 45
+  armOpenAngle: 85
   weaponTurnAngle: 12
   maxVisibleTime: 30
   respawnCooldown: 10
@@ -20873,7 +20873,7 @@ MonoBehaviour:
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
-  armOpenAngle: 45
+  armOpenAngle: 85
   weaponTurnAngle: 12
   maxVisibleTime: 30
   respawnCooldown: 10
@@ -23476,7 +23476,7 @@ MonoBehaviour:
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
-  armOpenAngle: 45
+  armOpenAngle: 85
   weaponTurnAngle: 12
   maxVisibleTime: 30
   respawnCooldown: 10
@@ -30214,7 +30214,7 @@ MonoBehaviour:
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
-  armOpenAngle: 45
+  armOpenAngle: 85
   weaponTurnAngle: 12
   maxVisibleTime: 30
   respawnCooldown: 10
@@ -30555,7 +30555,7 @@ MonoBehaviour:
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
-  armOpenAngle: 45
+  armOpenAngle: 85
   weaponTurnAngle: 12
   maxVisibleTime: 30
   respawnCooldown: 10
@@ -36496,7 +36496,7 @@ MonoBehaviour:
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
-  armOpenAngle: 45
+  armOpenAngle: 85
   weaponTurnAngle: 12
   maxVisibleTime: 30
   respawnCooldown: 10
@@ -39481,7 +39481,7 @@ MonoBehaviour:
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
-  armOpenAngle: 45
+  armOpenAngle: 85
   weaponTurnAngle: 12
   maxVisibleTime: 30
   respawnCooldown: 10
@@ -39905,7 +39905,7 @@ MonoBehaviour:
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
-  armOpenAngle: 45
+  armOpenAngle: 85
   weaponTurnAngle: 12
   maxVisibleTime: 30
   respawnCooldown: 10
@@ -43561,7 +43561,7 @@ MonoBehaviour:
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
-  armOpenAngle: 45
+  armOpenAngle: 85
   weaponTurnAngle: 12
   maxVisibleTime: 30
   respawnCooldown: 10
@@ -52117,7 +52117,7 @@ MonoBehaviour:
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
-  armOpenAngle: 45
+  armOpenAngle: 85
   weaponTurnAngle: 12
   maxVisibleTime: 30
   respawnCooldown: 10
@@ -54775,7 +54775,7 @@ MonoBehaviour:
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
-  armOpenAngle: 45
+  armOpenAngle: 85
   weaponTurnAngle: 12
   maxVisibleTime: 30
   respawnCooldown: 10
@@ -68838,7 +68838,7 @@ MonoBehaviour:
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
-  armOpenAngle: 45
+  armOpenAngle: 85
   weaponTurnAngle: 12
   maxVisibleTime: 30
   respawnCooldown: 10
@@ -76828,7 +76828,7 @@ MonoBehaviour:
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
-  armOpenAngle: 45
+  armOpenAngle: 85
   weaponTurnAngle: 12
   maxVisibleTime: 30
   respawnCooldown: 10
@@ -77854,7 +77854,7 @@ MonoBehaviour:
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
-  armOpenAngle: 45
+  armOpenAngle: 85
   weaponTurnAngle: 12
   maxVisibleTime: 30
   respawnCooldown: 10
@@ -82041,7 +82041,7 @@ MonoBehaviour:
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
-  armOpenAngle: 45
+  armOpenAngle: 85
   weaponTurnAngle: 12
   maxVisibleTime: 30
   respawnCooldown: 10
@@ -89455,7 +89455,7 @@ MonoBehaviour:
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
-  armOpenAngle: 45
+  armOpenAngle: 85
   weaponTurnAngle: 12
   maxVisibleTime: 30
   respawnCooldown: 10
@@ -96902,7 +96902,7 @@ MonoBehaviour:
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
-  armOpenAngle: 45
+  armOpenAngle: 85
   weaponTurnAngle: 12
   maxVisibleTime: 30
   respawnCooldown: 10
@@ -97855,7 +97855,7 @@ MonoBehaviour:
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
-  armOpenAngle: 45
+  armOpenAngle: 85
   weaponTurnAngle: 12
   maxVisibleTime: 30
   respawnCooldown: 10
@@ -103792,7 +103792,7 @@ MonoBehaviour:
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
-  armOpenAngle: 45
+  armOpenAngle: 85
   weaponTurnAngle: 12
   maxVisibleTime: 30
   respawnCooldown: 10
@@ -108229,7 +108229,7 @@ MonoBehaviour:
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
-  armOpenAngle: 45
+  armOpenAngle: 85
   weaponTurnAngle: 12
   maxVisibleTime: 30
   respawnCooldown: 10
@@ -127460,7 +127460,7 @@ MonoBehaviour:
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
-  armOpenAngle: 45
+  armOpenAngle: 85
   weaponTurnAngle: 12
   maxVisibleTime: 30
   respawnCooldown: 10
@@ -147978,7 +147978,7 @@ MonoBehaviour:
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
-  armOpenAngle: 45
+  armOpenAngle: 85
   weaponTurnAngle: 12
   maxVisibleTime: 30
   respawnCooldown: 10
@@ -155051,7 +155051,7 @@ MonoBehaviour:
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
-  armOpenAngle: 45
+  armOpenAngle: 85
   weaponTurnAngle: 12
   maxVisibleTime: 30
   respawnCooldown: 10
@@ -166609,7 +166609,7 @@ MonoBehaviour:
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
-  armOpenAngle: 45
+  armOpenAngle: 85
   weaponTurnAngle: 12
   maxVisibleTime: 30
   respawnCooldown: 10
@@ -169051,7 +169051,7 @@ MonoBehaviour:
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
-  armOpenAngle: 45
+  armOpenAngle: 85
   weaponTurnAngle: 12
   maxVisibleTime: 30
   respawnCooldown: 10
@@ -179083,7 +179083,7 @@ MonoBehaviour:
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
-  armOpenAngle: 45
+  armOpenAngle: 85
   weaponTurnAngle: 12
   maxVisibleTime: 30
   respawnCooldown: 10
@@ -187230,7 +187230,7 @@ MonoBehaviour:
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
-  armOpenAngle: 45
+  armOpenAngle: 85
   weaponTurnAngle: 12
   maxVisibleTime: 30
   respawnCooldown: 10
@@ -194537,7 +194537,7 @@ MonoBehaviour:
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
-  armOpenAngle: 45
+  armOpenAngle: 85
   weaponTurnAngle: 12
   maxVisibleTime: 30
   respawnCooldown: 10
@@ -196588,7 +196588,7 @@ MonoBehaviour:
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
-  armOpenAngle: 45
+  armOpenAngle: 85
   weaponTurnAngle: 12
   maxVisibleTime: 30
   respawnCooldown: 10
@@ -197934,7 +197934,7 @@ MonoBehaviour:
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
-  armOpenAngle: 45
+  armOpenAngle: 85
   weaponTurnAngle: 12
   maxVisibleTime: 30
   respawnCooldown: 10
@@ -205831,7 +205831,7 @@ MonoBehaviour:
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
-  armOpenAngle: 45
+  armOpenAngle: 85
   weaponTurnAngle: 12
   maxVisibleTime: 30
   respawnCooldown: 10
@@ -212608,7 +212608,7 @@ MonoBehaviour:
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
-  armOpenAngle: 45
+  armOpenAngle: 85
   weaponTurnAngle: 12
   maxVisibleTime: 30
   respawnCooldown: 10
