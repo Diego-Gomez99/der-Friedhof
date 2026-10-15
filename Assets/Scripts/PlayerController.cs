@@ -30,6 +30,7 @@ public class PlayerController : MonoBehaviour
 
     private DirectionsEnum direction = DirectionsEnum.NORTH;
     private float disableDistance = 10.0f; // The distance within which enemies should be disabled.
+    private int safeSpotsInside; // SS triggers the player is standing in. Counted, because two of them can overlap.
 
 
     public CamerasController camerasController;
@@ -67,6 +68,12 @@ public class PlayerController : MonoBehaviour
         }
 
         UpdatePlayerMovement();
+
+        // Checked here instead of in OnTriggerStay, which stops firing while the player stands still and its Rigidbody sleeps.
+        if (safeSpotsInside > 0)
+        {
+            KillNearbyEnemies();
+        }
     }
 
     void UpdatePlayerMovement()
@@ -119,27 +126,41 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        // Check if the object the player touched has the "SS" tag.
+        // Standing in an SS (under a green lamp) keeps killing the enemies around the player, see FixedUpdate.
         if (other.CompareTag("SS"))
         {
-            // Find all enemy objects in the scene.
-            Enemy[] enemies = FindObjectsOfType<Enemy>();
-
-            // Iterate through the enemy objects and disable them if they are within the specified distance.
-            foreach (Enemy enemy in enemies)
-            {
-                float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
-                if (distanceToEnemy < disableDistance)
-                {
-                    enemy.Die();
-                }
-            }
+            safeSpotsInside++;
+            KillNearbyEnemies();
         }
         else if (other.CompareTag("Enemy"))
         {
             // The player touched an object with the "Enemy" tag.
             // End the game or perform game over actions here.
             EndGame(other.GetComponentInParent<Enemy>());
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("SS"))
+        {
+            safeSpotsInside = Mathf.Max(0, safeSpotsInside - 1);
+        }
+    }
+
+    private void KillNearbyEnemies()
+    {
+        // Find all enemy objects in the scene.
+        Enemy[] enemies = FindObjectsOfType<Enemy>();
+
+        // Iterate through the enemy objects and disable them if they are within the specified distance.
+        foreach (Enemy enemy in enemies)
+        {
+            float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
+            if (distanceToEnemy < disableDistance)
+            {
+                enemy.Die();
+            }
         }
     }
 
