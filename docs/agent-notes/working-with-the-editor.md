@@ -9,7 +9,9 @@
 - After editing a script, click the editor and wait about 15 seconds for the recompile before pressing Play. Entering Play mode takes another 10 to 20 seconds.
 - Changing the default of a `[SerializeField]` in code does not change objects in the scene that is already open: they keep the value they got when the field first appeared. Write the value into the `.unity` file as well, and check it in the Inspector.
 - The editor does not always offer to reload a scene edited on disk. If it does not, double-click the scene asset in the Project tab to reopen it.
+- If the field was never saved into the scene file, reopening the scene (double-click it in the Project tab) is enough to pick up the new default, as long as the scene has no unsaved changes.
 - Always stop Play mode when finished. Changes made in the editor during Play mode are discarded.
+- Check that the editor is not in Play mode before editing scripts (the user may have left it running). A recompile during Play reloads the scripts and loses static state, so `PlayerController.FixedUpdate` throws a `NullReferenceException` every frame on `GameManager.instance`. Those errors come from the recompile, not from the change: stop Play, clear the Console and test again.
 - The player (`FINALE`) cannot be moved from the Inspector in Play mode: its Rigidbody interpolates and overwrites the Transform every frame. To test a trigger without walking there, move the trigger object onto the player instead. For example, setting the end coffin to X 434.6, Y -0.5, Z 359.2 right after entering Play fires `Endgame`.
 - The Scene view can start rendering everything washed out in white, even with Fog turned off in its effects menu, while the Game view looks normal. It is an editor glitch, not something in the scene: nothing in `Final Scene` or the render settings had changed, and restarting the PC fixed it. Do not go hunting for fog or post-processing changes when it happens.
 
