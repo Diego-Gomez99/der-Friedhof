@@ -368,6 +368,22 @@ public class Enemy : MonoBehaviour
         bone.rotation = Quaternion.FromToRotation(child.position - bone.position, direction) * bone.rotation;
     }
 
+    // Editor only: outlines a hidden enemy in Play mode, in the Scene view and in the Game view
+    // with Gizmos on. White while it waits for the player, orange while it cannot show up
+    // (cooldown, or waiting for the player to be respawnMinDistance away).
+    private void OnDrawGizmos()
+    {
+        if (!Application.isPlaying || isVisible || isDead || capsuleCollider == null) return;
+
+        float height = capsuleCollider.height * transform.lossyScale.y;
+        float radius = capsuleCollider.radius * transform.lossyScale.x;
+        bool blocked = Time.time < cooldownEndTime
+            || (isRespawning && Vector3.Distance(transform.position, target.position) < respawnMinDistance);
+        Gizmos.color = blocked ? new Color(1.0f, 0.55f, 0.1f) : Color.white;
+        Gizmos.DrawWireCube(transform.position + Vector3.up * height * 0.5f, new Vector3(radius * 2.0f, height, radius * 2.0f));
+        Gizmos.DrawWireSphere(transform.position + Vector3.up * (height - radius), radius);
+    }
+
     // Called when this enemy kills the player: it stops, faces the player and swings the scythe.
     public void Attack()
     {
