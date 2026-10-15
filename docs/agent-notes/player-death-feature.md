@@ -47,7 +47,7 @@ While attacking, `Enemy.LateUpdate` no longer aims the right arm. It poses the s
 
 The hit-stop freezes the first 0.18 s of the clip.
 
-The pose the scythe is planted in is recorded by `DeathMarkers` (see `project-overview.md`), and a copy without collider stands there every time the scene loads again until the game is closed.
+When the plunge bottoms out, a `ScytheGroundMark` (mound of turned earth and clods) heaves up where the handle enters the ground, so the scythe looks driven in rather than standing on the surface. The pose the scythe is planted in, the ground point and the mound's seed are recorded by `DeathMarkers` (see `project-overview.md`), and a copy without collider stands there, with the same mound, every time the scene loads again until the game is closed.
 
 ## Still open
 
