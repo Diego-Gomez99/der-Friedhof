@@ -8518,7 +8518,6 @@ MonoBehaviour:
   maxMovementSpeed: 6
   minMovementSpeed: 0.5
   rotationSpeed: 5
-  corpseAttackDistance: 1.5
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
@@ -20779,7 +20778,6 @@ MonoBehaviour:
   maxMovementSpeed: 6
   minMovementSpeed: 0.5
   rotationSpeed: 5
-  corpseAttackDistance: 1.5
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
@@ -23357,7 +23355,6 @@ MonoBehaviour:
   maxMovementSpeed: 6
   minMovementSpeed: 0.5
   rotationSpeed: 5
-  corpseAttackDistance: 1.5
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
@@ -30048,7 +30045,6 @@ MonoBehaviour:
   maxMovementSpeed: 6
   minMovementSpeed: 0.5
   rotationSpeed: 5
-  corpseAttackDistance: 1.5
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
@@ -30386,7 +30382,6 @@ MonoBehaviour:
   maxMovementSpeed: 6
   minMovementSpeed: 0.5
   rotationSpeed: 5
-  corpseAttackDistance: 1.5
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
@@ -36302,7 +36297,6 @@ MonoBehaviour:
   maxMovementSpeed: 6
   minMovementSpeed: 0.5
   rotationSpeed: 5
-  corpseAttackDistance: 1.5
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
@@ -39284,7 +39278,6 @@ MonoBehaviour:
   maxMovementSpeed: 6
   minMovementSpeed: 0.5
   rotationSpeed: 5
-  corpseAttackDistance: 1.5
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
@@ -39705,7 +39698,6 @@ MonoBehaviour:
   maxMovementSpeed: 6
   minMovementSpeed: 0.5
   rotationSpeed: 5
-  corpseAttackDistance: 1.5
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
@@ -43336,7 +43328,6 @@ MonoBehaviour:
   maxMovementSpeed: 6
   minMovementSpeed: 0.5
   rotationSpeed: 5
-  corpseAttackDistance: 1.5
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
@@ -51845,7 +51836,6 @@ MonoBehaviour:
   maxMovementSpeed: 6
   minMovementSpeed: 0.5
   rotationSpeed: 5
-  corpseAttackDistance: 1.5
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
@@ -54500,7 +54490,6 @@ MonoBehaviour:
   maxMovementSpeed: 6
   minMovementSpeed: 0.5
   rotationSpeed: 5
-  corpseAttackDistance: 1.5
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
@@ -68486,7 +68475,6 @@ MonoBehaviour:
   maxMovementSpeed: 6
   minMovementSpeed: 0.5
   rotationSpeed: 5
-  corpseAttackDistance: 1.5
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
@@ -76451,7 +76439,6 @@ MonoBehaviour:
   maxMovementSpeed: 6
   minMovementSpeed: 0.5
   rotationSpeed: 5
-  corpseAttackDistance: 1.5
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
@@ -77474,7 +77461,6 @@ MonoBehaviour:
   maxMovementSpeed: 6
   minMovementSpeed: 0.5
   rotationSpeed: 5
-  corpseAttackDistance: 1.5
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
@@ -81636,7 +81622,6 @@ MonoBehaviour:
   maxMovementSpeed: 6
   minMovementSpeed: 0.5
   rotationSpeed: 5
-  corpseAttackDistance: 1.5
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
@@ -89003,7 +88988,6 @@ MonoBehaviour:
   maxMovementSpeed: 6
   minMovementSpeed: 0.5
   rotationSpeed: 5
-  corpseAttackDistance: 1.5
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
@@ -96612,7 +96596,6 @@ MonoBehaviour:
   maxMovementSpeed: 6
   minMovementSpeed: 0.5
   rotationSpeed: 5
-  corpseAttackDistance: 1.5
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
@@ -97562,7 +97545,6 @@ MonoBehaviour:
   maxMovementSpeed: 6
   minMovementSpeed: 0.5
   rotationSpeed: 5
-  corpseAttackDistance: 1.5
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
@@ -103452,7 +103434,6 @@ MonoBehaviour:
   maxMovementSpeed: 6
   minMovementSpeed: 0.5
   rotationSpeed: 5
-  corpseAttackDistance: 1.5
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
@@ -107834,7 +107815,6 @@ MonoBehaviour:
   maxMovementSpeed: 6
   minMovementSpeed: 0.5
   rotationSpeed: 5
-  corpseAttackDistance: 1.5
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
@@ -127670,7 +127650,6 @@ MonoBehaviour:
   maxMovementSpeed: 6
   minMovementSpeed: 0.5
   rotationSpeed: 5
-  corpseAttackDistance: 1.5
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
@@ -148043,7 +148022,6 @@ MonoBehaviour:
   maxMovementSpeed: 6
   minMovementSpeed: 0.5
   rotationSpeed: 5
-  corpseAttackDistance: 1.5
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
@@ -155091,7 +155069,6 @@ MonoBehaviour:
   maxMovementSpeed: 6
   minMovementSpeed: 0.5
   rotationSpeed: 5
-  corpseAttackDistance: 1.5
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
@@ -166415,7 +166392,6 @@ MonoBehaviour:
   maxMovementSpeed: 6
   minMovementSpeed: 0.5
   rotationSpeed: 5
-  corpseAttackDistance: 1.5
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
@@ -168810,7 +168786,6 @@ MonoBehaviour:
   maxMovementSpeed: 6
   minMovementSpeed: 0.5
   rotationSpeed: 5
-  corpseAttackDistance: 1.5
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
@@ -178787,7 +178762,6 @@ MonoBehaviour:
   maxMovementSpeed: 6
   minMovementSpeed: 0.5
   rotationSpeed: 5
-  corpseAttackDistance: 1.5
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
@@ -186857,7 +186831,6 @@ MonoBehaviour:
   maxMovementSpeed: 6
   minMovementSpeed: 0.5
   rotationSpeed: 5
-  corpseAttackDistance: 1.5
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
@@ -194161,7 +194134,6 @@ MonoBehaviour:
   maxMovementSpeed: 6
   minMovementSpeed: 0.5
   rotationSpeed: 5
-  corpseAttackDistance: 1.5
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
@@ -196187,7 +196159,6 @@ MonoBehaviour:
   maxMovementSpeed: 6
   minMovementSpeed: 0.5
   rotationSpeed: 5
-  corpseAttackDistance: 1.5
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
@@ -197530,7 +197501,6 @@ MonoBehaviour:
   maxMovementSpeed: 6
   minMovementSpeed: 0.5
   rotationSpeed: 5
-  corpseAttackDistance: 1.5
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
@@ -205394,7 +205364,6 @@ MonoBehaviour:
   maxMovementSpeed: 6
   minMovementSpeed: 0.5
   rotationSpeed: 5
-  corpseAttackDistance: 1.5
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}
@@ -212138,7 +212107,6 @@ MonoBehaviour:
   maxMovementSpeed: 6
   minMovementSpeed: 0.5
   rotationSpeed: 5
-  corpseAttackDistance: 1.5
   audiovolume: 0.7
   chasesong: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
   weaponGripPoint: {x: -0.25, y: 4.31, z: -0.92}

@@ -11,8 +11,6 @@ public class Enemy : MonoBehaviour
     public float maxMovementSpeed = 2.0f;
     public float minMovementSpeed = 0.5f;
     public float rotationSpeed = 5.0f;
-    // Once the player is dead, enemies that reach this distance from the body swing the scythe at it.
-    public float corpseAttackDistance = 1.5f;
     // Speed, in metres per second, at which the walk clip plays at its normal rate.
     private const float WalkClipSpeed = 1.8f;
 
@@ -129,12 +127,6 @@ public class Enemy : MonoBehaviour
         animator.SetFloat("walkSpeed", groundVelocity.magnitude / WalkClipSpeed);
 
         float distanceToTarget = Vector3.Distance(transform.position, target.position);
-
-        if (GameManager.instance.isGameOver && distanceToTarget <= corpseAttackDistance)
-        {
-            Attack();
-            return;
-        }
 
         if (distanceToTarget <= detectionDistance)
         {
@@ -281,8 +273,7 @@ public class Enemy : MonoBehaviour
         bone.rotation = Quaternion.FromToRotation(child.position - bone.position, direction) * bone.rotation;
     }
 
-    // Called when this enemy kills the player, and when an enemy reaches the player's body after
-    // that: it stops, faces the player and swings the scythe.
+    // Called when this enemy kills the player: it stops, faces the player and swings the scythe.
     public void Attack()
     {
         if (isDead || isAttacking) return;
