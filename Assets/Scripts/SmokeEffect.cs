@@ -30,8 +30,9 @@ public class SmokeEffect : MonoBehaviour
     private static Material smokeMaterial;
 
     private ParticleSystem trailParticles;
-    private Vector3 trailFrom;
-    private Vector3 trailTo;
+    // Corners of the trail, already lifted, and its total length along them.
+    private Vector3[] trailPoints;
+    private float trailLength;
     private float trailStartTime;
     private float trailEmittedDistance;
     private float trailHoldTime;
@@ -54,13 +55,26 @@ public class SmokeEffect : MonoBehaviour
     // Once it gets there, it lingers in place for holdTime seconds.
     public static void PlayTrail(Vector3 fromFeet, Vector3 toFeet, float height, float holdTime)
     {
+        PlayTrail(new[] { fromFeet, toFeet }, height, holdTime);
+    }
+
+    // The same trail along a path with corners, through each of feetPoints in turn.
+    public static void PlayTrail(Vector3[] feetPoints, float height, float holdTime)
+    {
         Vector3 lift = Vector3.up * height * 0.35f;
 
         GameObject root = new GameObject("Smoke Trail");
-        root.transform.position = fromFeet + lift;
+        root.transform.position = feetPoints[0] + lift;
         SmokeEffect effect = root.AddComponent<SmokeEffect>();
-        effect.trailFrom = fromFeet + lift;
-        effect.trailTo = toFeet + lift;
+        effect.trailPoints = new Vector3[feetPoints.Length];
+        for (int i = 0; i < feetPoints.Length; i++)
+        {
+            effect.trailPoints[i] = feetPoints[i] + lift;
+            if (i > 0)
+            {
+                effect.trailLength += Vector3.Distance(effect.trailPoints[i - 1], effect.trailPoints[i]);
+            }
+        }
         effect.trailStartTime = Time.time;
         effect.trailHoldTime = holdTime;
         effect.trailHeight = height;
@@ -78,7 +92,7 @@ public class SmokeEffect : MonoBehaviour
     {
         if (trailParticles == null) return;
 
-        float length = Vector3.Distance(trailFrom, trailTo);
+        float length = trailLength;
         if (trailEmittedDistance >= length)
         {
             EmitHoldPuffs();
@@ -91,16 +105,30 @@ public class SmokeEffect : MonoBehaviour
 
         // Very long trails get sparser puffs instead of more of them.
         float spacing = Mathf.Max(TrailSpacing, length / TrailMaxPuffs);
-        Vector3 direction = (trailTo - trailFrom) / length;
         ParticleSystem.EmitParams puff = new ParticleSystem.EmitParams();
         while (trailEmittedDistance + spacing <= headDistance || (t >= 1.0f && trailEmittedDistance < length))
         {
             trailEmittedDistance = Mathf.Min(trailEmittedDistance + spacing, length);
-            puff.position = trailFrom + direction * trailEmittedDistance + Random.insideUnitSphere * 0.1f;
+            puff.position = TrailPointAt(trailEmittedDistance) + Random.insideUnitSphere * 0.1f;
             puff.velocity = Random.insideUnitSphere * 0.15f + Vector3.up * 0.1f;
             trailParticles.Emit(puff, 1);
         }
-        transform.position = trailFrom + direction * headDistance;
+        transform.position = TrailPointAt(headDistance);
+    }
+
+    // The point this many metres along the trail, from its start.
+    private Vector3 TrailPointAt(float distance)
+    {
+        for (int i = 1; i < trailPoints.Length; i++)
+        {
+            float segment = Vector3.Distance(trailPoints[i - 1], trailPoints[i]);
+            if (distance <= segment && segment > 0.0f)
+            {
+                return Vector3.Lerp(trailPoints[i - 1], trailPoints[i], distance / segment);
+            }
+            distance -= segment;
+        }
+        return trailPoints[trailPoints.Length - 1];
     }
 
     // Puffs at a steady rate around the end of the trail, from when it arrives until holdTime later.
@@ -111,7 +139,7 @@ public class SmokeEffect : MonoBehaviour
         ParticleSystem.EmitParams puff = new ParticleSystem.EmitParams();
         for (; holdPuffsEmitted < due; holdPuffsEmitted++)
         {
-            puff.position = trailTo + Random.insideUnitSphere * trailHeight * 0.15f;
+            puff.position = trailPoints[trailPoints.Length - 1] + Random.insideUnitSphere * trailHeight * 0.15f;
             puff.velocity = Random.insideUnitSphere * 0.15f + Vector3.up * 0.15f;
             trailParticles.Emit(puff, 1);
         }
