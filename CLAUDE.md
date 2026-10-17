@@ -19,10 +19,11 @@ There are no automated tests. A change is verified by pressing Play in the edito
 
 ## More notes
 
-Read these before starting work in the matching area:
+`docs/agent-notes/` holds lessons learned the hard way, including approaches that already failed. Read the matching note BEFORE starting the task. When you learn something new, add or update a note (in English) and its line here, and record approaches that did not work, not only the one that did.
 
-- `docs/agent-notes/project-overview.md` — scenes, scripts and game flow
-- `docs/agent-notes/ui-and-canvas.md` — how the menus are laid out and why they used to break
-- `docs/agent-notes/working-with-the-editor.md` — driving the Unity editor, line endings, logs
-- `docs/agent-notes/known-issues.md` — existing warnings, dead code and unfinished features
-- `docs/agent-notes/player-death-feature.md` — starting points for the player death animation and sound
+- Finding which scene or script does what, or the game flow from menu to end → `docs/agent-notes/project-overview.md`
+- Changing how enemies chase, appear, vanish or respawn, or their smoke and trails → `docs/agent-notes/enemy-behaviour.md`
+- Changing the player's death, the slash effect, the enemy attack or the planted scythe → `docs/agent-notes/player-death-feature.md`
+- Adding or moving menu or Game Over UI, or text wrapping one letter per line → `docs/agent-notes/ui-and-canvas.md`
+- Pressing Play, driving the editor with computer use, editing scenes or scripts outside Unity, reading logs → `docs/agent-notes/working-with-the-editor.md`
+- A warning, dead code or odd behaviour that might already be known → `docs/agent-notes/known-issues.md`
