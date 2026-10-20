@@ -8,7 +8,7 @@ With the editor closed, this builds the scenes listed in Build Settings without 
 
     "C:/Program Files/Unity/Hub/Editor/2022.3.62f3/Editor/Unity.exe" -batchmode -quit -nographics -projectPath <project> -buildTarget Win64 -buildWindows64Player "<project>/Builds/Windows/der Friedhof.exe" -logFile "<project>/Builds/build.log"
 
-It takes a few minutes. `Builds/` is ignored by git. The log contains a "Build Report" with the size by category and the biggest assets. A batch-mode run rewrites the URP assets in `Assets/Settings/` (shader prefiltering fields) and `ProjectSettings.asset`; revert them with `git checkout` if they were not meant to change.
+It takes a few minutes. `Builds/` is ignored by git. The log contains a "Build Report" with the size by category and the biggest assets. A build (from the editor or batch mode) rewrites the shader prefiltering fields of the URP assets in `Assets/Settings/`. The rewritten version was committed on 2026-10-20, so later builds should leave them unchanged; if they show up modified again, a setting that affects shader stripping has changed.
 
 ## Where the size goes
 
@@ -16,3 +16,11 @@ It takes a few minutes. `Builds/` is ignored by git. The log contains a "Build R
 - The meshes are almost all static batching. `Final Scene` has 285 static renderers, mostly Megascans props, and static batching writes a combined copy of their vertices into the scene data (`level1.resS`, 930 MB). The same build with static batching turned off was 635 MB, with meshes at 27 MB. Turning it off may cost draw calls; SRP Batcher in URP already reduces most of that cost.
 - Textures: about a hundred 2K Megascans maps (albedo, normal, masks, AO) at about 5.3 MB each once compressed, plus the 24 MB `AllSkyFree` night sky. 115 textures still have an 8192 max size in their import settings. With the camera always top-down, 1K is likely enough for most of them.
 - Unused assets in `Assets/` (for example most of `Horror Elements/Ambient`, 115 MB of WAV) do not reach the build; only what the two scenes reference is included.
+
+## After the reduction (2026-10-20)
+
+Static batching was turned off for Standalone and the textures under `Quixel`, `SpaceZeta_StreetLamps2`, `Characters`, `Tree_Packs` and `AllSkyFree` were set to a 1024 max size (the night sky to 256, since the camera never shows it and it only feeds ambient light and the 128 px reflection). The build went from 1.8 GB to 259 MB: textures 145 MB, meshes 27 MB, sounds 6 MB, shaders 5 MB. Nothing looked different in Play mode and the main thread stayed at about 4 ms per frame.
+
+- Selecting `t:Texture2D` in `Assets/Quixel` also picks up two font textures from the Quixel Bridge plugin; the Inspector then shows no import settings until the selection is narrowed to the Texture Importer entries.
+- The night sky `Equirect` texture is not picked up by the same multi-edit; it had to be set on its own.
+- The biggest single asset left is `Quixel/.../3D_Reaper/reaper.fbx` (10.7 MB, listed twice in the report).
