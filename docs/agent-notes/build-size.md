@@ -24,3 +24,9 @@ Static batching was turned off for Standalone and the textures under `Quixel`, `
 - Selecting `t:Texture2D` in `Assets/Quixel` also picks up two font textures from the Quixel Bridge plugin; the Inspector then shows no import settings until the selection is narrowed to the Texture Importer entries.
 - The night sky `Equirect` texture is not picked up by the same multi-edit; it had to be set on its own.
 - The biggest single asset left is `Quixel/.../3D_Reaper/reaper.fbx` (10.7 MB, listed twice in the report).
+
+## Per-platform texture sizes (2026-10-20)
+
+The user wants full quality on PC and small textures on mobile. The texture metas in those five folders now have Default at 512 (used by Android, iOS and WebGL, whose entries are not overridden) and the existing `Standalone` entry set to `overridden: 1` with 2048, so the PC build again carries about 520 MB of textures (about 635 MB in total). The night sky keeps 256 everywhere, with no Standalone override.
+
+Every texture meta already had a `Standalone` platform entry, so this was a line edit (`maxTextureSize` and `overridden` inside the right `buildTarget` block, done with awk to keep the line endings), not an insertion of new YAML blocks. A 512 Default with every texture except the enemy skeleton's had been tried first: the PC build went to 199 MB (textures 85 MB).
