@@ -17,6 +17,10 @@
 - The player (`FINALE`) cannot be moved from the Inspector in Play mode: its Rigidbody interpolates and overwrites the Transform every frame. To test a trigger without walking there, move the trigger object onto the player instead. For example, setting the end coffin to X 434.6, Y -0.5, Z 359.2 right after entering Play fires `Endgame`.
 - The Scene view can start rendering everything washed out in white, even with Fog turned off in its effects menu, while the Game view looks normal. It is an editor glitch, not something in the scene: nothing in `Final Scene` or the render settings had changed, and restarting the PC fixed it. Do not go hunting for fog or post-processing changes when it happens.
 
+## Testing touch controls
+
+The virtual joystick only exists on touch screens, so it does not appear in the normal Game view. Switch the Game tab's view dropdown from Game to Simulator and pick a phone: in Play mode the mouse acts as a finger for the legacy `Input.touches`, and `Application.isMobilePlatform` is true. Switch back to Game afterwards.
+
 ## A reliable test run
 
 1. Open `Main Menu`, press Play, click the in-game Play button.
