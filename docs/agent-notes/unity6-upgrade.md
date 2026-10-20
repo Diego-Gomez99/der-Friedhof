@@ -33,6 +33,6 @@ Official WebGL support on mobile browsers (2022.3 has none), WebGPU, the Build A
 - The Quixel Bridge plugin window opens by itself once; close it. Its "Import Resolution: 8192" is where the 8192 max texture sizes on Quixel textures came from.
 - Scenes are not rewritten until someone saves them with a change, so the first commit that touches each scene after the upgrade will have a larger diff than usual.
 
-## Still pending
+## Tree_Packs external materials
 
-- The editor warns `MaterialLocation.External is obsolete. External Material Location is no longer supported` for the `Tree_Packs/URP_Tree_Pack` FBX models. The trees still render. Changing their Materials import setting changes how materials are assigned to them, so it was left for a separate change that can be checked in the editor.
+Unity 6 warned `MaterialLocation.External is obsolete. External Material Location is no longer supported` for the 12 FBX models in `Tree_Packs/URP_Tree_Pack/Models/` (3 trees, 4 LODs each). Their metas were switched to `materialLocation: 1` (materials embedded in the model) with `externalObjects` remapping the FBX materials `Leaf` and `Trunk` to the `Leaf.mat` and `Trunk.mat` in each tree folder, the same materials they resolved to before. This cannot change how the trees look in the game: `Final Scene` and the `URP_Tree_*` prefabs only take the mesh from the FBX and store their own material references on each renderer. The material names inside the FBX files can be read with `grep -a Material::` because they are ASCII FBX.
