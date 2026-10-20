@@ -26,4 +26,5 @@ There are no automated tests. A change is verified by pressing Play in the edito
 - Changing the player's death, the slash effect, the enemy attack or the planted scythe → `docs/agent-notes/player-death-feature.md`
 - Adding or moving menu or Game Over UI, or text wrapping one letter per line → `docs/agent-notes/ui-and-canvas.md`
 - Pressing Play, driving the editor with computer use, editing scenes or scripts outside Unity, reading logs → `docs/agent-notes/working-with-the-editor.md`
+- Making a build, or why the build is so big → `docs/agent-notes/build-size.md`
 - A warning, dead code or odd behaviour that might already be known → `docs/agent-notes/known-issues.md`
