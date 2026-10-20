@@ -4,6 +4,8 @@ using UnityEngine.UI;
 // On-screen joystick for touch screens. It rests faintly in the bottom-left corner and jumps to
 // wherever a finger first touches the screen, so it works for either hand. PlayerController adds
 // Value to the keyboard axes. Built at runtime like SlashEffect, so no scene setup is needed.
+// Browsers often report touch support on desktops without a touch screen, so outside phones and
+// tablets it stays invisible until the screen is actually touched.
 public class VirtualJoystick : MonoBehaviour
 {
     private const float BaseRadius = 110.0f; // Canvas units at the 1920x1080 reference resolution.
@@ -15,6 +17,7 @@ public class VirtualJoystick : MonoBehaviour
 
     private static Sprite circleSprite;
     private static Sprite ringSprite;
+    private static bool touchSeen; // Kept across scene loads, so the joystick stays visible after Play Again.
 
     // Joystick direction, each axis between -1 and 1. Zero while it is not being touched.
     public static Vector2 Value { get; private set; }
@@ -26,14 +29,9 @@ public class VirtualJoystick : MonoBehaviour
     private int fingerId = -1;
     private Vector2 touchStart; // Canvas position where the finger went down.
 
-    public static void CreateIfTouchScreen()
+    public static void Create()
     {
         Value = Vector2.zero;
-        if (!Input.touchSupported && !Application.isMobilePlatform)
-        {
-            return;
-        }
-
         GameObject root = new GameObject("Virtual Joystick", typeof(Canvas), typeof(CanvasScaler), typeof(CanvasGroup));
         root.AddComponent<VirtualJoystick>().Build();
     }
@@ -76,6 +74,7 @@ public class VirtualJoystick : MonoBehaviour
                 Touch touch = Input.GetTouch(i);
                 if (touch.phase == TouchPhase.Began)
                 {
+                    touchSeen = true;
                     fingerId = touch.fingerId;
                     touchStart = ToCanvas(touch.position);
                     baseRect.anchoredPosition = touchStart;
@@ -123,7 +122,7 @@ public class VirtualJoystick : MonoBehaviour
         Value = Vector2.zero;
         baseRect.anchoredPosition = RestPosition;
         knobRect.anchoredPosition = Vector2.zero;
-        group.alpha = IdleAlpha;
+        group.alpha = touchSeen || Application.isMobilePlatform ? IdleAlpha : 0.0f;
     }
 
     private void OnDestroy()

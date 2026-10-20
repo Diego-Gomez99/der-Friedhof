@@ -47,7 +47,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        VirtualJoystick.CreateIfTouchScreen();
+        VirtualJoystick.Create();
         // gameObject.transform.position = new Vector3(PlayerPrefs.GetFloat("PlayerPosX"), PlayerPrefs.GetFloat("PlayerPosY"), PlayerPrefs.GetFloat("PlayerPosZ"));
         // Debug.Log(PlayerPrefs.GetFloat("PlayerPosX"));
         // Debug.Log(transform.position);
