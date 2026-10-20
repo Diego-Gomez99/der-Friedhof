@@ -47,6 +47,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        VirtualJoystick.CreateIfTouchScreen();
         // gameObject.transform.position = new Vector3(PlayerPrefs.GetFloat("PlayerPosX"), PlayerPrefs.GetFloat("PlayerPosY"), PlayerPrefs.GetFloat("PlayerPosZ"));
         // Debug.Log(PlayerPrefs.GetFloat("PlayerPosX"));
         // Debug.Log(transform.position);
@@ -78,9 +79,10 @@ public class PlayerController : MonoBehaviour
 
     void UpdatePlayerMovement()
     {
-        float horizontalInput = Input.GetAxis("Horizontal");
+        // Keyboard and on-screen joystick add up, so either works.
+        float horizontalInput = Mathf.Clamp(Input.GetAxis("Horizontal") + VirtualJoystick.Value.x, -1.0f, 1.0f);
         playerAnimator.SetFloat("turnSpeed", horizontalInput);
-        float verticalInput = Input.GetAxis("Vertical");
+        float verticalInput = Mathf.Clamp(Input.GetAxis("Vertical") + VirtualJoystick.Value.y, -1.0f, 1.0f);
         playerAnimator.SetFloat("speed", verticalInput);
         Vector3 playermovement;
         //playermovement.Normalize();
