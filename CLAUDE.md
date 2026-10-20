@@ -2,7 +2,7 @@
 
 Top-down 3D horror game made in Unity. The player walks through a graveyard, enemies chase and kill on contact, and reaching the end trigger returns to the main menu.
 
-- **Unity version:** 2022.3.62f3 (LTS), URP 14, TextMeshPro 3.0.7. Open the project only with this editor version; other versions are installed on the machine.
+- **Unity version:** 6000.6.5f1 (Unity 6.6, a Supported release; the plan is to move to 6.7 LTS when it comes out), URP 17, TextMeshPro inside `com.unity.ugui` 2.6. Open the project only with this editor version; other versions are installed on the machine. See `docs/agent-notes/unity6-upgrade.md`.
 - **Scenes in the build:** `Main Menu` (index 0) and `Final Scene` (index 1). `Hector`, `Diego`, `Emma` are per-developer working scenes; `BSP` and `Emma scene(respaldo)` are leftovers.
 - **Scripts:** `Assets/Scripts/`, plus `Assets/Endgame.cs` and `Assets/LimitFPS.cs` at the Assets root.
 
@@ -27,4 +27,5 @@ There are no automated tests. A change is verified by pressing Play in the edito
 - Adding or moving menu or Game Over UI, or text wrapping one letter per line → `docs/agent-notes/ui-and-canvas.md`
 - Pressing Play, driving the editor with computer use, editing scenes or scripts outside Unity, reading logs → `docs/agent-notes/working-with-the-editor.md`
 - Making a build, or why the build is so big → `docs/agent-notes/build-size.md`
+- Upgrading Unity, or something that changed between 2022.3 and Unity 6 → `docs/agent-notes/unity6-upgrade.md`
 - A warning, dead code or odd behaviour that might already be known → `docs/agent-notes/known-issues.md`

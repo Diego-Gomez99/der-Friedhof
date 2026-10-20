@@ -6,7 +6,7 @@ Measured on 2026-10-20 with a Windows 64-bit build of `Main Menu` and `Final Sce
 
 With the editor closed, this builds the scenes listed in Build Settings without any script:
 
-    "C:/Program Files/Unity/Hub/Editor/2022.3.62f3/Editor/Unity.exe" -batchmode -quit -nographics -projectPath <project> -buildTarget Win64 -buildWindows64Player "<project>/Builds/Windows/der Friedhof.exe" -logFile "<project>/Builds/build.log"
+    "C:/Program Files/Unity/Hub/Editor/6000.6.5f1/Editor/Unity.exe" -batchmode -quit -nographics -projectPath <project> -buildTarget Win64 -buildWindows64Player "<project>/Builds/Windows/der Friedhof.exe" -logFile "<project>/Builds/build.log"
 
 It takes a few minutes. `Builds/` is ignored by git. The log contains a "Build Report" with the size by category and the biggest assets. A build (from the editor or batch mode) rewrites the shader prefiltering fields of the URP assets in `Assets/Settings/`. The rewritten version was committed on 2026-10-20, so later builds should leave them unchanged; if they show up modified again, a setting that affects shader stripping has changed.
 

@@ -2,8 +2,8 @@
 
 ## Driving the editor (computer use)
 
-- Several Unity versions are installed. Requesting access to the app named "Unity" resolves to a different version (6000.x), and `open_application "Unity"` launches that version instead of focusing the running editor. Request access with the full path of the running editor instead:
-  `C:\Program Files\Unity\Hub\Editor\2022.3.62f3\Editor\Unity.exe`
+- Several Unity versions are installed. Requesting access to the app named "Unity" may resolve to a different version (for example 2022.3, which the project used before), and `open_application "Unity"` launches that version instead of focusing the running editor. Request access with the full path of the running editor instead:
+  `C:\Program Files\Unity\Hub\Editor\6000.6.5f1\Editor\Unity.exe`
 - Do not launch the editor yourself. Ask the user to open the project and leave the editor window visible and not minimised.
 - The editor loses keyboard focus easily. Start every batch of key presses with a click inside the Game view, and make sure no other window (for example File Explorer) is covering the spot you click.
 - After editing a script, click the editor and wait about 15 seconds for the recompile before pressing Play. Entering Play mode takes another 10 to 20 seconds.
