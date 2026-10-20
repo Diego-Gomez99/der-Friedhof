@@ -61,7 +61,7 @@ public class PlayerController : MonoBehaviour
     {
         if (GameManager.instance.isGameOver)
         {
-            rb.velocity = Vector3.zero;
+            rb.linearVelocity = Vector3.zero;
             playerAnimator.SetFloat("turnSpeed", 0.0f);
             playerAnimator.SetFloat("speed", 0.0f);
             return;
@@ -97,7 +97,7 @@ public class PlayerController : MonoBehaviour
 
 
         // transform.Translate(playermovement * speedmovement * Time.deltaTime, Space.World);
-        rb.velocity = (playermovement * speedmovement);
+        rb.linearVelocity = (playermovement * speedmovement);
 
         if (playermovement != Vector3.zero)
         {

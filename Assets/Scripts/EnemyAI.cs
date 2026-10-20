@@ -187,7 +187,7 @@ public class Enemy : MonoBehaviour
         if (isDead || isAttacking) return;
         if (isVisible && Time.time < appearTime)
         {
-            rb.velocity = new Vector3(0.0f, rb.velocity.y, 0.0f);
+            rb.linearVelocity = new Vector3(0.0f, rb.linearVelocity.y, 0.0f);
             animator.SetFloat("walkSpeed", 0.0f);
             return;
         }
@@ -211,7 +211,7 @@ public class Enemy : MonoBehaviour
 
         // The walk clip plays faster or slower to match how fast the enemy actually moved in the
         // last physics step, so its feet keep up with the ground and it stands still when blocked.
-        Vector3 groundVelocity = rb.velocity;
+        Vector3 groundVelocity = rb.linearVelocity;
         groundVelocity.y = 0.0f;
         animator.SetFloat("walkSpeed", groundVelocity.magnitude / WalkClipSpeed);
 
@@ -234,7 +234,7 @@ public class Enemy : MonoBehaviour
             transform.rotation = Quaternion.Slerp(
                 transform.rotation, targetRotation, RotationSpeed * Time.deltaTime);
 
-            rb.velocity = directionToPlayer * currentMovementSpeed;
+            rb.linearVelocity = directionToPlayer * currentMovementSpeed;
 
             if(!myaudio.isPlaying)
             {
@@ -317,7 +317,7 @@ public class Enemy : MonoBehaviour
     {
         cooldownEndTime = Time.time + duration;
         isRespawning = true;
-        rb.velocity = new Vector3(0.0f, rb.velocity.y, 0.0f);
+        rb.linearVelocity = new Vector3(0.0f, rb.linearVelocity.y, 0.0f);
         animator.SetFloat("walkSpeed", 0.0f);
         animator.SetBool("Persiguiendo", false);
         myaudio.Stop();
@@ -403,7 +403,7 @@ public class Enemy : MonoBehaviour
         ApplyVisibility(visible);
         if (teleport)
         {
-            rb.velocity = Vector3.zero;
+            rb.linearVelocity = Vector3.zero;
             rb.position = target.position;
             transform.position = target.position;
         }
@@ -633,7 +633,7 @@ public class Enemy : MonoBehaviour
         if (isDead || isAttacking) return;
         isAttacking = true;
 
-        rb.velocity = Vector3.zero;
+        rb.linearVelocity = Vector3.zero;
         myaudio.Stop();
         Vector3 toPlayer = target.position - transform.position;
         toPlayer.y = 0.0f;
@@ -655,7 +655,7 @@ public class Enemy : MonoBehaviour
 
         // It stops where it is and the body stays lying there. Kinematic, so it does not fall
         // through the ground once its collider is off.
-        rb.velocity = Vector3.zero;
+        rb.linearVelocity = Vector3.zero;
         rb.isKinematic = true;
         capsuleCollider.enabled = false;
         weaponCollider.enabled = false;
