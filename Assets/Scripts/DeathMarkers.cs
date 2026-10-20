@@ -47,7 +47,7 @@ public static class DeathMarkers
         if (!markers.Exists(marker => marker.sceneName == scene.name)) return;
 
         // The mesh and materials come from an enemy's scythe in the loaded scene.
-        Enemy enemy = Object.FindObjectOfType<Enemy>();
+        Enemy enemy = Object.FindAnyObjectByType<Enemy>();
         Transform template = enemy != null ? enemy.transform.Find("weapon") : null;
         MeshFilter templateMesh = template != null ? template.GetComponent<MeshFilter>() : null;
         MeshRenderer templateRenderer = template != null ? template.GetComponent<MeshRenderer>() : null;

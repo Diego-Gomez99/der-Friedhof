@@ -50,7 +50,7 @@ public class MenuButtonEffect : MonoBehaviour, IPointerEnterHandler, IPointerExi
     {
         // Hovering or navigating to a button selects it, so the selected one is the one just used.
         GameObject used = EventSystem.current.currentSelectedGameObject;
-        foreach (MenuButtonEffect effect in FindObjectsOfType<MenuButtonEffect>())
+        foreach (MenuButtonEffect effect in FindObjectsByType<MenuButtonEffect>())
         {
             if (effect.gameObject == used)
             {

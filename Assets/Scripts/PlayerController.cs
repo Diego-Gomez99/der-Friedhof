@@ -151,7 +151,7 @@ public class PlayerController : MonoBehaviour
     private void KillNearbyEnemies()
     {
         // Find all enemy objects in the scene.
-        Enemy[] enemies = FindObjectsOfType<Enemy>();
+        Enemy[] enemies = FindObjectsByType<Enemy>();
 
         // Iterate through the enemy objects and disable them if they are within the specified distance.
         foreach (Enemy enemy in enemies)
