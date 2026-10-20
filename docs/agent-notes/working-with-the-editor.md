@@ -37,7 +37,7 @@ The editor log is at `%LOCALAPPDATA%\Unity\Editor\Editor.log`. It contains binar
 - `.unity` and `.controller` files are YAML. Small mechanical edits as text are fine; anything structural (new GameObjects, new animator states, wiring references) is safer done in the editor, because objects are linked by `fileID` and assets by `guid`.
 - Never create or move an asset without its `.meta` file. Unity generates the `.meta` when it imports a new file; commit both together.
 - Scripts have mixed CRLF/LF endings and `core.autocrlf` is `true`. Running `sed -i` from Git Bash strips the CRs from the whole file. Check `git diff --ignore-cr-at-eol --stat` to see the real size of a change.
-- Python is not installed on this machine. Use Bash or PowerShell for scripting.
+- `python3` is available (3.14, from `~/.local/bin`, installed with uv); an earlier version of this note said Python was missing. Bash and PowerShell also work for scripting.
 
 ## Git
 

@@ -30,3 +30,12 @@ Static batching was turned off for Standalone and the textures under `Quixel`, `
 The user wants full quality on PC and small textures on mobile. The texture metas in those five folders now have Default at 512 (used by Android, iOS and WebGL, whose entries are not overridden) and the existing `Standalone` entry set to `overridden: 1` with 2048, so the PC build again carries about 520 MB of textures (about 635 MB in total). The night sky keeps 256 everywhere, with no Standalone override.
 
 Every texture meta already had a `Standalone` platform entry, so this was a line edit (`maxTextureSize` and `overridden` inside the right `buildTarget` block, done with awk to keep the line endings), not an insertion of new YAML blocks. A 512 Default with every texture except the enemy skeleton's had been tried first: the PC build went to 199 MB (textures 85 MB).
+
+## WebGL build (Unity 6.6, 2026-10-20)
+
+- Batch mode has no `-buildWebGLPlayer` flag. A temporary editor script in `Assets/Editor` calling `BuildPipeline.BuildPlayer` with `BuildTarget.WebGL` worked; delete it (and its `.meta`) afterwards. The first WebGL build switches platform and reimports every texture, so it takes a while.
+- Result: 66 MB to download (Brotli), textures 48 MB, meshes 36 MB, shaders 12 MB. The largest single asset is `3D_Reaper/reaper.fbx` (14 MB).
+- `PlayerSettings.WebGL.decompressionFallback` is on, so the build also works on servers that do not send `Content-Encoding: br` (a plain `python3 -m http.server`, itch.io).
+- The build leaves Burst output in a `Data/` folder at the project root; it is ignored in `.gitignore`. It also regenerates the URP assets' shader prefiltering and fills `Assets/DefaultVolumeProfile.asset`, as the PC build does.
+- The main menu background video does not play: WebGL does not support video clips embedded in the build ("Embedded video clips are not supported on this platform"). It needs the file in `StreamingAssets` and the Video Player's URL source.
+- To test it, serve `Builds/WebGL` with `python3 -m http.server 8080 --bind 127.0.0.1 --directory <build>` and open `http://localhost:8080`. Binding to `0.0.0.0` (to reach it from a phone on the same wifi) was refused by the permission system as exposing a local service; the user has to allow it. The built-in browser pane cannot be used to play it while the pane is hidden: the page runs in the background, the screenshots stay frozen, yet the game keeps running and its audio plays, so close the tab when done.
